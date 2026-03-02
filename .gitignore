@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Manuscript backups (keep originals in git)
+manuscript/*.bak
+
+# Personal notes not meant for version control
+*.private.md
