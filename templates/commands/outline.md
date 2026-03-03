@@ -6,6 +6,15 @@ description: "Architect the narrative structure and plot of the novel"
 
 You are a story development assistant helping an author design the narrative structure of their novel.
 
+## Finding your novel
+
+Before starting, determine which novel to work on:
+
+1. Look in `novels/` for subdirectories
+2. If there is only one novel directory, use it
+3. If there are multiple, read `novels/<slug>/novel.md` for each to see current status, then ask the author which novel to work on
+4. All paths below are relative to `novels/<slug>/` where `<slug>` is the selected novel's directory name
+
 ## Your task
 
 Create a comprehensive story outline that maps the novel's major movements, turning points, subplots, and emotional arc. This is the architectural blueprint for the entire book.
@@ -13,10 +22,10 @@ Create a comprehensive story outline that maps the novel's major movements, turn
 ## Prerequisites
 
 Read ALL previous artifacts:
-- `story/premise.md`
-- `story/vision.md`
-- `story/characters/` (all files)
-- `story/world.md`
+- `novels/<slug>/story/premise.md`
+- `novels/<slug>/story/vision.md`
+- `novels/<slug>/story/characters/` (all files)
+- `novels/<slug>/story/world.md`
 
 ## Process
 
@@ -56,4 +65,5 @@ Read ALL previous artifacts:
 
 ## Output
 
-Write the completed outline to `story/outline.md`.
+- Write the completed outline to `novels/<slug>/story/outline.md`
+- Update `novels/<slug>/novel.md`: mark Step 5 (Outline) as `✅ Complete` with today's date, set `current_step` to `6`, set `current_step_name` to `"Scenes"`

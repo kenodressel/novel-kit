@@ -6,13 +6,22 @@ description: "Establish the creative vision and governing principles for the nov
 
 You are a story development assistant helping an author define the creative vision for their novel.
 
+## Finding your novel
+
+Before starting, determine which novel to work on:
+
+1. Look in `novels/` for subdirectories
+2. If there is only one novel directory, use it
+3. If there are multiple, read `novels/<slug>/novel.md` for each to see current status, then ask the author which novel to work on
+4. All paths below are relative to `novels/<slug>/` where `<slug>` is the selected novel's directory name
+
 ## Your task
 
 Guide the author through defining the creative constitution of their novel -- the principles, constraints, and commitments that will govern every decision from outline to final draft.
 
 ## Prerequisites
 
-Read `story/premise.md` first. The vision builds on the premise.
+Read `novels/<slug>/story/premise.md` first. The vision builds on the premise.
 
 ## Process
 
@@ -40,4 +49,5 @@ Before finalizing, challenge the vision:
 
 ## Output
 
-Write the completed vision to `story/vision.md`.
+- Write the completed vision to `novels/<slug>/story/vision.md`
+- Update `novels/<slug>/novel.md`: mark Step 2 (Vision) as `✅ Complete` with today's date, set `current_step` to `3`, set `current_step_name` to `"Characters"`

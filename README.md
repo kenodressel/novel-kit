@@ -187,34 +187,65 @@ Incorporate external feedback from beta readers and prepare the manuscript for s
 
 ## Project Structure
 
-After initialization, your novel project looks like this:
+novel-kit lives in a single repo. Your novels live inside it under `novels/`, which is gitignored — your writing stays private, the toolkit stays shareable.
 
 ```
-my-novel/
-├── .novel-kit/
-│   └── templates/          # Your local copy of all templates
-├── story/
-│   ├── premise.md          # Step 1: The seed
-│   ├── vision.md           # Step 2: Creative constitution
-│   ├── characters/         # Step 3: Character sheets
-│   │   ├── cast.md         # Cast overview and dynamics
-│   │   ├── protagonist.md  # One file per major character
-│   │   ├── antagonist.md
-│   │   └── ...
-│   ├── world.md            # Step 4: World building
-│   ├── outline.md          # Step 5: Narrative structure
-│   ├── scenes.md           # Step 6: Scene-by-scene blueprint
-│   ├── continuity.md       # Running continuity log
-│   ├── revision-notes.md   # Step 8: Revision tracking
-│   └── beta-feedback.md    # Step 9: External feedback
-├── manuscript/
-│   ├── chapter-01.md       # Step 7: The actual prose
-│   ├── chapter-02.md
-│   └── ...
-├── research/               # Reference material, inspiration, notes
-├── CLAUDE.md               # AI agent context file
-└── README.md               # Project-specific notes
+novel-kit/
+├── novels/                         # gitignored — your actual novels live here
+│   ├── my-thriller/
+│   │   ├── novel.md                # Status: current step, word count, pipeline progress
+│   │   ├── story/
+│   │   │   ├── premise.md          # Step 1: The seed
+│   │   │   ├── vision.md           # Step 2: Creative constitution
+│   │   │   ├── characters/         # Step 3: Character sheets
+│   │   │   │   ├── cast.md         # Cast overview and dynamics
+│   │   │   │   ├── protagonist.md  # One file per major character
+│   │   │   │   └── ...
+│   │   │   ├── world.md            # Step 4: World building
+│   │   │   ├── outline.md          # Step 5: Narrative structure
+│   │   │   ├── scenes.md           # Step 6: Scene-by-scene blueprint
+│   │   │   ├── continuity.md       # Running continuity log
+│   │   │   ├── revision-notes.md   # Step 8: Revision tracking
+│   │   │   └── beta-feedback.md    # Step 9: External feedback
+│   │   ├── manuscript/
+│   │   │   ├── chapter-01.md       # Step 7: The actual prose
+│   │   │   ├── chapter-02.md
+│   │   │   └── ...
+│   │   └── research/               # Reference material, inspiration, notes
+│   └── my-romance/                 # Work on multiple novels simultaneously
+│       ├── novel.md
+│       └── ...
+├── templates/
+│   ├── commands/                   # AI command files
+│   ├── novel-status-template.md    # Template for novel.md
+│   └── *.md                        # Story artifact templates
+└── docs/
 ```
+
+### The `novel.md` status file
+
+Each novel has a `novel.md` at its root that tracks pipeline progress:
+
+```markdown
+---
+title: "My Thriller"
+slug: "my-thriller"
+current_step: 3
+current_step_name: "Characters"
+target_word_count: 90000
+current_word_count: 0
+---
+
+| Step | Name       | Status         | Completed  |
+|------|------------|----------------|------------|
+| 1    | Premise    | ✅ Complete    | 2026-03-01 |
+| 2    | Vision     | ✅ Complete    | 2026-03-02 |
+| 3    | Characters | ⏳ In Progress | —          |
+| 4    | World      | ⬜ Pending     | —          |
+...
+```
+
+Every command reads and updates this file automatically.
 
 ## Templates
 
@@ -236,6 +267,7 @@ Each step has a corresponding AI command that guides an LLM through the process:
 
 | Command | Step | What it does |
 |---|---|---|
+| `/novel.new` | — | Initializes a new novel directory with status tracking |
 | `/novel.premise` | 1 | Develops raw idea into structured premise |
 | `/novel.vision` | 2 | Establishes creative principles and constraints |
 | `/novel.characters` | 3 | Builds deep character profiles with arcs |
@@ -252,16 +284,14 @@ Each step has a corresponding AI command that guides an LLM through the process:
 ```bash
 # 1. Clone novel-kit
 git clone <novel-kit-repo-url>
+cd novel-kit
 
-# 2. Create a new novel project
-cp -r novel-kit/templates my-novel/.novel-kit/templates
-cd my-novel && git init
+# 2. Open your AI assistant (Claude Code) in this directory
+# Then initialize a new novel:
+/novel.new
 
-# 3. Start with your premise
-# Open your AI assistant and run:
+# 3. Follow the pipeline — each command picks up where the last left off
 /novel.premise
-
-# 4. Follow the pipeline
 /novel.vision
 /novel.characters
 /novel.world
@@ -270,7 +300,7 @@ cd my-novel && git init
 /novel.draft
 ```
 
-Each command reads the artifacts from previous steps, so the AI always has full context of your creative decisions.
+Each command reads the artifacts from previous steps, so the AI always has full context of your creative decisions. When working on multiple novels, every command checks `novels/<slug>/novel.md` to show you the current pipeline status and asks which novel to work on if you have more than one.
 
 ## Mapping to spec-kit
 

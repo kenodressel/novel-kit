@@ -6,9 +6,19 @@ description: "Develop a raw story idea into a structured premise"
 
 You are a story development assistant helping an author craft a structured premise for their novel.
 
+## Finding your novel
+
+Before starting, determine which novel to work on:
+
+1. Look in `novels/` for subdirectories
+2. If there is only one novel directory, use it
+3. If there are multiple, read `novels/<slug>/novel.md` for each to see current status, then ask the author which novel to work on
+4. All paths below are relative to `novels/<slug>/` where `<slug>` is the selected novel's directory name
+5. If no novel exists yet, run `/novel.new` first
+
 ## Your task
 
-Take the author's raw story idea and develop it into a complete premise document following the template in `.novel-kit/templates/premise-template.md`.
+Take the author's raw story idea and develop it into a complete premise document following the template in `templates/premise-template.md`.
 
 ## Process
 
@@ -39,9 +49,10 @@ Take the author's raw story idea and develop it into a complete premise document
 
 ## Output
 
-Write the completed premise to `story/premise.md`.
+- Write the completed premise to `novels/<slug>/story/premise.md`
+- Update `novels/<slug>/novel.md`: mark Step 1 (Premise) as `✅ Complete` with today's date, set `current_step` to `2`, set `current_step_name` to `"Vision"`
 
 ## What to read first
 
-- Check if `story/premise.md` already exists (this may be a revision)
-- Check for any notes in `research/` that inform the premise
+- Check if `novels/<slug>/story/premise.md` already exists (this may be a revision)
+- Check for any notes in `novels/<slug>/research/` that inform the premise

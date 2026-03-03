@@ -6,24 +6,33 @@ description: "Write the first draft, scene by scene, following the scene specifi
 
 You are a creative writing assistant helping an author draft their novel.
 
+## Finding your novel
+
+Before starting, determine which novel to work on:
+
+1. Look in `novels/` for subdirectories
+2. If there is only one novel directory, use it
+3. If there are multiple, read `novels/<slug>/novel.md` for each to see current status, then ask the author which novel to work on
+4. All paths below are relative to `novels/<slug>/` where `<slug>` is the selected novel's directory name
+
 ## Your task
 
-Write prose for the manuscript, one scene at a time, following the scene specifications in `story/scenes.md`. The prose must honor the creative vision, character voices, and structural design established in the story artifacts.
+Write prose for the manuscript, one scene at a time, following the scene specifications in `novels/<slug>/story/scenes.md`. The prose must honor the creative vision, character voices, and structural design established in the story artifacts.
 
 ## Prerequisites
 
 Read ALL story artifacts before drafting:
-- `story/vision.md` -- for voice, tone, style, and non-negotiables
-- `story/characters/` -- for character voices and psychology
-- `story/world.md` -- for sensory details and setting
-- `story/outline.md` -- for structural context
-- `story/scenes.md` -- for the specific scene being drafted
-- `story/continuity.md` -- for established details (if it exists)
-- Previous chapters in `manuscript/` -- for continuity and flow
+- `novels/<slug>/story/vision.md` -- for voice, tone, style, and non-negotiables
+- `novels/<slug>/story/characters/` -- for character voices and psychology
+- `novels/<slug>/story/world.md` -- for sensory details and setting
+- `novels/<slug>/story/outline.md` -- for structural context
+- `novels/<slug>/story/scenes.md` -- for the specific scene being drafted
+- `novels/<slug>/story/continuity.md` -- for established details (if it exists)
+- Previous chapters in `novels/<slug>/manuscript/` -- for continuity and flow
 
 ## Process
 
-1. **Identify the next scene**: Check the scene tracking table in `story/scenes.md` for the next scene with status "Planned."
+1. **Identify the next scene**: Check the scene tracking table in `novels/<slug>/story/scenes.md` for the next scene with status "Planned."
 
 2. **Review the scene spec**: Read the full scene specification. Understand the goal, conflict, outcome, emotional shift, and key beats.
 
@@ -36,11 +45,13 @@ Read ALL story artifacts before drafting:
    - Stay within the estimated word count (within 20%)
    - Show, don't tell (unless the vision explicitly calls for a telling style)
 
-4. **Update continuity**: After drafting, note any new details established in prose (character descriptions used, specific names/places mentioned, timeline details) in `story/continuity.md`.
+4. **Update continuity**: After drafting, note any new details established in prose (character descriptions used, specific names/places mentioned, timeline details) in `novels/<slug>/story/continuity.md`.
 
 5. **Flag deviations**: If the scene naturally wants to go somewhere different from the spec, draft it as written AND note the deviation. The author decides whether to update the spec or revise the draft.
 
-6. **Update status**: Mark the scene as "Drafted" in the tracking table.
+6. **Update status**: Mark the scene as "Drafted" in the tracking table in `novels/<slug>/story/scenes.md`.
+
+7. **Update word count**: After each chapter is complete, update `current_word_count` in `novels/<slug>/novel.md` and recalculate progress percentage.
 
 ## Drafting modes
 
@@ -52,6 +63,7 @@ The author may request different levels of AI involvement:
 
 ## Output
 
-- Write scene prose to the appropriate chapter file in `manuscript/`
-- Update `story/continuity.md` with new details
-- Update scene status in `story/scenes.md`
+- Write scene prose to the appropriate chapter file in `novels/<slug>/manuscript/`
+- Update `novels/<slug>/story/continuity.md` with new details
+- Update scene status in `novels/<slug>/story/scenes.md`
+- When all scenes are drafted: update `novels/<slug>/novel.md` to mark Step 7 (Draft) as `✅ Complete` with today's date, set `current_step` to `8`, set `current_step_name` to `"Revise"`

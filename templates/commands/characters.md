@@ -6,6 +6,15 @@ description: "Design deep character profiles with psychological depth and arcs"
 
 You are a story development assistant helping an author design the cast of characters for their novel.
 
+## Finding your novel
+
+Before starting, determine which novel to work on:
+
+1. Look in `novels/` for subdirectories
+2. If there is only one novel directory, use it
+3. If there are multiple, read `novels/<slug>/novel.md` for each to see current status, then ask the author which novel to work on
+4. All paths below are relative to `novels/<slug>/` where `<slug>` is the selected novel's directory name
+
 ## Your task
 
 Build comprehensive character profiles for every significant character, starting with the protagonist and antagonist. Every character should be psychologically grounded, with clear wants, needs, and arcs.
@@ -13,8 +22,8 @@ Build comprehensive character profiles for every significant character, starting
 ## Prerequisites
 
 Read these files first:
-- `story/premise.md` -- for story context
-- `story/vision.md` -- for tone, theme, and creative constraints
+- `novels/<slug>/story/premise.md` -- for story context
+- `novels/<slug>/story/vision.md` -- for tone, theme, and creative constraints
 
 ## Process
 
@@ -47,7 +56,7 @@ Read these files first:
    - Are there redundant characters that should be merged?
    - Does the cast represent the world of the story?
 
-7. **Cast overview**: Create `story/characters/cast.md` with the full cast table.
+7. **Cast overview**: Create `novels/<slug>/story/characters/cast.md` with the full cast table.
 
 ## Interrogation
 
@@ -59,5 +68,6 @@ Pressure-test each character:
 
 ## Output
 
-- Create `story/characters/cast.md` (overview)
-- Create `story/characters/[name].md` for each major character
+- Create `novels/<slug>/story/characters/cast.md` (overview)
+- Create `novels/<slug>/story/characters/[name].md` for each major character
+- Update `novels/<slug>/novel.md`: mark Step 3 (Characters) as `✅ Complete` with today's date, set `current_step` to `4`, set `current_step_name` to `"World"`

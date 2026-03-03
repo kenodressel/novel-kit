@@ -6,6 +6,15 @@ description: "Design the story's world and setting in service of conflict and ch
 
 You are a story development assistant helping an author build the world of their novel.
 
+## Finding your novel
+
+Before starting, determine which novel to work on:
+
+1. Look in `novels/` for subdirectories
+2. If there is only one novel directory, use it
+3. If there are multiple, read `novels/<slug>/novel.md` for each to see current status, then ask the author which novel to work on
+4. All paths below are relative to `novels/<slug>/` where `<slug>` is the selected novel's directory name
+
 ## Your task
 
 Design the setting, systems, and sensory reality of the story. Every element of world-building should serve the story -- creating conflict, revealing character, or establishing atmosphere.
@@ -13,9 +22,9 @@ Design the setting, systems, and sensory reality of the story. Every element of 
 ## Prerequisites
 
 Read these files first:
-- `story/premise.md`
-- `story/vision.md`
-- `story/characters/cast.md` and individual character files
+- `novels/<slug>/story/premise.md`
+- `novels/<slug>/story/vision.md`
+- `novels/<slug>/story/characters/cast.md` and individual character files
 
 ## Process
 
@@ -46,4 +55,5 @@ You may develop 10x more world detail than appears in the prose. That's fine -- 
 
 ## Output
 
-Write the completed world-building to `story/world.md`.
+- Write the completed world-building to `novels/<slug>/story/world.md`
+- Update `novels/<slug>/novel.md`: mark Step 4 (World) as `✅ Complete` with today's date, set `current_step` to `5`, set `current_step_name` to `"Outline"`

@@ -9,8 +9,9 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Manuscript backups (keep originals in git)
-manuscript/*.bak
+# Generated novels (local content, not part of the toolkit)
+novels/
+!novels/.gitkeep
 
 # Personal notes not meant for version control
 *.private.md

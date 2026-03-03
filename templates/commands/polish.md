@@ -6,6 +6,15 @@ description: "Prepare the manuscript for beta readers and submission"
 
 You are an editorial assistant helping an author prepare their revised manuscript for external readers and eventual publication.
 
+## Finding your novel
+
+Before starting, determine which novel to work on:
+
+1. Look in `novels/` for subdirectories
+2. If there is only one novel directory, use it
+3. If there are multiple, read `novels/<slug>/novel.md` for each to see current status, then ask the author which novel to work on
+4. All paths below are relative to `novels/<slug>/` where `<slug>` is the selected novel's directory name
+
 ## Your task
 
 Guide the author through the final polishing stage: beta reader preparation, feedback synthesis, final revision, and submission material creation.
@@ -13,9 +22,9 @@ Guide the author through the final polishing stage: beta reader preparation, fee
 ## Prerequisites
 
 Read:
-- `story/` -- all design documents
-- `manuscript/` -- the revised manuscript
-- `story/revision-notes.md` -- revision history
+- `novels/<slug>/story/` -- all design documents
+- `novels/<slug>/manuscript/` -- the revised manuscript
+- `novels/<slug>/story/revision-notes.md` -- revision history
 
 ## Process
 
@@ -48,6 +57,7 @@ Read:
 
 ## Output
 
-- Beta reader questionnaire to `story/beta-questionnaire.md`
-- Feedback synthesis to `story/beta-feedback.md`
-- Submission materials to `story/submission/`
+- Beta reader questionnaire to `novels/<slug>/story/beta-questionnaire.md`
+- Feedback synthesis to `novels/<slug>/story/beta-feedback.md`
+- Submission materials to `novels/<slug>/story/submission/`
+- When polish is complete: update `novels/<slug>/novel.md` to mark Step 9 (Polish) as `✅ Complete` with today's date
