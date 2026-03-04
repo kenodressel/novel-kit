@@ -24,15 +24,19 @@ novel-kit follows **Story-Driven Development (StDD)**: a creative methodology wh
 4. **Iterative Deepening** -- Start with one sentence, expand to one paragraph, then one page, then full scenes (inspired by the [Snowflake Method](https://www.advancedfictionwriting.com/articles/snowflake-method/))
 5. **Interrogate Relentlessly** -- Every assumption gets pressure-tested before you commit it to prose
 6. **Drafting Is Implementation** -- The first draft is not exploration; it is the execution of a validated design
+7. **Expansion Is Distinct From Drafting** -- First drafts come in compressed; expanding them to full length with sensory detail, dialogue, and interiority is its own creative step
+8. **Revision Is Iterative** -- Each pass targets one dimension; run multiple cycles when significant rewrites have occurred
 
 ## The Workflow
 
-novel-kit prescribes a **9-step pipeline** from spark to polished manuscript. Each step produces a concrete artifact that feeds the next.
+novel-kit prescribes a **10-step pipeline** from spark to polished manuscript. Each step produces a concrete artifact that feeds the next.
 
 ```
-Premise ──> Vision ──> Characters ──> World ──> Outline ──> Scenes ──> Draft ──> Revise ──> Polish
-  (1)        (2)         (3)          (4)        (5)         (6)        (7)       (8)        (9)
+Premise ──> Vision ──> Characters ──> World ──> Outline ──> Scenes ──> Draft ──> Expand ──> Revise ──> Polish
+  (1)        (2)         (3)          (4)        (5)         (6)        (7)       (8)        (9)       (10)
 ```
+
+Research (`/novel.research`) is an optional cross-cutting activity that can happen alongside any step.
 
 ### Step 1: Premise (`/novel.premise`)
 
@@ -121,9 +125,9 @@ Design the narrative architecture. Map the story's major movements, turning poin
 
 ### Step 6: Scene Breakdown (`/novel.scenes`)
 
-Convert the outline into a scene-by-scene blueprint. Every scene has a purpose, a POV character, a conflict, and a turning point. This is the granular plan you'll draft from.
+Convert the outline into a scene-by-scene blueprint. Every scene has a purpose, a POV character, a conflict, and a turning point. This is the granular plan you'll draft from. This step also initializes the **continuity bible** — a living document that tracks facts established in prose.
 
-**Produces**: `story/scenes.md`
+**Produces**: `story/scenes.md` + `story/continuity.md` (initialized)
 
 **Key sections per scene**:
 - Scene ID and chapter assignment
@@ -136,6 +140,8 @@ Convert the outline into a scene-by-scene blueprint. Every scene has a purpose, 
 - Setup/payoff connections to other scenes
 - Estimated word count
 
+**Calibration**: For a 60K-word novel, plan 40-50 scenes averaging 1,200-1,500 words each. For 90K, plan 55-75 scenes. Scene-count times average-word-count should approximate the target manuscript length.
+
 ---
 
 ### Step 7: First Draft (`/novel.draft`)
@@ -147,15 +153,32 @@ Write the manuscript, scene by scene, following the scene breakdown. AI assists 
 **Approach**:
 - Draft sequentially or by subplot -- your choice
 - Each scene references its specification from Step 6
-- Maintain a running `story/continuity.md` log for details established in prose
+- Update `story/continuity.md` as new details are established in prose
 - Target word count per scene, guided by pacing plan
 - Flag deviations from the outline for later reconciliation
 
 ---
 
-### Step 8: Revision (`/novel.revise`)
+### Step 8: Expand (`/novel.expand`)
 
-Systematic multi-pass revision. Each pass targets a different layer, from structural coherence down to line-level prose quality.
+First drafts -- especially AI-assisted ones -- tend to come in compressed. Chapters read as well-executed summaries rather than fully realized scenes. This step takes the structural skeleton and adds the muscle: sensory texture, moment-to-moment scene work, extended dialogue, deeper interiority, and transitional passages.
+
+**Produces**: Expanded `manuscript/` + updated `story/continuity.md`
+
+**What to expand**:
+- Sensory detail (sounds, smells, textures, light, temperature)
+- Moment-to-moment scene work (slow down key interactions)
+- Dialogue (dramatize conversations that were summarized)
+- Interiority (deepen the POV character's internal experience)
+- Transitional moments (the space between scenes where characters process)
+
+**What NOT to add**: New plot events, new characters, structural changes, exposition dumps.
+
+---
+
+### Step 9: Revision (`/novel.revise`)
+
+Systematic multi-pass revision. Each pass targets a different layer, from structural coherence down to line-level prose quality. Revision is **iterative** -- run at least twice when significant rewrites (like expansion) have occurred between passes.
 
 **Produces**: Updated `manuscript/` + `story/revision-notes.md`
 
@@ -164,12 +187,12 @@ Systematic multi-pass revision. Each pass targets a different layer, from struct
 2. **Character pass** -- Is every character's voice distinct? Are arcs earned? Do motivations track?
 3. **Pacing pass** -- Does tension build correctly? Are there dead spots? Is the page-turn factor there?
 4. **Continuity pass** -- Timeline consistency, factual accuracy, world-rule compliance
-5. **Line pass** -- Prose quality, dialogue sharpening, sensory detail, eliminating crutch words
+5. **Line pass** -- Prose quality, dialogue sharpening, sensory detail, eliminating crutch words (includes AI-specific prose pattern checklist)
 6. **Read-aloud pass** -- Rhythm, flow, and ear
 
 ---
 
-### Step 9: Polish (`/novel.polish`)
+### Step 10: Polish (`/novel.polish`)
 
 Incorporate external feedback from beta readers and prepare the manuscript for submission or publication.
 
@@ -204,9 +227,9 @@ novel-kit/
 │   │   │   ├── world.md            # Step 4: World building
 │   │   │   ├── outline.md          # Step 5: Narrative structure
 │   │   │   ├── scenes.md           # Step 6: Scene-by-scene blueprint
-│   │   │   ├── continuity.md       # Running continuity log
-│   │   │   ├── revision-notes.md   # Step 8: Revision tracking
-│   │   │   └── beta-feedback.md    # Step 9: External feedback
+│   │   │   ├── continuity.md       # Living continuity bible (initialized Step 6)
+│   │   │   ├── revision-notes.md   # Step 9: Revision tracking
+│   │   │   └── beta-feedback.md    # Step 10: External feedback
 │   │   ├── manuscript/
 │   │   │   ├── chapter-01.md       # Step 7: The actual prose
 │   │   │   ├── chapter-02.md
@@ -259,7 +282,8 @@ novel-kit ships with structured templates for every artifact. Templates encode b
 | `world-template.md` | Sanderson's iceberg principle, sensory-first world design |
 | `outline-template.md` | Three-act structure, Save the Cat beat sheet, Story Grid |
 | `scenes-template.md` | Scene-sequel pattern, yes-but/no-and outcomes |
-| `revision-template.md` | Multi-pass developmental editing, Susan Bell's revision layers |
+| `continuity-template.md` | Living document tracking facts established in prose |
+| `revision-template.md` | Multi-pass developmental editing, Susan Bell's revision layers, AI prose patterns |
 
 ## AI Commands
 
@@ -273,10 +297,12 @@ Each step has a corresponding AI command that guides an LLM through the process:
 | `/novel.characters` | 3 | Builds deep character profiles with arcs |
 | `/novel.world` | 4 | Designs setting in service of story |
 | `/novel.outline` | 5 | Architects narrative structure |
-| `/novel.scenes` | 6 | Breaks outline into scene-level specifications |
+| `/novel.scenes` | 6 | Breaks outline into scene-level specs + initializes continuity bible |
 | `/novel.draft` | 7 | Generates prose following scene specs |
-| `/novel.revise` | 8 | Runs multi-pass revision analysis |
-| `/novel.polish` | 9 | Prepares manuscript for readers and submission |
+| `/novel.expand` | 8 | Expands compressed draft to target word count |
+| `/novel.revise` | 9 | Runs multi-pass revision analysis (iterative) |
+| `/novel.polish` | 10 | Prepares manuscript for readers and submission |
+| `/novel.research` | Any | Gathers reference material (optional, any stage) |
 | `/novel.interrogate` | Any | Pressure-tests any artifact for gaps and contradictions |
 
 ## Quick Start
@@ -298,6 +324,9 @@ cd novel-kit
 /novel.outline
 /novel.scenes
 /novel.draft
+/novel.expand
+/novel.revise
+/novel.polish
 ```
 
 Each command reads the artifacts from previous steps, so the AI always has full context of your creative decisions. When working on multiple novels, every command checks `novels/<slug>/novel.md` to show you the current pipeline status and asks which novel to work on if you have more than one.
@@ -328,6 +357,17 @@ Combined with AI assistance, this approach means:
 - **Consistent quality** -- every scene has a clear purpose and specification
 - **Faster iteration** -- change the outline, regenerate affected scenes
 - **Traceable decisions** -- you can always answer "why does this scene exist?"
+
+## Tested in Practice
+
+The 10-step pipeline was developed and refined by writing a complete novel through it: a 72,000-word near-future sci-fi novel about a nurse, an AI hospital system, and what happens when care becomes optimization. The process -- from blank directory to EPUB -- revealed the gaps that shaped this toolkit:
+
+- **First drafts run short**: AI-assisted chapters came in at ~40% of target word count, leading to the dedicated Expand step
+- **Parallel expansion drifts**: When multiple agents expand chapters independently, voice consistency and continuity suffer -- leading to the AI-specific revision checklist and iterative revision guidance
+- **Continuity breaks compound**: Tracking details after drafting is too late -- leading to the continuity bible initialized during scene design
+- **Research is always needed**: Real-world grounding happened ad hoc at every stage -- leading to the cross-cutting research command
+
+Every template and command in this toolkit exists because its absence caused a specific problem during actual novel writing.
 
 ## Contributing
 
