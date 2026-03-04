@@ -88,6 +88,20 @@ Prose-level improvements, paragraph by paragraph.
 - [ ] Cut sensory detail where it bogs down pacing
 - [ ] Check for unintentional repetition (words, images, sentence patterns)
 
+### AI-Generated Prose Patterns
+
+If any portion of the manuscript was AI-assisted, check specifically for these common patterns:
+
+- [ ] **Crutch words**: "particular," "something about," "a sense of," "the weight of" — search the manuscript and reduce by 60-70%
+- [ ] **Filter phrases**: "she felt," "she noticed," "she realized," "she couldn't help but" — replace with direct sensation or cut
+- [ ] **"The way" construction**: "the way [she/someone] [verb]" — varies some to direct description
+- [ ] **"The kind of" construction**: "the kind of [noun] that [clause]" — often cuttable
+- [ ] **Paragraph opener monotony**: Consecutive paragraphs starting with "She" or the POV character's name — lead with objects, sensory details, or actions instead
+- [ ] **Over-explained metaphors**: A strong image immediately followed by a sentence explaining what it means — trust the first image, cut the explanation
+- [ ] **Em-dash overload**: Long parenthetical asides in em dashes that should be their own sentences — break up if more than one per paragraph
+- [ ] **Thought catalogues**: "She thought about X. She thought about Y. She thought about Z." at chapter endings — replace with fragmented images or sensory details
+- [ ] **"Hummed/hum" repetition**: Ambient sounds described with the same verb across chapters — vary or reduce to one use per Part
+
 **Notes from this pass**:
 
 ---

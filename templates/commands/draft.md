@@ -72,4 +72,13 @@ The author may request different levels of AI involvement:
 - Write scene prose to the appropriate chapter file in `novels/<slug>/manuscript/`
 - Update `novels/<slug>/story/continuity.md` with new details
 - Update scene status in `novels/<slug>/story/scenes.md`
-- When all scenes are drafted: update `novels/<slug>/novel.md` to mark Step 7 (Draft) as `✅ Complete` with today's date, set `current_step` to `8`, set `current_step_name` to `"Revise"`
+- When all scenes are drafted: update `novels/<slug>/novel.md` to mark Step 7 (Draft) as `✅ Complete` with today's date, set `current_step` to `8`, set `current_step_name` to `"Expand"`
+
+## Full auto mode
+
+When the author requests full auto, use these defaults:
+- Drafting mode: Full draft
+- Draft all scenes in sequence without stopping for feedback
+- Stay within scene spec word counts (within 20%)
+- Update continuity.md after each chapter group (every 3-5 chapters)
+- When complete, proceed directly to `/novel.expand`

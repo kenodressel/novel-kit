@@ -54,6 +54,8 @@ Read ALL previous artifacts:
 
 6. **Design pacing**: Map the tension curve across the full novel. Identify peaks, valleys, and breathers.
 
+7. **Reconciliation check**: Verify that the outline's timeline, character arcs, and structural framework are consistent with `premise.md` and `vision.md`. The outline often evolves the story — a different timeline, a different ending, a shifted scope. If the outline has diverged from the upstream documents, update them to match. The outline is the source of truth for structure; the premise and vision should reflect the story you're actually telling.
+
 ## Interrogation
 
 - Does the climax resolve the CENTRAL conflict (not a secondary one)?

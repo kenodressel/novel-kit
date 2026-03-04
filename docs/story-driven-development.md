@@ -36,8 +36,13 @@ One sentence   -->  One paragraph  -->  One page      -->  Full character sheets
 Full scenes    <--  Chapter outline <-- Act structure  <-- World building
 (60-80 specs)      (Chapter arcs)     (Turning points)    (Systems, locations)
     |
-First draft    -->  Revision passes -->  Beta readers  -->  Polished manuscript
+First draft    -->  Expansion       -->  Revision passes -->  Polish & submit
+(compressed)       (to target length)    (iterative)          (beta, query, blurb)
 ```
+
+### Research Is Ongoing
+
+Research is not a pipeline step — it's a cross-cutting activity that happens alongside any step. During Premise, you research the world your story inhabits. During World, you research how things actually work. During Draft, you research specific details for scenes. Save findings to `research/` and let them inform the story without overwhelming it. A single vivid, accurate detail is worth more than a paragraph of general knowledge.
 
 ### Characters Are Architecture
 
@@ -55,6 +60,7 @@ Each document in the story design exists to prevent a specific category of failu
 | World | Setting inconsistencies, world-breaking plot conveniences |
 | Outline | Structural collapse, saggy middles, unsatisfying climaxes |
 | Scenes | Purposeless scenes, pacing problems, missed setups/payoffs |
+| Continuity | Contradictions, timeline errors, description drift across chapters |
 | Revision checklist | Blind spots, missed layers, superficial editing |
 
 ### AI as Collaborator, Not Author
@@ -75,5 +81,19 @@ The author remains the creative authority. The AI is a highly capable assistant 
 4. **Iterative deepening**: One sentence becomes one paragraph becomes one page becomes sixty scenes.
 5. **Interrogate relentlessly**: Every assumption gets challenged before it becomes prose.
 6. **Drafting is implementation**: The first draft executes a validated design. Discovery happens in the design phase.
-7. **Revision is layered**: Each pass targets one dimension. Never try to fix everything at once.
-8. **Structure liberates creativity**: Knowing where you're going frees you to focus on how you get there.
+7. **Expansion is a distinct step**: First drafts — especially AI-assisted ones — come in compressed. Expansion adds the muscle to the skeleton: sensory detail, dialogue, interiority, transitional passages. It's not a rewrite; it's filling in what the draft sketched.
+8. **Revision is layered and iterative**: Each pass targets one dimension. Never try to fix everything at once. Run at least two full revision cycles when significant rewrites have occurred between them.
+9. **Structure liberates creativity**: Knowing where you're going frees you to focus on how you get there.
+
+### Auto Mode
+
+When the author requests "full auto" or similar, proceed through remaining pipeline steps using opinionated defaults:
+
+- **Structure**: Three-act (or the framework already chosen in the outline)
+- **POV**: Whatever was established in the vision document
+- **Drafting**: Full draft mode, all chapters in sequence
+- **Expansion**: Expand all chapters below 80% of scene spec target
+- **Revision**: Two full passes (structural + line-level, then continuity + cleanup)
+- **Polish**: Generate beta questionnaire, query letter, blurb, synopsis
+
+Even in auto mode, always validate word counts and continuity. Auto mode is about removing decision fatigue, not removing quality checks.

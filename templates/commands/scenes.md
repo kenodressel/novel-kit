@@ -48,6 +48,7 @@ Read ALL previous artifacts:
    - Each chapter should have its own mini-arc
    - End chapters on hooks (questions, reveals, cliffhangers)
    - Vary chapter length for pacing
+   - **Calibration**: For a 60K-word novel, plan 40-50 scenes averaging 1,200-1,500 words each. For 90K, plan 55-75 scenes. Fewer, longer scenes are harder to draft at consistent quality. More, shorter scenes risk feeling fragmented. The scene-count times average-word-count should approximate the target manuscript length.
 
 4. **Build tracking table**: Create the scene tracking table for project management.
 
@@ -85,7 +86,15 @@ For each scene, explicitly track:
 
 Flag any scene where a sympathetic character's behavior requires them to know something and choose not to share it. This pattern often reads as toxic or paternalistic — especially in genres where control and agency are thematic.
 
+6. **Initialize continuity bible**: Create `novels/<slug>/story/continuity.md` from the continuity template (`templates/continuity-template.md`). Pre-populate it with:
+   - Timeline skeleton from the outline (act/chapter dates and events)
+   - Character physical details from character sheets (only details that are already decided)
+   - Location details from world.md (floor numbers, room layouts, geography)
+   - Recurring motifs from vision.md
+   - This becomes a living document updated during Draft, Expand, and Revise steps
+
 ## Output
 
 - Write the completed scene breakdown to `novels/<slug>/story/scenes.md`
+- Create `novels/<slug>/story/continuity.md` initialized from design docs
 - Update `novels/<slug>/novel.md`: mark Step 6 (Scenes) as `✅ Complete` with today's date, set `current_step` to `7`, set `current_step_name` to `"Draft"`

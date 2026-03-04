@@ -73,4 +73,4 @@ Save this to `novels/<slug>/story/submission/author-info.md`. This information f
 - Beta reader questionnaire to `novels/<slug>/story/beta-questionnaire.md`
 - Feedback synthesis to `novels/<slug>/story/beta-feedback.md`
 - Submission materials to `novels/<slug>/story/submission/`
-- When polish is complete: update `novels/<slug>/novel.md` to mark Step 9 (Polish) as `✅ Complete` with today's date
+- When polish is complete: update `novels/<slug>/novel.md` to mark Step 10 (Polish) as `✅ Complete` with today's date

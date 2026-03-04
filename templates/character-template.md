@@ -54,6 +54,8 @@
 
 ## Avoidance Pattern
 
+> **Required for all POV characters and antagonists.** The avoidance pattern directly informs scene conflict — scenes where a character avoids the obvious move must trace back to these answers. If this section is empty, the character's scenes will lack authentic internal resistance.
+
 - **The obvious move they won't take**: <!-- What is the most direct action this character could take to resolve their core conflict? E.g. "just ask him if he wrote" or "admit she still loves him." Be specific — vague answers here produce vague avoidance on the page. -->
 - **Why they won't take it**: <!-- The specific emotional cost. NOT strategy ("waiting for the right moment", "gathering more information") — FEAR. What is the worst possible outcome of taking that action, from this character's perspective, given their wound? Both possible outcomes should be frightening: if the answer is X, then Y happens; if the answer is Z, then W happens. If only one outcome is frightening, the avoidance isn't strong enough. -->
 - **Which scene establishes this fear**: <!-- The wound driving the avoidance must be shown to the reader BEFORE the scene where the avoidance occurs. Name the specific scene where this fear is visible. If you can't name it, the avoidance has no foundation yet. -->

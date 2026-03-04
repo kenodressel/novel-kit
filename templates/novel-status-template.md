@@ -23,8 +23,9 @@ current_word_count: 0
 | 5    | Outline    | ⬜ Pending      | —          |
 | 6    | Scenes     | ⬜ Pending      | —          |
 | 7    | Draft      | ⬜ Pending      | —          |
-| 8    | Revise     | ⬜ Pending      | —          |
-| 9    | Polish     | ⬜ Pending      | —          |
+| 8    | Expand     | ⬜ Pending      | —          |
+| 9    | Revise     | ⬜ Pending      | —          |
+| 10   | Polish     | ⬜ Pending      | —          |
 
 ## Word Count
 

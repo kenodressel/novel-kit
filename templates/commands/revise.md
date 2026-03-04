@@ -23,6 +23,7 @@ Conduct a systematic, multi-pass revision of the manuscript. Each pass targets a
 
 Read ALL story artifacts and the full manuscript:
 - `novels/<slug>/story/` -- all design documents
+- `novels/<slug>/story/continuity.md` -- the continuity bible (critical for Pass 4)
 - `novels/<slug>/manuscript/` -- all chapter files
 - `novels/<slug>/story/revision-notes.md` -- if it exists (previous revision notes)
 
@@ -68,15 +69,29 @@ Prose-level analysis, chapter by chapter:
 - Suggest stronger verbs and sharper dialogue
 - Note repetitive sentence patterns
 
+**AI-generated prose patterns** (check specifically for these):
+- Crutch words: "particular," "something about," "a sense of," "the weight of"
+- Filter phrases: "she felt," "she noticed," "she realized," "she couldn't help but"
+- Constructions: "the way [she/someone] [verb]," "the kind of [noun] that [clause]"
+- Consecutive paragraphs opening with "She" or the POV character's name
+- Over-explained metaphors (a strong image followed by a sentence explaining it)
+- Heavy em-dash parentheticals that should be their own sentences
+- Thought catalogues at chapter endings ("She thought about X. She thought about Y.")
+
 ### Pass 6: Read-Aloud
 Flag rhythm and flow issues:
 - Sentences that are awkward to read aloud
 - Unnatural dialogue
 - Monotonous sentence length patterns
 
+## Iterative revision
+
+Revision should be run **at least twice** when significant rewrites have occurred between passes (e.g., after the Expand step). The first pass catches structural and voice issues; the second catches consistency drift and new crutch-word accumulation introduced during rewriting. Each pass should produce its own revision notes; subsequent passes should read previous notes to avoid re-flagging fixed issues.
+
 ## Output
 
 - Write revision notes to `novels/<slug>/story/revision-notes.md`
 - For each issue, specify: chapter, location, problem, and suggested fix
 - Prioritize issues by impact (structural > character > pacing > continuity > line)
-- When all revision passes are complete: update `novels/<slug>/novel.md` to mark Step 8 (Revise) as `✅ Complete` with today's date, set `current_step` to `9`, set `current_step_name` to `"Polish"`
+- Update `novels/<slug>/story/continuity.md` if revision changes any established facts
+- When all revision passes are complete: update `novels/<slug>/novel.md` to mark Step 9 (Revise) as `✅ Complete` with today's date, set `current_step` to `10`, set `current_step_name` to `"Polish"`
