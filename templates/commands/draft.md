@@ -44,8 +44,14 @@ Read ALL story artifacts before drafting:
    - Land the specified outcome
    - Stay within the estimated word count (within 20%)
    - Show, don't tell (unless the vision explicitly calls for a telling style)
+   - **Temporal discipline**: Only reference events that have already happened in previously drafted chapters. Do not let a character reflect on a scene that hasn't occurred yet. Check `continuity.md` if unsure.
+   - **Earn the emotion**: Emotional beats should match the relationship's current stage. Don't borrow intimacy or vulnerability from later scenes — let each chapter's emotional register be justified by what's come before.
 
-4. **Update continuity**: After drafting, note any new details established in prose (character descriptions used, specific names/places mentioned, timeline details) in `novels/<slug>/story/continuity.md`.
+4. **Update continuity**: After drafting, update `novels/<slug>/story/continuity.md` with:
+   - New facts established in prose (descriptions, names, places, objects)
+   - Timeline: what happened on which day, in what order
+   - Emotional milestones: key shifts in relationships (first real conversation, first vulnerability, first conflict, etc.) — note the chapter where each milestone *actually occurs* so later chapters don't reference them prematurely
+   - Any motifs or recurring images introduced (note their origin chapter)
 
 5. **Flag deviations**: If the scene naturally wants to go somewhere different from the spec, draft it as written AND note the deviation. The author decides whether to update the spec or revise the draft.
 

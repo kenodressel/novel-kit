@@ -58,6 +58,8 @@ Cross-reference `novels/<slug>/story/continuity.md` with the manuscript:
 - Physical description consistency
 - World-rule compliance
 - Information-knowledge consistency (characters only know what they should)
+- **Forward references**: Flag any passage where a character reflects on, references, or emotionally processes a scene that hasn't happened yet in the manuscript's chapter order
+- **Emotional escalation**: Check that relationship milestones (first vulnerability, first trust, first intimacy) appear in the right order and aren't echoed in earlier chapters before they've been earned
 
 ### Pass 5: Line Edit
 Prose-level analysis, chapter by chapter:
