@@ -48,7 +48,7 @@ Read ALL previous artifacts:
    - Each chapter should have its own mini-arc
    - End chapters on hooks (questions, reveals, cliffhangers)
    - Vary chapter length for pacing
-   - **Calibration**: For a 60K-word novel, plan 40-50 scenes averaging 1,200-1,500 words each. For 90K, plan 55-75 scenes. Fewer, longer scenes are harder to draft at consistent quality. More, shorter scenes risk feeling fragmented. The scene-count times average-word-count should approximate the target manuscript length.
+   - **Calibration**: For a 30K-word novel (novella), plan 20-25 scenes averaging 1,200-1,500 words each. For 60K (standard novel), plan 40-50 scenes. For 90K (long novel), plan 55-75 scenes. Fewer, longer scenes are harder to draft at consistent quality. More, shorter scenes risk feeling fragmented. The scene-count times average-word-count should approximate the target manuscript length.
 
 4. **Build tracking table**: Create the scene tracking table for project management.
 

@@ -16,7 +16,7 @@ Create a new novel directory under `novels/` with the standard folder structure 
    - The working title (can be a placeholder like "Untitled Thriller")
    - A URL-safe slug (e.g. `my-thriller`) — suggest one from the title if they don't provide it
    - The target genre (optional at this stage)
-   - Target word count (default: 90,000)
+   - Target word count (default: 60,000)
 
 2. **Create the directory structure**:
 
@@ -34,7 +34,7 @@ Create a new novel directory under `novels/` with the standard folder structure 
    - Replace `{{SLUG}}` with the chosen slug
    - Replace `{{GENRE}}` with the genre (or leave empty if not decided)
    - Replace `{{DATE}}` with today's date in YYYY-MM-DD format
-   - Set `target_word_count` to their target (default 90,000)
+   - Set `target_word_count` to their target (default 60,000)
 
 4. **Confirm to the author**: Show the created structure and confirm everything looks right.
 

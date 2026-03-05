@@ -6,7 +6,7 @@ created: {{DATE}}
 last_updated: {{DATE}}
 current_step: 1
 current_step_name: "Premise"
-target_word_count: 90000
+target_word_count: 60000
 current_word_count: 0
 ---
 
@@ -31,7 +31,7 @@ current_word_count: 0
 
 | Target | Current | Progress |
 |--------|---------|----------|
-| 90,000 | 0       | 0%       |
+| 60,000 | 0       | 0%       |
 
 ## Notes
 
