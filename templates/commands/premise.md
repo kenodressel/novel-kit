@@ -47,10 +47,20 @@ Take the author's raw story idea and develop it into a complete premise document
    - Is there enough story for a full novel?
    - Does the core question have genuine tension (reasonable people could disagree)?
 
+9. **Choose a title**: Now that the premise is fully developed, collaborate with the author on a working title:
+   - Suggest 3-5 title options based on the premise, core question, and tone
+   - Let the author choose, combine, or propose their own
+   - Derive a URL-safe slug from the chosen title (e.g. "The Glass Garden" → `the-glass-garden`)
+
+10. **Rename the project folder**: If the current folder uses a temporary slug (e.g. `novel-7f3a`):
+    - Rename `novels/<old-slug>/` to `novels/<new-slug>/`
+    - Update `novels/<new-slug>/novel.md`: set the `title` and `slug` fields to the new values
+    - All subsequent commands will use the new slug
+
 ## Output
 
 - Write the completed premise to `novels/<slug>/story/premise.md`
-- Update `novels/<slug>/novel.md`: mark Step 1 (Premise) as `✅ Complete` with today's date, set `current_step` to `2`, set `current_step_name` to `"Vision"`
+- Update `novels/<slug>/novel.md`: mark Step 1 (Premise) as `✅ Complete` with today's date, set `current_step` to `2`, set `current_step_name` to `"Vision"`, update `title`, `slug`, and `genre`
 
 ## What to read first
 

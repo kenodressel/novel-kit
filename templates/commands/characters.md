@@ -71,3 +71,7 @@ Pressure-test each character:
 - Create `novels/<slug>/story/characters/cast.md` (overview)
 - Create `novels/<slug>/story/characters/[name].md` for each major character
 - Update `novels/<slug>/novel.md`: mark Step 3 (Characters) as `✅ Complete` with today's date, set `current_step` to `4`, set `current_step_name` to `"World"`
+
+## Sequencing Note
+
+Characters must be completed **before** World (Step 4). Characters define meaningful places — a character's apartment, their workplace, a location tied to their wound or history. The World step builds on these, grounding character-specific locations in a coherent setting. Do not run Characters and World in parallel.

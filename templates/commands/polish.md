@@ -26,18 +26,6 @@ Read:
 - `novels/<slug>/manuscript/` -- the revised manuscript
 - `novels/<slug>/story/revision-notes.md` -- revision history
 
-## Author Information
-
-Before creating any submission materials, ask the author for their details (if not already on file in `novels/<slug>/story/submission/author-info.md`):
-
-- **Full name** (or pen name) -- as it should appear on the manuscript
-- **Bio sketch** -- relevant background, credentials, or life experience that connects to this book
-- **Previous publications** -- if any (titles, publishers, dates)
-- **Website / social media** -- if any
-- **Location** -- city/region (agents and publishers often want this)
-
-Save this to `novels/<slug>/story/submission/author-info.md`. This information feeds into the query letter, author bio, and manuscript formatting.
-
 ## Process
 
 ### Beta Reader Preparation
@@ -62,14 +50,12 @@ Save this to `novels/<slug>/story/submission/author-info.md`. This information f
 
 ### Final Materials
 
-4. **Query letter**: Draft a query letter based on the premise and vision.
+4. **Query letter**: Draft a query letter based on the premise and vision. Ask the author for their pen name to sign it. Do NOT generate or fabricate author bios.
 5. **Blurb**: Write a back-cover blurb (different from the query -- this is for readers, not agents).
 6. **Synopsis**: Write a 1-2 page submission synopsis (full spoilers, focused on character arc and plot).
-7. **Author bio**: Draft a polished author bio from the info in `submission/author-info.md`, tailored for the genre and submission context.
 
 ## Output
 
-- Author information to `novels/<slug>/story/submission/author-info.md`
 - Beta reader questionnaire to `novels/<slug>/story/beta-questionnaire.md`
 - Feedback synthesis to `novels/<slug>/story/beta-feedback.md`
 - Submission materials to `novels/<slug>/story/submission/`

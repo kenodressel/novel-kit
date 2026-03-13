@@ -21,10 +21,12 @@ Design the setting, systems, and sensory reality of the story. Every element of 
 
 ## Prerequisites
 
+**Step 3 (Characters) must be complete before starting World.** Characters define meaningful places — a character's home, workplace, or a location tied to their wound. World builds on these, grounding character-specific locations in a coherent setting.
+
 Read these files first:
 - `novels/<slug>/story/premise.md`
 - `novels/<slug>/story/vision.md`
-- `novels/<slug>/story/characters/cast.md` and individual character files
+- `novels/<slug>/story/characters/cast.md` and individual character files — pay special attention to locations, workplaces, homes, and places tied to character history or arcs
 
 ## Process
 

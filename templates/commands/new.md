@@ -12,13 +12,13 @@ Create a new novel directory under `novels/` with the standard folder structure 
 
 ## Process
 
-1. **Get the novel name**: Ask the author for:
-   - The working title (can be a placeholder like "Untitled Thriller")
-   - A URL-safe slug (e.g. `my-thriller`) — suggest one from the title if they don't provide it
-   - The target genre (optional at this stage)
+1. **Get basics**: Ask the author for:
    - Target word count (default: 60,000)
+   - That's it — title and genre come later, after the premise is developed.
 
-2. **Create the directory structure**:
+2. **Generate a temporary slug**: Create a random placeholder slug like `novel-<4 hex chars>` (e.g. `novel-7f3a`). This will be renamed to a proper title-based slug after Step 1 (Premise) is complete.
+
+3. **Create the directory structure**:
 
    ```
    novels/<slug>/
@@ -29,16 +29,16 @@ Create a new novel directory under `novels/` with the standard folder structure 
    └── research/             # Empty, for reference material
    ```
 
-3. **Create `novels/<slug>/novel.md`** using `templates/novel-status-template.md`:
-   - Replace `{{TITLE}}` with the working title
-   - Replace `{{SLUG}}` with the chosen slug
-   - Replace `{{GENRE}}` with the genre (or leave empty if not decided)
+4. **Create `novels/<slug>/novel.md`** using `templates/novel-status-template.md`:
+   - Replace `{{TITLE}}` with `"Untitled"`
+   - Replace `{{SLUG}}` with the temporary slug
+   - Replace `{{GENRE}}` with empty string
    - Replace `{{DATE}}` with today's date in YYYY-MM-DD format
    - Set `target_word_count` to their target (default 60,000)
 
-4. **Confirm to the author**: Show the created structure and confirm everything looks right.
+5. **Confirm to the author**: Show the created structure and confirm everything looks right.
 
-5. **Transition to premise**: Tell the author their novel project is ready and transition directly into `/novel.premise` to capture their story idea.
+6. **Transition to premise**: Tell the author their novel project is ready and transition directly into `/novel.premise` to capture their story idea. Remind them that a proper title will be chosen at the end of the premise step.
 
 ## Output
 
