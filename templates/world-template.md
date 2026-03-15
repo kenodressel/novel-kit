@@ -8,6 +8,7 @@
 - **Location(s)**:
 - **Scope**: <!-- Single room / City / Country / Planet / Multi-world -->
 - **One-sentence vibe**: <!-- "What it feels like to exist here" -->
+- **Reality adjacency**: <!-- fully invented / inspired by reality / mostly real-world / alternate history -->
 
 ## Rules & Systems
 
@@ -19,6 +20,7 @@
 - **Limitations / costs**:
 - **Who has access**:
 - **How it creates conflict in the story**:
+- **Research / validation needed**: <!-- source notes or why this is invented -->
 
 ## History & Context
 
@@ -38,6 +40,7 @@
 - **What it feels like**:
 - **What it means** (to the characters / thematically):
 - **Key scenes set here**:
+- **Reality check**: <!-- verified / stylized / invented / deliberate liberty -->
 
 ## Culture & Daily Life
 
@@ -56,3 +59,18 @@
 - **Characteristic sounds**:
 - **Smells and textures**:
 - **Weather / light / atmosphere**:
+
+## Validation Notes
+
+| Element | Research file / source note | Status | Story constraint |
+|---------|-----------------------------|--------|------------------|
+| | | | |
+
+## Evaluation Gate
+
+- **Conflict usefulness**: <!-- 1-5 -->
+- **Specificity**: <!-- 1-5 -->
+- **Usability for scenes**: <!-- 1-5 -->
+- **Reality support**: <!-- 1-5 or N/A -->
+- **Decision**: <!-- Keep / Revise / Research -->
+- **Why**:

@@ -1,5 +1,17 @@
 # Story Outline
 
+## Candidate Comparison
+
+<!-- Compare 2-3 structurally distinct outline paths before committing. -->
+
+| Candidate | Framework | Core escalation pattern | Ending shape | Upside | Risk | Verdict |
+|-----------|-----------|-------------------------|--------------|--------|------|---------|
+| A | | | | | | |
+| B | | | | | | |
+| C | | | | | | |
+
+**Selected candidate**:
+
 ## Structural Framework
 
 - **Framework**: <!-- Three-Act / Hero's Journey / Save the Cat / Kishotenketsu / Dan Harmon's Story Circle / Custom -->
@@ -8,6 +20,12 @@
 ## Story Arc Summary
 
 <!-- Map the emotional and narrative trajectory of the entire novel in a few sentences. What is the shape of this story? -->
+
+## Reader Promise
+
+- **What keeps the reader turning pages here**:
+- **What kind of surprise the book delivers**:
+- **What would make this outline feel too safe**:
 
 ## Act / Part Breakdown
 
@@ -98,3 +116,21 @@ Tension
   +-------------------------------------------> Chapters
    1    5    10    15    20    25    30   End
 ```
+
+## Reality Check
+
+<!-- Only fill this out if the story is reality-adjacent. -->
+
+| Story element | Real-world dependency | Research status | Notes |
+|---------------|-----------------------|-----------------|-------|
+| | | | |
+
+## Evaluation Gate
+
+- **Escalation**: <!-- 1-5 -->
+- **Surprise**: <!-- 1-5 -->
+- **Emotional force**: <!-- 1-5 -->
+- **Subplot integration**: <!-- 1-5 -->
+- **Climax inevitability-with-unpredictability**: <!-- 1-5 -->
+- **Decision**: <!-- Keep / Revise / Branch -->
+- **Why**:

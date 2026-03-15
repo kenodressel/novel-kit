@@ -24,6 +24,8 @@ Conduct a systematic, multi-pass revision of the manuscript. Each pass targets a
 Read ALL story artifacts and the full manuscript:
 - `novels/<slug>/story/` -- all design documents
 - `novels/<slug>/story/continuity.md` -- the continuity bible (critical for Pass 4)
+- `novels/<slug>/story/style-guide.md` -- voice and prose constraints
+- `novels/<slug>/story/motifs.md` -- thematic recurrence and symbolic load
 - `novels/<slug>/manuscript/` -- all chapter files
 - `novels/<slug>/story/revision-notes.md` -- if it exists (previous revision notes)
 
@@ -103,7 +105,16 @@ Prose-level analysis, chapter by chapter:
 - Heavy em-dash parentheticals that should be their own sentences
 - Thought catalogues at chapter endings ("She thought about X. She thought about Y.")
 
-### Pass 6: Read-Aloud (optional)
+### Pass 6: Boredom / Genericity Edit
+
+This pass is reader-facing rather than document-facing:
+- Identify scenes that are competent but forgettable
+- Flag dialogue that could belong to any character in any book
+- Mark predictable beats the reader can see too early
+- Find places where the prose sounds assembled, padded, or model-default
+- Recommend whether to cut, branch, or fully rewrite the scene
+
+### Pass 7: Read-Aloud (optional)
 Flag rhythm and flow issues:
 - Sentences that are awkward to read aloud
 - Unnatural dialogue
@@ -111,7 +122,7 @@ Flag rhythm and flow issues:
 
 ## Iterative revision
 
-Revision should be run **at least twice** when significant rewrites have occurred between passes (e.g., after the Expand step). The first pass catches structural and voice issues; the second catches consistency drift and new crutch-word accumulation introduced during rewriting. Each pass should produce its own revision notes; subsequent passes should read previous notes to avoid re-flagging fixed issues.
+Revision should be run **at least twice** when significant rewrites have occurred between passes (e.g., after the Realize step). The first pass catches structural and voice issues; the second catches consistency drift and new crutch-word accumulation introduced during rewriting. Each pass should produce its own revision notes; subsequent passes should read previous notes to avoid re-flagging fixed issues.
 
 ## Output
 
@@ -119,4 +130,5 @@ Revision should be run **at least twice** when significant rewrites have occurre
 - For each issue, specify: chapter, location, problem, and suggested fix
 - Prioritize issues by impact (continuity > structural > character > pacing > line)
 - Update `novels/<slug>/story/continuity.md` if revision changes any established facts
+- If revision discovers unsupported real-world claims, send them to `/novel.research`
 - When all revision passes are complete: update `novels/<slug>/novel.md` to mark Step 9 (Revise) as `✅ Complete` with today's date, set `current_step` to `10`, set `current_step_name` to `"Polish"`

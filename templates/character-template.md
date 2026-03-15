@@ -12,6 +12,7 @@
 - **Occupation**:
 - **Key physical traits**: <!-- Only details that matter to how they move through the world -->
 - **First impression**: <!-- What other characters notice first -->
+- **Reality-adjacent identity notes**: <!-- profession, culture, language, faith, disability, class markers, etc. that require accuracy -->
 
 ## Psychology
 
@@ -51,6 +52,8 @@
 - **Anti-metaphors**: <!-- What metaphor families would feel WRONG for this character, given their background and experience? -->
 - **Sentence rhythm**: <!-- Do they think in long, qualified sentences or short declaratives? Do they over-explain or under-explain? -->
 - **Register**: <!-- How formal is their interior voice vs. their spoken voice? What's the gap between what they think and what they say? -->
+- **Distinctive dialogue moves**: <!-- interruption, deflection, pedantry, clipped questions, verbal feints, etc. -->
+- **Dialogue failure mode**: <!-- how this character sounds when written too generically -->
 
 ## Avoidance Pattern
 
@@ -69,3 +72,20 @@
 1. **[Scene name]**: <!-- What happens and why it matters to the arc -->
 2.
 3.
+
+## Validation Notes
+
+- **Lived-experience / profession research needed**:
+  - <!-- note -->
+- **What must not be guessed about this character**:
+  - <!-- note -->
+
+## Evaluation Gate
+
+- **Psychological specificity**: <!-- 1-5 -->
+- **Arc pressure**: <!-- 1-5 -->
+- **Voice distinctiveness**: <!-- 1-5 -->
+- **Relationship usefulness**: <!-- 1-5 -->
+- **Reality support**: <!-- 1-5 or N/A -->
+- **Decision**: <!-- Keep / Revise / Research -->
+- **Why**:

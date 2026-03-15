@@ -4,6 +4,15 @@
 
 ## Scene List
 
+## Key Scene Candidates
+
+<!-- For opening scenes, midpoint reversals, climactic scenes, and other high-leverage moments, compare alternate approaches before locking one. -->
+
+| Scene / Beat | Candidate | Why it might win | Risk | Selected? |
+|--------------|-----------|------------------|------|-----------|
+| | A | | | |
+| | B | | | |
+
 ---
 
 ### Scene [ID]: [Working Title]
@@ -27,11 +36,21 @@
 
 **Information revealed**: <!-- What the reader learns in this scene -->
 
+**Knowledge state**:
+- **POV knows**:
+- **POV does not know**:
+- **What other characters know that matters here**:
+
 **Connections**:
 - **Sets up**: [Scene ID(s)] <!-- What this scene foreshadows or enables -->
 - **Pays off**: [Scene ID(s)] <!-- What earlier setup this scene delivers on -->
 
 **Estimated word count**: [X words]
+
+**Reality check**:
+- **Real-world dependency**: <!-- none / low / medium / high -->
+- **Research file(s)**: <!-- link to relevant note in research/ -->
+- **Fact-check status**: <!-- verified / unsupported / deliberate liberty -->
 
 **Notes**: <!-- Anything else: specific imagery, a line of dialogue you want to include, a tonal note -->
 
@@ -43,11 +62,11 @@
 
 <!-- Summary table for at-a-glance project management -->
 
-| ID | Chapter | Title | POV | Outcome | Words (est.) | Status |
-|---|---|---|---|---|---|---|
-| 1 | 1 | | | | | Planned |
-| 2 | 1 | | | | | Planned |
-| 3 | 2 | | | | | Planned |
+| ID | Chapter | Title | POV | Outcome | Words (est.) | Reality Check | Status |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | | | | | | Planned |
+| 2 | 1 | | | | | | Planned |
+| 3 | 2 | | | | | | Planned |
 
 **Status key**: Planned / Drafted / Revised / Final
 
@@ -61,3 +80,15 @@ Before marking a scene as ready to draft, verify:
 - [ ] The scene connects to at least one other scene (setup or payoff)
 - [ ] The emotional shift is intentional and trackable
 - [ ] The scene is necessary (can the story work without it? If yes, cut it)
+- [ ] The chapter ending creates reader pull, not just completion
+- [ ] If the scene depends on reality, the relevant facts are researched or flagged
+
+## Evaluation Gate
+
+- **Conflict sharpness**: <!-- 1-5 -->
+- **Redundancy risk**: <!-- 1-5, where 5 means low redundancy / strong necessity -->
+- **Emotional progression**: <!-- 1-5 -->
+- **Hook strength**: <!-- 1-5 -->
+- **Reality support**: <!-- 1-5 or N/A -->
+- **Decision**: <!-- Keep / Revise / Branch -->
+- **Why**:

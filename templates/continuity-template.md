@@ -1,6 +1,6 @@
 # Continuity Bible
 
-> This is a living document. It tracks facts established in prose — not what was planned, but what was written. Scenes specify what SHOULD happen; this document records what DID happen. Update it during drafting, expansion, and revision.
+> This is a living document. It tracks facts established in prose — not what was planned, but what was written. Scenes specify what SHOULD happen; this document records what DID happen. Update it during drafting, realization, and revision.
 
 ---
 
@@ -47,6 +47,22 @@
 |------|-------|---------------|
 | | | |
 
+## Reality Validation
+
+<!-- Only track this section when the story depends on real-world claims. -->
+
+| Claim | Status | Source / research note | Established in | Notes |
+|-------|--------|------------------------|----------------|-------|
+| | verified | | | |
+
+## Divergences Promoted To Canon
+
+<!-- Strong manuscript-level changes that overrode the original plan. -->
+
+| Change | First appears in | Upstream artifact updated? | Re-evaluated downstream? |
+|--------|------------------|----------------------------|--------------------------|
+| | | | |
+
 ---
 
 ## Update Log
@@ -54,3 +70,4 @@
 <!-- Optional: track when major updates were made -->
 <!-- - [Date]: Initialized from design docs during Scenes step -->
 <!-- - [Date]: Updated through Ch 1-5 during Draft step -->
+<!-- - [Date]: Reality check updated after research on [topic] -->

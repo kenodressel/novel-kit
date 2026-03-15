@@ -31,7 +31,7 @@ Take the author's raw story idea and develop it into a complete premise document
    - What happens if they fail?
    - What's the deeper question?
 
-3. **Develop the logline**: Craft a 25-word-or-fewer logline. Use the format: "When [inciting incident], a [specific protagonist] must [action/goal], or else [stakes]." Offer 3 variations and let the author choose or combine.
+3. **Develop multiple candidates**: Craft 3-5 premise/logline variants. Use the format: "When [inciting incident], a [specific protagonist] must [action/goal], or else [stakes]." Make the variants meaningfully different in engine, tone, or stakes. Do not just paraphrase.
 
 4. **Expand to elevator pitch**: Write a one-paragraph pitch that adds tone, setting, and emotional stakes to the logline.
 
@@ -41,11 +41,13 @@ Take the author's raw story idea and develop it into a complete premise document
 
 7. **Articulate the core question**: Distill the thematic question the novel explores. Push past plot-level questions to the human truth underneath.
 
-8. **Interrogate**: Before finalizing, pressure-test the premise:
+8. **Interrogate and evaluate**: Before finalizing, pressure-test the premise:
    - Is the protagonist active (making choices) or passive (having things happen to them)?
    - Are the stakes personal enough?
    - Is there enough story for a full novel?
    - Does the core question have genuine tension (reasonable people could disagree)?
+   - Which candidate has the strongest engine, not just the cleanest sentence?
+   - If the story is reality-adjacent, what facts or institutions need early research before the premise hardens?
 
 9. **Choose a title**: Now that the premise is fully developed, collaborate with the author on a working title:
    - Suggest 3-5 title options based on the premise, core question, and tone
@@ -60,6 +62,7 @@ Take the author's raw story idea and develop it into a complete premise document
 ## Output
 
 - Write the completed premise to `novels/<slug>/story/premise.md`
+- Save rejected but viable premise candidates to `novels/<slug>/story/candidates/premise/`
 - Update `novels/<slug>/novel.md`: mark Step 1 (Premise) as `✅ Complete` with today's date, set `current_step` to `2`, set `current_step_name` to `"Vision"`, update `title`, `slug`, and `genre`
 
 ## What to read first

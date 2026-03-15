@@ -70,6 +70,7 @@ Check facts, timeline, and internal consistency.
 - [ ] Do characters know only what they should know?
 - [ ] Are proper nouns consistent (spelling, capitalization)?
 - [ ] Are seasonal/weather/time-of-day details consistent with timeline?
+- [ ] If the story is reality-adjacent, do factual claims match the research notes and fact-check log?
 
 **Notes from this pass**:
 
@@ -106,7 +107,21 @@ If any portion of the manuscript was AI-assisted, check specifically for these c
 
 ---
 
-## Pass 6: Read-Aloud
+## Pass 6: Boredom / Genericity Edit
+
+Read like a hostile but fair reader.
+
+- [ ] Mark scenes that are competent but forgettable
+- [ ] Flag dialogue that could belong to anyone
+- [ ] Flag predictable reveals or emotional beats
+- [ ] Flag paragraphs that sound padded, assembled, or model-default
+- [ ] Identify where the manuscript is obeying the plan instead of becoming a book
+
+**Notes from this pass**:
+
+---
+
+## Pass 7: Read-Aloud
 
 Read the entire manuscript out loud (or use text-to-speech).
 
@@ -116,3 +131,11 @@ Read the entire manuscript out loud (or use text-to-speech).
 - [ ] Mark passages that bore you (if they bore you, they'll bore the reader)
 
 **Notes from this pass**:
+
+---
+
+## Rollback / Reconcile Decisions
+
+- **If multiple chapters fail for the same reason, what upstream artifact needs revision?**
+- **Which changes should be promoted into canon via `/novel.reconcile`?**
+- **Which unsupported claims require `/novel.research`?**

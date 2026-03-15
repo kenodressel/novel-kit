@@ -1,5 +1,17 @@
 # Premise
 
+## Candidate Comparison
+
+<!-- Capture the 3-5 strongest premise candidates before locking one. -->
+
+| Candidate | Engine / Hook | Stakes | Distinctiveness | Risks | Verdict |
+|-----------|----------------|--------|-----------------|-------|---------|
+| A | | | | | |
+| B | | | | | |
+| C | | | | | |
+
+**Selected candidate**: <!-- Which option won, and why -->
+
 ## Logline
 
 <!-- One sentence, 25 words or fewer. Format: When [inciting incident], a [specific protagonist] must [action/goal], or else [stakes]. -->
@@ -26,3 +38,23 @@
 ## Why This Story, Why Now
 
 <!-- What compels you to write this specific book? What makes it urgent or relevant? This isn't for a query letter -- it's for you, to anchor your motivation when the work gets hard. -->
+
+## Early Reality Check
+
+<!-- Only fill this out if the story is reality-adjacent. -->
+
+- **Real-world domains involved**: <!-- medicine, law, military, geography, finance, religion, etc. -->
+- **Claims that need verification before outlining**:
+  - <!-- claim -->
+- **Intentional liberties already known**:
+  - <!-- liberty -->
+
+## Evaluation Gate
+
+- **Novelty / distinctiveness**: <!-- 1-5 -->
+- **Protagonist agency**: <!-- 1-5 -->
+- **Conflict sustainability**: <!-- 1-5 -->
+- **Stake intensity**: <!-- 1-5 -->
+- **Market clarity**: <!-- 1-5 -->
+- **Decision**: <!-- Keep / Revise / Branch -->
+- **Why**:

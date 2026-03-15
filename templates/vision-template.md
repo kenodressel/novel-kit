@@ -8,6 +8,18 @@
 - **Conventions you will subvert**: <!-- Where will you surprise the reader? Why? -->
 - **Conventions you will avoid**: <!-- What genre tropes are off-limits? -->
 
+## Candidate Voice Directions
+
+<!-- Before locking the vision, compare a few materially different aesthetic directions. -->
+
+| Candidate | Reading feel | Voice qualities | Upside | Risk | Verdict |
+|-----------|--------------|-----------------|--------|------|---------|
+| A | | | | | |
+| B | | | | | |
+| C | | | | | |
+
+**Selected direction**:
+
 ## Target Audience & Reading Experience
 
 - **Primary audience**:
@@ -34,6 +46,8 @@
 - **Tone**: <!-- The overall emotional register (e.g., dark and atmospheric, warmly comic, elegiac) -->
 - **Prose style**: <!-- Sentence-level tendencies (e.g., long flowing sentences, staccato fragments, lush description, lean and muscular) -->
 - **Dialogue style**: <!-- (e.g., naturalistic with interruptions, formal and precise, subtext-heavy) -->
+- **Operational style guide file**: `story/style-guide.md`
+- **Motif tracker file**: `story/motifs.md`
 
 ## Content Boundaries
 
@@ -51,3 +65,19 @@
 1.
 2.
 3.
+
+## Anti-Genericity Notes
+
+- **Default model tendencies this book must resist**:
+  - <!-- vague introspection, over-explained metaphors, interchangeable banter, etc. -->
+- **What a bad paragraph in this novel sounds like**:
+- **What a strong paragraph in this novel sounds like**:
+
+## Evaluation Gate
+
+- **Voice specificity**: <!-- 1-5 -->
+- **Aesthetic coherence**: <!-- 1-5 -->
+- **Thematic tension**: <!-- 1-5 -->
+- **Distinctiveness**: <!-- 1-5 -->
+- **Decision**: <!-- Keep / Revise / Branch -->
+- **Why**:

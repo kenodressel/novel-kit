@@ -24,7 +24,9 @@ Create a new novel directory under `novels/` with the standard folder structure 
    novels/<slug>/
    ├── novel.md              # Status and metadata (create from template)
    ├── story/
-   │   └── characters/       # Empty, ready for Step 3
+   │   ├── characters/       # Empty, ready for Step 3
+   │   ├── candidates/       # Alternate artifacts and chapter options
+   │   └── evaluations/      # Rubric-based quality gates
    ├── manuscript/           # Empty, ready for Step 7
    └── research/             # Empty, for reference material
    ```
@@ -46,6 +48,8 @@ Creates:
 - `novels/<slug>/novel.md` — status file
 - `novels/<slug>/story/` — directory
 - `novels/<slug>/story/characters/` — directory
+- `novels/<slug>/story/candidates/` — directory
+- `novels/<slug>/story/evaluations/` — directory
 - `novels/<slug>/manuscript/` — directory
 - `novels/<slug>/research/` — directory
 

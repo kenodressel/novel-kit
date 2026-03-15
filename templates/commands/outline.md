@@ -29,7 +29,7 @@ Read ALL previous artifacts:
 
 ## Process
 
-1. **Choose structural framework**: Based on the genre, story, and author's preference, recommend and discuss structural options:
+1. **Generate outline candidates**: Based on the genre, story, and author's preference, generate 2-3 materially different outline approaches before committing:
    - Three-Act Structure (universal, flexible)
    - Save the Cat Beat Sheet (precise, commercial)
    - Hero's Journey (mythic, transformational)
@@ -54,7 +54,9 @@ Read ALL previous artifacts:
 
 6. **Design pacing**: Map the tension curve across the full novel. Identify peaks, valleys, and breathers.
 
-7. **Reconciliation check**: Verify that the outline's timeline, character arcs, and structural framework are consistent with `premise.md` and `vision.md`. The outline often evolves the story — a different timeline, a different ending, a shifted scope. If the outline has diverged from the upstream documents, update them to match. The outline is the source of truth for structure; the premise and vision should reflect the story you're actually telling.
+7. **Evaluate before locking**: Compare candidates on escalation, surprise, emotional force, subplot integration, and ending inevitability-with-unpredictability. If none are strong enough, branch again instead of polishing the weakest acceptable option.
+
+8. **Reconciliation check**: Verify that the chosen outline's timeline, character arcs, and structural framework are consistent with `premise.md` and `vision.md`. The outline often evolves the story — a different timeline, a different ending, a shifted scope. If the chosen outline has diverged from the upstream documents, update them to match. The outline is the source of truth for structure until later manuscript work produces a better truth through `/novel.reconcile`.
 
 ## Interrogation
 
@@ -68,4 +70,5 @@ Read ALL previous artifacts:
 ## Output
 
 - Write the completed outline to `novels/<slug>/story/outline.md`
+- Save alternate outline candidates to `novels/<slug>/story/candidates/outline/`
 - Update `novels/<slug>/novel.md`: mark Step 5 (Outline) as `✅ Complete` with today's date, set `current_step` to `6`, set `current_step_name` to `"Scenes"`

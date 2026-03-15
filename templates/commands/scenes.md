@@ -17,7 +17,7 @@ Before starting, determine which novel to work on:
 
 ## Your task
 
-Convert the story outline into a granular scene-level blueprint. Every scene must have a clear purpose, POV character, conflict, and outcome. This is the document the author will draft from.
+Convert the story outline into a granular scene-level blueprint. Every scene must have a clear purpose, POV character, conflict, and outcome. This is the document the author will draft from and later reconcile against.
 
 ## Prerequisites
 
@@ -50,14 +50,18 @@ Read ALL previous artifacts:
    - Vary chapter length for pacing
    - **Calibration**: For a 30K-word novel (novella), plan 20-25 scenes averaging 1,200-1,500 words each. For 60K (standard novel), plan 40-50 scenes. For 90K (long novel), plan 55-75 scenes. Fewer, longer scenes are harder to draft at consistent quality. More, shorter scenes risk feeling fragmented. The scene-count times average-word-count should approximate the target manuscript length.
 
-4. **Build tracking table**: Create the scene tracking table for project management.
+4. **Branch key scenes**: For opening scenes, midpoint reversals, climactic scenes, and any scene that carries the novel's core emotional turn, generate 2-3 possible approaches before choosing one. Save alternates if they expose different strengths.
 
-5. **Validate scene list**:
+5. **Build tracking table**: Create the scene tracking table for project management.
+
+6. **Validate scene list**:
    - Every scene from the outline is represented
    - No orphan scenes (every scene connects to at least one other)
    - POV distribution matches the vision
    - Word count estimates sum to target manuscript length
    - The scene sequence creates the tension curve from the outline
+   - Redundant scenes are merged or cut
+   - Chapters end with actual reader pull, not merely document completion
 
 ## Interrogation
 
@@ -86,15 +90,16 @@ For each scene, explicitly track:
 
 Flag any scene where a sympathetic character's behavior requires them to know something and choose not to share it. This pattern often reads as toxic or paternalistic — especially in genres where control and agency are thematic.
 
-6. **Initialize continuity bible**: Create `novels/<slug>/story/continuity.md` from the continuity template (`templates/continuity-template.md`). Pre-populate it with:
+7. **Initialize continuity bible**: Create `novels/<slug>/story/continuity.md` from the continuity template (`templates/continuity-template.md`). Pre-populate it with:
    - Timeline skeleton from the outline (act/chapter dates and events)
    - Character physical details from character sheets (only details that are already decided)
    - Location details from world.md (floor numbers, room layouts, geography)
    - Recurring motifs from vision.md
-   - This becomes a living document updated during Draft, Expand, and Revise steps
+   - This becomes a living document updated during Draft, Realize, and Revise steps
 
 ## Output
 
 - Write the completed scene breakdown to `novels/<slug>/story/scenes.md`
+- Save alternate high-value scene approaches to `novels/<slug>/story/candidates/scenes/`
 - Create `novels/<slug>/story/continuity.md` initialized from design docs
 - Update `novels/<slug>/novel.md`: mark Step 6 (Scenes) as `✅ Complete` with today's date, set `current_step` to `7`, set `current_step_name` to `"Draft"`

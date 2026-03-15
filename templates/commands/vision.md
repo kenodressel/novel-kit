@@ -33,11 +33,13 @@ Read `novels/<slug>/story/premise.md` first. The vision builds on the premise.
 
 4. **Voice and POV**: Determine the narrative voice. Walk through POV options and their trade-offs for this specific story. Decide on tense, perspective, and voice qualities.
 
-5. **Tone and style**: Define the prose style. Offer contrasting examples of how the same scene could be written in different styles. Let the author feel the difference and choose.
+5. **Tone and style**: Define the prose style. Offer contrasting examples of how the same scene could be written in different styles. Let the author feel the difference and choose. Create `novels/<slug>/story/style-guide.md` from `templates/style-guide-template.md` so the prose has operational rules, not just adjectives.
 
-6. **Content boundaries**: Establish what the story is and is not. This prevents scope creep and identity drift during drafting.
+6. **Motif planning**: Create `novels/<slug>/story/motifs.md` from `templates/motifs-template.md`. Identify recurring images, phrases, or symbolic material that can accumulate meaning through the manuscript.
 
-7. **Non-negotiables**: Help the author articulate 3-7 principles they will not compromise on. These are the creative laws of this novel's universe.
+7. **Content boundaries**: Establish what the story is and is not. This prevents scope creep and identity drift during drafting.
+
+8. **Non-negotiables**: Help the author articulate 3-7 principles they will not compromise on. These are the creative laws of this novel's universe.
 
 ## Interrogation
 
@@ -46,8 +48,11 @@ Before finalizing, challenge the vision:
 - Does the voice match the genre expectations (or intentionally break them)?
 - Is the thematic thesis actually argued by the plot (check against premise)?
 - Are the non-negotiables specific enough to be useful?
+- Would the style guide actually prevent generic prose, or does it still describe the prose in vague workshop language?
 
 ## Output
 
 - Write the completed vision to `novels/<slug>/story/vision.md`
+- Write the operational style guide to `novels/<slug>/story/style-guide.md`
+- Write the motif tracker to `novels/<slug>/story/motifs.md`
 - Update `novels/<slug>/novel.md`: mark Step 2 (Vision) as `✅ Complete` with today's date, set `current_step` to `3`, set `current_step_name` to `"Characters"`
