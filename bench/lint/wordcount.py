@@ -19,6 +19,8 @@ import pathlib
 import re
 import sys
 
+import _status
+
 TOLERANCE_CHAPTER = 0.20   # draft.md allows 20% either side of the scene estimate
 TOLERANCE_TOTAL = 0.10     # a manuscript may miss its target by 10% before it fails
 
@@ -71,13 +73,16 @@ def spec_estimates(scenes: pathlib.Path) -> dict:
 
 
 def target_and_claim(status: pathlib.Path):
-    if not status.exists():
-        return None, None
-    text = status.read_text(encoding="utf-8")
-    def grab(key):
-        m = re.search(rf"^{key}:\s*\"?([\d,]+)\"?", text, re.M)
-        return int(m.group(1).replace(",", "")) if m else None
-    return grab("target_word_count"), grab("current_word_count")
+    """Tolerant of a prose-bullet novel.md as well as YAML frontmatter.
+
+    A run once wrote `- **Target word count**: 65,000` instead of the template's
+    `target_word_count: 65000`. This function looked only for the frontmatter form,
+    found nothing, skipped the target comparison, and reported PASS on a manuscript
+    at 18% of target. See _status.py.
+    """
+    target, _ = _status.read(status, "target")
+    claimed, _ = _status.read(status, "current")
+    return target, claimed
 
 
 def main():
@@ -130,6 +135,11 @@ def main():
                      "A target set to match the output is not a target. Restore the "
                      "original figure, or state the reclassification in novel.md with "
                      "the original target recorded beside it.")
+
+    if target is None:
+        fails.append("no target word count found in novel.md, so the manuscript's length "
+                     "cannot be checked against anything. Unverifiable must not report "
+                     "compliance.")
 
     if not est:
         fails.append("no per-chapter word estimates found in story/scenes.md, so chapter "

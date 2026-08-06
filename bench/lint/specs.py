@@ -21,6 +21,8 @@ import pathlib
 import re
 import sys
 
+import _status
+
 # The scenes step has been observed to rename fields, so match on intent, not text.
 FIELD = {
     "estimate": r"(?:estimated word count|est\.? words|word count \(est\.?\)|words \(est\.?\))",
@@ -32,7 +34,10 @@ FIELD = {
     "closing": r"closing move",
     "withheld": r"(?:deliberately withheld|information withheld)",
 }
-WORDS_PER_BEAT_MAX = 400   # above this, the chapter has more length than story
+# Calibrated against five normally drafted novels in this repository, which sit
+# between 221 and 449 words per beat. Outside that band by a clear margin:
+WORDS_PER_BEAT_MIN = 150   # below this a beat gets a sentence, not a scene
+WORDS_PER_BEAT_MAX = 600   # above this the chapter has more room than story
 MIN_BEATS = 3
 
 
@@ -78,11 +83,9 @@ def main():
     text = scenes.read_text(encoding="utf-8")
     bs = blocks(text)
 
-    target = a.target
     status = a.novel / "novel.md"
-    if target is None and status.exists():
-        m = re.search(r"^target_word_count:\s*\"?([\d,]+)", status.read_text(encoding="utf-8"), re.M)
-        target = int(m.group(1).replace(",", "")) if m else None
+    target, source = (a.target, "argument") if a.target else _status.read(status, "target")
+    fmt_warning = _status.format_warning(status)
 
     print(f"# {a.novel.name} — scene specification\n")
     print(f"  scene blocks          {len(bs)}")
@@ -105,15 +108,18 @@ def main():
             est_total += est
         if beats < MIN_BEATS:
             beatless.append(i)
-        elif est and est / beats > WORDS_PER_BEAT_MAX:
+        elif est and beats and not (WORDS_PER_BEAT_MIN <= est / beats <= WORDS_PER_BEAT_MAX):
             thin.append((i, est, beats, round(est / beats)))
         rows.append((i, title, est, beats, run))
 
     print(f"  blocks with an estimate   {sum(1 for r in rows if r[2])}")
     print(f"  blocks with >= {MIN_BEATS} beats     {sum(1 for r in rows if r[3] >= MIN_BEATS)}")
     print(f"  blocks with a runway      {sum(1 for r in rows if r[4])}")
-    print(f"  estimates sum to          {est_total:,}" + (f"   (target {target:,})" if target else ""))
+    print(f"  estimates sum to          {est_total:,}"
+          + (f"   (target {target:,}, from {source})" if target else "   (NO TARGET FOUND)"))
     print()
+    if fmt_warning:
+        print(f"  note: {fmt_warning}\n")
 
     print(f"  {'ch':>3}  {'est':>6}  {'beats':>5}  {'w/beat':>6}  {'runway':>6}  title")
     for i, title, est, beats, run in rows:
@@ -127,10 +133,24 @@ def main():
                      f"{' …' if len(beatless) > 15 else ''}. "
                      "A goal plus a conflict plus an outcome is one beat, and one beat is a "
                      "500-word scene however large the estimate says it is.")
-    if thin:
-        fails.append(f"{len(thin)} blocks specify more length than story "
+    crowded = [t for t in thin if t[3] < WORDS_PER_BEAT_MIN]
+    roomy = [t for t in thin if t[3] > WORDS_PER_BEAT_MAX]
+    if crowded:
+        fails.append(f"{len(crowded)} blocks crowd their beats into too few words "
+                     f"(under {WORDS_PER_BEAT_MIN} per beat): "
+                     + ", ".join(f"ch{i} {e}w/{b} beats={w}w each" for i, e, b, w in crowded[:6])
+                     + ". Normally drafted novels in this repository run 221-449 words per beat. "
+                     "Below 150 a beat gets a sentence rather than a scene, and the chapter reads "
+                     "as a summary of itself.")
+    if roomy:
+        fails.append(f"{len(roomy)} blocks give a chapter more room than it has story for "
                      f"(over {WORDS_PER_BEAT_MAX} words per beat): "
-                     + ", ".join(f"ch{i} {e}w/{b} beats={w}w per beat" for i, e, b, w in thin[:6]))
+                     + ", ".join(f"ch{i} {e}w/{b} beats={w}w each" for i, e, b, w in roomy[:6]))
+    if target is None:
+        fails.append("no target word count found in novel.md, in frontmatter or as prose, so "
+                     "the specification's scale cannot be checked at all. This is a failure, "
+                     "not a skip: a spec for 12,000 words is internally consistent and passes "
+                     "every structural check, and nothing else in the pipeline will notice.")
     if target and est_total and abs(est_total - target) / target > 0.15:
         fails.append(f"estimates sum to {est_total:,} against a target of {target:,} "
                      f"({est_total / target * 100:.0f}%).")
