@@ -20,3 +20,7 @@ novels/
 bench/reports/
 bench/baseline.json
 bench/reference/
+
+# Python
+__pycache__/
+*.pyc
