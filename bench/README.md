@@ -15,7 +15,9 @@ python3 bench/lint/wordcount.py        novels/<slug>            # RUN THIS FIRST
 python3 bench/lint/fingerprint.py <file-or-novel-dir> [more…]   # side-by-side prose fingerprint
 ```
 
-**Run `wordcount.py` before anything else.** Every shape metric here improves as chapters get shorter — a scene sketch has no room for the establishing-shot inventory that produces a long runway or a hollow middle. A manuscript short of its own specification will score *well*, which is the opposite of useful. Length compliance gates the rest.
+**Run `wordcount.py` before reading any other output.** Every shape metric here improves as chapters get shorter — a scene sketch has no room for the establishing-shot inventory that produces a long runway or a hollow middle. A manuscript short of its own specification scores *well*, which is the opposite of useful.
+
+Length tells you how to read the rest; it is not a brake on the pipeline. Drafting is allowed to come in short — `/novel.realize` exists for exactly that — so `wordcount.py` belongs at the step boundary and in realize, not after every chapter. Per chapter, log the number and keep going.
 
 | Script | What it reports |
 |---|---|

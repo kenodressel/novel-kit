@@ -57,15 +57,13 @@ Read ALL story artifacts before drafting:
 
 5. **Gate the chapter**: Before locking a chapter, measure it. These are counts, not impressions, and each has a fail condition. A fail means **regenerate this chapter now** — not a note for `/novel.realize` later.
 
-   **Length compliance is checked first, and nothing else counts until it passes.** Every shape metric below improves as a chapter gets shorter: a 700-word scene sketch has no room for the establishing-shot inventory that produces a long runway or a hollow middle, so it passes every other row effortlessly. Measured failure: a pipeline run produced 28 chapters averaging 960 words against a 2,500-word specification — 39% of its own spec — and scored better on mid-band share than any fully drafted novel in the corpus.
+   **Length is recorded here, not enforced here.** A chapter that comes in short is `/novel.realize`'s job, and blocking the draft on it stalls the run to do work the next step is designed for. Write the number down and move on.
 
-   ```
-   python3 bench/lint/wordcount.py novels/<slug>
-   ```
+   But **do not trust the shape rows on a short chapter.** Every one of them improves as a chapter gets shorter: a 700-word scene sketch has no room for the establishing-shot inventory that produces a long runway or a hollow middle, so it passes them all effortlessly. Measured: a run whose chapters averaged 960 words against a 2,500-word spec scored a better mid-band share than any fully drafted novel in the corpus. A chapter under 80% of its estimate gets its shape row marked `n/a — short`, not `pass`.
 
    | Measure | How to count it | Fail |
    |---|---|---|
-   | **Chapter length** | `wordcount.py`, actual against this chapter's scene estimate | outside ±20% |
+   | Chapter length | Words against this chapter's scene estimate | recorded, never blocking |
    | Runway | Words before the POV character acts with intent. Perceiving, remembering, noticing, and being described do not count. | > 250 |
    | Turn | Is the situation at the end different from at the start? Name what changed. | `no` |
    | Pressure | 1-5: is something being lost or decided here, or is this a competence display? | ≤ 2 |
@@ -84,7 +82,9 @@ Read ALL story artifacts before drafting:
    | 12 | 4,161 |   99%   |  116   | yes  |    4     |  39.7%   |   11   |    0     |    0    | ok  |  pass   |
    ```
 
-   **This log is the gate.** An instruction to measure something leaves no trace when it is skipped; a missing row does. A run that reaches the end of drafting without a row per chapter did not gate anything, and `novel.md` may not mark Step 7 complete until the log is complete and `wordcount.py` exits zero.
+   **This log is the gate.** An instruction to measure something leaves no trace when it is skipped; a missing row does. A run that reaches the end of drafting without a row per chapter did not gate anything.
+
+   Writing a row costs nothing and never blocks. What it buys is the work-list that `/novel.realize` needs, produced while the information is fresh instead of reconstructed later.
 
    Then write the **compliance report** into the chapter's entry in `scenes.md`: the measured value of every numeric target in `style-guide.md` (sentence-length distribution, paragraph shape, punctuation rates, dialogue share), and for each target you missed, the number you hit and why.
 
@@ -102,9 +102,9 @@ Read ALL story artifacts before drafting:
 
 8. **Update status**: Mark the scene as "Drafted" in the tracking table in `novels/<slug>/story/scenes.md`.
 
-9. **Update word count — computed, never estimated**: run `python3 bench/lint/wordcount.py novels/<slug>` and copy the actual figure into `current_word_count` in `novels/<slug>/novel.md`. Do not write a number you have not counted.
+9. **Update word count — computed, never estimated**: `python3 bench/lint/wordcount.py novels/<slug>` and copy the actual total into `current_word_count` in `novels/<slug>/novel.md`. Every few chapters is enough; the number just has to be counted rather than guessed.
 
-   This step is worded this way because a run once recorded 70,420 words against a 27,127-word manuscript and marked the project complete. Nothing in the pipeline computed the number, so nothing contradicted it. A status file that reports its target as met is worse than one that reports a shortfall: the shortfall is a problem, the false report is a problem you cannot see.
+   This step is worded this way because a run once recorded 70,420 words against a 27,127-word manuscript and marked the project complete. Nothing computed the number, so nothing contradicted it. A status file reporting its target as met is worse than one reporting a shortfall: the shortfall is a problem, the false report is a problem you cannot see.
 
 ## Drafting modes
 
@@ -121,7 +121,19 @@ The author may request different levels of AI involvement:
 - Save alternate candidate chapters to `novels/<slug>/story/candidates/chapters/` when generated
 - Update `novels/<slug>/story/continuity.md` with new details
 - Update scene status in `novels/<slug>/story/scenes.md`
-- When all scenes are drafted: update `novels/<slug>/novel.md` to mark Step 7 (Draft) as `✅ Complete` with today's date, set `current_step` to `8`, set `current_step_name` to `"Realize"`
+- When all scenes are drafted, run the **one check that matters at this boundary**:
+
+  ```
+  python3 bench/lint/wordcount.py novels/<slug>
+  ```
+
+  This is the aggregate, run once, not per chapter. Drafting is allowed to finish short — that is normal and it is what `/novel.realize` is for. What is not allowed is finishing short quietly. So:
+
+  - write the counted total into `current_word_count`, whatever it says
+  - if the manuscript is under 90% of target, record the percentage in `novel.md` and list every chapter under 80% of its scene estimate as the realize work-list
+  - do not mark Step 7 complete with an uncounted number, and do not adjust the target to match the output
+
+  Then mark Step 7 (Draft) as `✅ Complete` with today's date, set `current_step` to `8`, set `current_step_name` to `"Realize"`. The shortfall travels forward as a task, not as a silence.
 
 ## Full auto mode
 
@@ -133,6 +145,12 @@ When the author requests full auto, use these defaults:
 - Update continuity.md after each chapter group (every 3-5 chapters)
 - When complete, proceed directly to `/novel.realize`
 
-**Full auto does not skip the gate.** Step 5 runs on every chapter. On a fail, regenerate the chapter — up to two attempts. If it still fails, write the chapter, record the failing measures in `scenes.md`, add it to an open-issues list in `novel.md`, and continue. Autonomy means not asking the author; it does not mean not measuring.
+**Full auto measures every chapter and stops for almost none of it.** Step 5 runs on every chapter and always writes its `gate-log.md` row — that is milliseconds and never blocks.
 
-A run that ships every chapter it generates has no quality control, and the weakest chapters are the ones a reader remembers.
+Regenerate immediately only on the two failures that a later pass cannot repair without rewriting the scene from scratch:
+- a POV break, or
+- a runway over 400 words.
+
+Everything else — mid-band, median, appositives, self-explaining closers, short length — is logged, left in place, and carried forward as a work-list. Those are rewrite-cheap and belong to `/novel.realize` and `/novel.revise`, which read the log.
+
+A run that ships every chapter it generates without measuring has no quality control. A run that halts on every deviation never finishes. The log is how you get the first without paying for the second.

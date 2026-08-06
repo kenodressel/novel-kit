@@ -44,11 +44,13 @@ Use a 1-5 scale for each subjective dimension. Measured dimensions are counts, n
 
 **Measured** — counts, recorded per chapter, no scoring:
 
-> **Length compliance is evaluated first and gates everything below it.** Every metric in this table improves as a chapter gets shorter — a scene sketch has no room for the establishing-shot inventory that produces a long runway or a hollow middle. A chapter more than 20% short of its scene estimate is not eligible to pass any other row. Run `bench/lint/wordcount.py` before scoring anything.
+> **Length changes how these numbers are read, not whether the pipeline may proceed.** Every metric in this table improves as a chapter gets shorter — a scene sketch has no room for the establishing-shot inventory that produces a long runway or a hollow middle. Measured: a run whose chapters averaged 960 words against a 2,500-word spec scored a better mid-band share than any fully drafted novel in the corpus.
+>
+> So run `bench/lint/wordcount.py` first, and for any chapter under 80% of its scene estimate, mark the rows below `n/a — short` rather than `pass`. A short chapter has not passed these checks; it has not taken them. Length itself is enforced in `/novel.realize`, which is the step that exists to fix it.
 
 | Metric | Fail condition |
 |---|---|
-| Chapter length | Outside ±20% of the scene spec's estimate. Measured failure: a run produced 28 chapters averaging 960 words against a 2,500-word spec and scored better on mid-band share than any fully drafted novel in the corpus. |
+| Chapter length | Recorded, not a fail. Under 80% of the scene estimate invalidates the rows below and goes on the realize work-list. |
 | Opening runway | Words before the POV character acts with intent (not perceiving, remembering, or being described). **Fail above 250.** Measured basis: published chapter openings average 105-121 words; the weakest unedited chapters ran 430-800. |
 | Characterising appositive count | Above the style guide's budget of 1 per 10,000 words. |
 | Inanimate volition count | Objects, places, or weather given intentions, beliefs, or opinions. Compare against the style guide's budget. |
