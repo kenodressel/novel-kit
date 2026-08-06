@@ -1,38 +1,36 @@
 # bench — measurement for the pipeline
 
-Three linters. They count things a reader notices and an author does not, over a whole manuscript or a whole corpus. They produce pointers, never verdicts: read every flagged passage before changing it, because a script cannot tell a deliberate refrain from a forgotten one.
+Six linters. They count things a reader notices and an author does not, over a whole manuscript or a whole corpus. They produce pointers, never verdicts: read every flagged passage before changing it, because a script cannot tell a deliberate refrain from a forgotten one.
 
 Python 3, standard library only. Run from the repository root.
 
 ```
+python3 bench/lint/specs.py            novels/<slug>            # BEFORE drafting
+python3 bench/lint/wordcount.py        novels/<slug>            # after drafting
+python3 bench/lint/fingerprint.py <file-or-novel-dir> [more…]   # any text, side by side
 python3 bench/lint/repetition.py       novels/<slug> [--top N] [--budget N]
 python3 bench/lint/continuity_facts.py novels/<slug>
 python3 bench/lint/names.py           [novels/<slug>]
 ```
 
-```
-python3 bench/lint/specs.py            novels/<slug>            # BEFORE drafting
-python3 bench/lint/wordcount.py        novels/<slug>            # after drafting
-python3 bench/lint/fingerprint.py <file-or-novel-dir> [more…]   # side-by-side prose fingerprint
-```
-
-**Run `wordcount.py` before reading any other output.** Every shape metric here improves as chapters get shorter — a scene sketch has no room for the establishing-shot inventory that produces a long runway or a hollow middle. A manuscript short of its own specification scores *well*, which is the opposite of useful.
-
-Length tells you how to read the rest; it is not a brake on the pipeline. Drafting is allowed to come in short — `/novel.realize` exists for exactly that — so `wordcount.py` belongs at the step boundary and in realize, not after every chapter. Per chapter, log the number and keep going.
-
 | Script | What it reports |
 |---|---|
-| `specs.py` | Validates `scenes.md` **before drafting**: beats per chapter, word estimates, runway targets, prohibitions, whether estimates sum to target, and whether any chapter claims more length than it specifies story for. Exits 1 on failure. The cheapest check here and the one with the most leverage, because it runs before any prose exists. |
-| `wordcount.py` | Actual words per chapter against the scene spec's estimate, manuscript total against target, whether `novel.md`'s recorded count matches reality, and whether the target has been rewritten to match the output. Exits 1 on failure so it can gate a step. |
-
-| Script | What it reports |
-|---|---|
+| `specs.py` | Validates `scenes.md` **before drafting**: beats per chapter, word estimates, runway targets, prohibitions, whether estimates sum to target, and whether any chapter claims more length than it specifies story for. Exits 1 on failure. |
+| `wordcount.py` | Actual words per chapter against the scene estimate, total against target, whether `novel.md`'s count matches reality, and whether the target has been rewritten to match the output. Exits 1 on failure. |
 | `fingerprint.py` | Sentence-length distribution and median, paragraph shape, dialogue share, `said` ratio, punctuation rates, simile rate — for a novel or any comparison text, several side by side. This is how you fill the measured table in `style-guide-template.md`. |
-| `repetition.py` | Construction signatures per 10,000 words (characterising appositive, negation triad, inanimate volition, filter verbs, crutch words); phrases recurring above budget across chapters; near-duplicate sentences; in-chapter word-frequency outliers |
-| `continuity_facts.py` | Every price, age, span, and clock time grouped by the noun it attaches to, with contradictions flagged; calendar tokens per chapter; numbers in `continuity.md` absent from the prose |
-| `names.py` | Proper nouns shared between novels in this repository, and place names assembled from the two-morpheme nature kit |
+| `repetition.py` | Construction signatures per 10,000 words (characterising appositive, negation triad, inanimate volition, filter verbs, crutch words); phrases recurring above budget; near-duplicate sentences; in-chapter frequency outliers. |
+| `continuity_facts.py` | Every price, age, span, and clock time grouped by the noun it attaches to, with contradictions flagged; calendar tokens per chapter; numbers in `continuity.md` absent from the prose. |
+| `names.py` | Proper nouns shared between novels in this repository, and place names assembled from the two-morpheme nature kit. |
 
-`/novel.revise` runs all three as its required Pass 0, before any reading pass.
+## Where they belong in the pipeline
+
+`specs.py` is the one with the most leverage, because it runs before any prose exists. A chapter comes out the size of its specification: a run whose scene blocks carried a goal, a conflict and an outcome but no beats produced 28 chapters with a median of 497 words against a 2,500-word estimate, and `/novel.realize` added nothing, correctly — it expands toward specified beats and cannot expand toward beats nobody wrote. Checking that before drafting costs milliseconds; discovering it afterwards costs the manuscript.
+
+`wordcount.py` belongs at the step boundary and inside `/novel.realize`, **not after every chapter**. Drafting is allowed to come in short; that is what realize is for, and halting the draft to do the next step's work only stalls the run. Per chapter, log the number and keep going.
+
+Read `wordcount.py` before any other output, though, because length changes how the rest is read. Every shape metric improves as chapters get shorter — a scene sketch has no room for the establishing-shot inventory that produces a long runway or a hollow middle. A chapter under 80% of its estimate has not passed the shape checks; it has not taken them.
+
+`/novel.revise` runs `wordcount`, `repetition`, `continuity_facts`, `names` and `fingerprint` as its required Pass 0, before any reading pass.
 
 ## Reference points
 
