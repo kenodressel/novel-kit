@@ -57,8 +57,15 @@ Read ALL story artifacts before drafting:
 
 5. **Gate the chapter**: Before locking a chapter, measure it. These are counts, not impressions, and each has a fail condition. A fail means **regenerate this chapter now** — not a note for `/novel.realize` later.
 
+   **Length compliance is checked first, and nothing else counts until it passes.** Every shape metric below improves as a chapter gets shorter: a 700-word scene sketch has no room for the establishing-shot inventory that produces a long runway or a hollow middle, so it passes every other row effortlessly. Measured failure: a pipeline run produced 28 chapters averaging 960 words against a 2,500-word specification — 39% of its own spec — and scored better on mid-band share than any fully drafted novel in the corpus.
+
+   ```
+   python3 bench/lint/wordcount.py novels/<slug>
+   ```
+
    | Measure | How to count it | Fail |
    |---|---|---|
+   | **Chapter length** | `wordcount.py`, actual against this chapter's scene estimate | outside ±20% |
    | Runway | Words before the POV character acts with intent. Perceiving, remembering, noticing, and being described do not count. | > 250 |
    | Turn | Is the situation at the end different from at the start? Name what changed. | `no` |
    | Pressure | 1-5: is something being lost or decided here, or is this a competence display? | ≤ 2 |
@@ -68,6 +75,16 @@ Read ALL story artifacts before drafting:
    | Mid-band sentences | Share 12-25 words long: `python3 bench/lint/fingerprint.py novels/<slug>/manuscript/chapter-NN.md` | < 25% |
    | Median sentence | Same command | < 8 words |
    | Voice-vs-corpus | 1-5, from the blind comparative pass in `/novel.evaluate` | ≤ 2 |
+
+   Then append one row per chapter to **`novels/<slug>/story/gate-log.md`** — create it if absent:
+
+   ```
+   | ch | words | vs spec | runway | turn | pressure | mid-band | median | apposit. | closers | POV | verdict |
+   |----|-------|---------|--------|------|----------|----------|--------|----------|---------|-----|---------|
+   | 12 | 4,161 |   99%   |  116   | yes  |    4     |  39.7%   |   11   |    0     |    0    | ok  |  pass   |
+   ```
+
+   **This log is the gate.** An instruction to measure something leaves no trace when it is skipped; a missing row does. A run that reaches the end of drafting without a row per chapter did not gate anything, and `novel.md` may not mark Step 7 complete until the log is complete and `wordcount.py` exits zero.
 
    Then write the **compliance report** into the chapter's entry in `scenes.md`: the measured value of every numeric target in `style-guide.md` (sentence-length distribution, paragraph shape, punctuation rates, dialogue share), and for each target you missed, the number you hit and why.
 
@@ -85,7 +102,9 @@ Read ALL story artifacts before drafting:
 
 8. **Update status**: Mark the scene as "Drafted" in the tracking table in `novels/<slug>/story/scenes.md`.
 
-9. **Update word count**: After each chapter is complete, update `current_word_count` in `novels/<slug>/novel.md` and recalculate progress percentage.
+9. **Update word count — computed, never estimated**: run `python3 bench/lint/wordcount.py novels/<slug>` and copy the actual figure into `current_word_count` in `novels/<slug>/novel.md`. Do not write a number you have not counted.
+
+   This step is worded this way because a run once recorded 70,420 words against a 27,127-word manuscript and marked the project complete. Nothing in the pipeline computed the number, so nothing contradicted it. A status file that reports its target as met is worse than one that reports a shortfall: the shortfall is a problem, the false report is a problem you cannot see.
 
 ## Drafting modes
 

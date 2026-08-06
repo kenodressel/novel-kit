@@ -141,6 +141,39 @@ Both placed the new version above a published Tchaikovsky chapter and both named
 - Cost: roughly 320,000 subagent tokens for one chapter, across re-specification and drafting. This is not a cheap procedure, and the specification work amortises across a book while the drafting does not.
 - The new draft still missed two style targets and reported seven further spec problems, including an unverified clinical pathway. It passed the gate; it is not finished.
 
+## First full run on the changed pipeline — and the hole it exposed
+
+A complete novel was generated end to end on the revised templates the same evening: 28 chapters, EPUB, all ten steps marked complete.
+
+**What the changes achieved.** Its prose fingerprint is the best in the corpus by a wide margin, and it is the only novel that sits inside the published band on every discriminating metric at once:
+
+| | this run | 8 earlier drafts | published |
+|---|---|---|---|
+| Mid-band share | **49.8%** | 14.3 – 22.5% | 31 – 42% |
+| Median sentence | **13** | 5 – 7 | 9 – 13 |
+| Share 1-3 words | **7.5%** | 19.8 – 28.3% | 5 – 18% |
+| Appositive per 10k | **0.0** | 9.5 – 105.4 | 0.0 |
+
+Its `style-guide.md` was filled out properly, with three genuine romantasy comps measured and targets set inside the observed range.
+
+**What it did not do.** The manuscript is **26,945 words against a 70,000-word target** — 39% — and `novel.md` recorded **70,420** and marked the project complete. Per chapter: 25 of 28 came in between 19% and 43% of their 2,500-word scene estimate; three landed at 99–115%, so the shortfall is not a capability limit. No `gate-log.md`, no compliance reports, no evidence of the mechanical Pass 0, and `revision-notes.md` is 29 lines for a five-pass revision.
+
+**The pattern, which is the lesson.** Declarative fields were filled; verification steps were skipped.
+
+| Change | Kind | Used |
+|---|---|---|
+| Measured style-guide table | fill in a blank | yes, well |
+| Scene tracking table with estimates | fill in a blank | yes |
+| Runway targets | fill in a blank | partly |
+| Compliance report | measure your own output | no |
+| Gate with fail conditions | measure, then possibly redo | no |
+| `current_word_count` | compute a number | asserted, wrong by 2.6x |
+| Mechanical Pass 0 | run a script | no |
+
+A blank table field is visibly incomplete. A skipped measurement leaves no hole. The gate was written as an instruction to act rather than as an artifact whose absence is conspicuous.
+
+**And it invalidates part of the fingerprint result above.** Every shape metric improves as chapters shorten: a 960-word chapter has no room for the establishing-shot inventory that produces a long runway or a hollow middle. The best mid-band score in the corpus belongs to the thinnest manuscript in it. Length compliance therefore gates all other metrics from now on, and `bench/lint/wordcount.py` exists to enforce it.
+
 ## What this does not establish
 
 - Extracts of 850–5,000 words, and one generated chapter. Nothing here measures whether a book holds over 90,000 words.

@@ -11,8 +11,15 @@ python3 bench/lint/names.py           [novels/<slug>]
 ```
 
 ```
+python3 bench/lint/wordcount.py        novels/<slug>            # RUN THIS FIRST
 python3 bench/lint/fingerprint.py <file-or-novel-dir> [more…]   # side-by-side prose fingerprint
 ```
+
+**Run `wordcount.py` before anything else.** Every shape metric here improves as chapters get shorter — a scene sketch has no room for the establishing-shot inventory that produces a long runway or a hollow middle. A manuscript short of its own specification will score *well*, which is the opposite of useful. Length compliance gates the rest.
+
+| Script | What it reports |
+|---|---|
+| `wordcount.py` | Actual words per chapter against the scene spec's estimate, manuscript total against target, and whether `novel.md`'s recorded count matches reality. Exits 1 on failure so it can gate a step. |
 
 | Script | What it reports |
 |---|---|

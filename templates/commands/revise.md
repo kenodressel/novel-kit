@@ -38,10 +38,14 @@ The author may request a specific pass or a full revision. Available passes:
 Machines are better than readers at counting, and worse at judging. Run the counters first so the reading passes know where to look.
 
 ```
+python3 bench/lint/wordcount.py        novels/<slug>   # run this FIRST
 python3 bench/lint/repetition.py       novels/<slug>
 python3 bench/lint/continuity_facts.py novels/<slug>
 python3 bench/lint/names.py            novels/<slug>   # cross-novel name collisions
+python3 bench/lint/fingerprint.py      novels/<slug>   # against style-guide.md targets
 ```
+
+`wordcount.py` comes first because a manuscript short of its own specification cannot be fixed by revision passes — it needs `/novel.realize`, and every prose metric flatters a chapter that is too thin to contain its own scene.
 
 `repetition.py` reports phrases and distinctive words recurring above the budget in `style-guide.md`, near-duplicate sentences across chapters, and in-chapter word-frequency outliers. `continuity_facts.py` extracts every number, price, date, time, age, and measurement per chapter and reports contradictions between them and against `continuity.md`.
 
