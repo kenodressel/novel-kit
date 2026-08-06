@@ -33,6 +33,24 @@ Read ALL story artifacts and the full manuscript:
 
 The author may request a specific pass or a full revision. Available passes:
 
+### Pass 0: Mechanical Sweep (REQUIRED — run before any reading pass)
+
+Machines are better than readers at counting, and worse at judging. Run the counters first so the reading passes know where to look.
+
+```
+python3 bench/lint/wordcount.py        novels/<slug>   # run this FIRST
+python3 bench/lint/repetition.py       novels/<slug>
+python3 bench/lint/continuity_facts.py novels/<slug>
+python3 bench/lint/names.py            novels/<slug>   # cross-novel name collisions
+python3 bench/lint/fingerprint.py      novels/<slug>   # against style-guide.md targets
+```
+
+`wordcount.py` comes first because a manuscript short of its own specification cannot be fixed by revision passes — it needs `/novel.realize`, and every prose metric flatters a chapter that is too thin to contain its own scene.
+
+`repetition.py` reports phrases and distinctive words recurring above the budget in `style-guide.md`, near-duplicate sentences across chapters, and in-chapter word-frequency outliers. `continuity_facts.py` extracts every number, price, date, time, age, and measurement per chapter and reports contradictions between them and against `continuity.md`.
+
+These are pointers, not verdicts. Read every flagged passage before changing it — a script cannot tell a deliberate refrain from a forgotten one. But do not skip the sweep on the grounds that you will notice these while reading. Measured misses from careful human and AI drafts alike: a phrase repeated twelve times in 5,500 words; a whole closing sentence duplicated near-verbatim 150 lines apart; a price stated as eleven dollars, then eighteen, then "$8.50, same as always."
+
 ### Pass 1: Continuity Edit (SEQUENTIAL — do not parallelize)
 
 This is the most critical pass. It must be done **chapter by chapter in order**, maintaining a running state of what is established in prose. Do NOT read ahead. For each chapter, verify against what has been written so far (not what the outline says will happen later).
@@ -96,14 +114,26 @@ Prose-level analysis, chapter by chapter:
 - Suggest stronger verbs and sharper dialogue
 - Note repetitive sentence patterns
 
-**AI-generated prose patterns** (check specifically for these):
-- Crutch words: "particular," "something about," "a sense of," "the weight of"
+**Unedited-draft prose patterns** (check specifically for these — the counts below are measured, not guessed):
+
+- **The characterising appositive**: `with the [abstract noun] of [someone] who [does X]`. The single highest-signal marker. 218 occurrences in one unedited 349,000-word corpus; **zero** in 749,000 words of published fiction by five authors. Count it. If it is over budget, the narrator has no idiom of its own and is using simile to certify characters — fix the idiom rather than the sentences, or a substitute tic replaces it.
+- **The negation triad**: "Not a thought. Not a decision. Just —" and `not X but Y`. Present in six of seven measured drafts, and it survives translation into other languages, which is how you know it is a habit rather than a style.
+- **Inanimate volition**: objects, buildings, and weather given intentions, beliefs, and opinions. "as if it didn't believe the day was over", "a refrigerator that knew it should have been replaced", "as if the weather had decided to forgive". Published prose does this roughly one-tenth as often, and when it does, the thing is often literally sentient.
+- **The self-explaining closer**: a paragraph or scene ending by naming its own significance. In one measured set, every extract closed its opening movement by announcing the protagonist's theme, wound, or competence. And note the correlation: the extracts that explained themselves were the same ones with the longest runways. The gloss is compensating for a scene that did no work — so treat it as a symptom and check the scene, not just the sentence.
+- **Thesis restatement**: the same idea about a character delivered three to twelve times in different words. Rule: when a fact has been dramatised, delete the narrator's later summary. The summary is always the weaker version.
+- **Section-shape lock**: every scene opening and closing on the same move. List the closing move of all scenes in a chapter group; three or more identical is a finding.
+- **POV break to deliver information**: flash-forwards, a second character's interior, second-person address to the reader. This is the scene admitting it could not deliver a fact the reader needs. Restructure the scene.
+- **Single-engine dialogue**: every character speaking in the same rhetorical move — commonly flat-statement-plus-witty-reversal. Test: strip the attributions from one line per character and try to reassign them. Measured failure: twelve-year-olds indistinguishable from adults across six characters.
+- Crutch words: "particular," "specific," "something about," "a sense of," "the weight of" — count them; "specific" used four times in a chapter is the prose asking to be specific instead of being specific
 - Filter phrases: "she felt," "she noticed," "she realized," "she couldn't help but"
-- Constructions: "the way [she/someone] [verb]," "the kind of [noun] that [clause]"
+- `the way [she/someone] [verb]` as the default simile frame, and `the kind of [noun] that [clause]`
 - Consecutive paragraphs opening with "She" or the POV character's name
 - Over-explained metaphors (a strong image followed by a sentence explaining it)
+- A motif explained aloud by a character — when someone says "that is not comfort, that is a fortification", the image has stopped working and is being narrated
 - Heavy em-dash parentheticals that should be their own sentences
 - Thought catalogues at chapter endings ("She thought about X. She thought about Y.")
+
+None of these are artifacts of machine generation. Every one of them was also measured, at comparable or higher rates, in an unedited self-published novel written by a human. They are the defects of a first draft that has not met an editor.
 
 ### Pass 6: Boredom / Genericity Edit
 

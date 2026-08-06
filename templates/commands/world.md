@@ -42,6 +42,18 @@ Read these files first:
 
 6. **Sensory palette**: Establish the dominant sensory signatures of the world so prose stays consistent across the manuscript.
 
+7. **Name the places from a stated source, and check for collisions**:
+
+   Record in `world.md` where the names come from — a real regional naming convention, a language, a period gazetteer, a migration history. "Invented to sound right" is not a source, and it produces the same handful of names every time.
+
+   Then run the collision check:
+   ```
+   python3 bench/lint/names.py novels/<slug>
+   ```
+   It reports proper nouns already used in another novel in this repository, and flags names assembled from the two-morpheme nature kit that unedited drafts reach for. Measured in one corpus: the same house name, Thornfield, appearing in two unrelated novels; the same surname, Ashworth, in both; and five settlements built from one kit — Briarwood, Willowbrook, Thornfield, Ridgeline, Saltwick.
+
+   Rename anything that collides. A reader who reads two of your books will notice, and it is the cheapest possible thing to have fixed.
+
 ## The Iceberg Principle
 
 You may develop 10x more world detail than appears in the prose. That's fine -- it creates consistency and confidence. But the document should clearly distinguish between:

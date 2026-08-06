@@ -33,6 +33,14 @@ Take the author's raw story idea and develop it into a complete premise document
 
 3. **Develop multiple candidates**: Craft 3-5 premise/logline variants. Use the format: "When [inciting incident], a [specific protagonist] must [action/goal], or else [stakes]." Make the variants meaningfully different in engine, tone, or stakes. Do not just paraphrase.
 
+   Candidate generation does not help if every candidate comes from the same attractor. Before writing the variants, make the attractor visible so you can steer away from it — see the next step.
+
+4. **Collision check against the existing corpus**: Read `novels/*/story/premise.md` for every other novel in this repository and tabulate, for each: protagonist's occupation, opening situation, story engine, setting archetype, and the relationship shape.
+
+   **Reject any candidate that shares two or more of those with an existing novel.**
+
+   This step exists because nothing else in the pipeline reads what has already been written, and the result is measurable: in one corpus of seven novels, two were independently generated as "burned-out creative drives to a remote Pacific Northwest location to recover an authentic self, with a totem object in the passenger seat", two were "chef arrives at a broken kitchen", and two were "English spring, Easter, country house party, managing female relative, dialogue built on interruption". Three collisions in seven books, none of them noticed at the time.
+
 4. **Expand to elevator pitch**: Write a one-paragraph pitch that adds tone, setting, and emotional stakes to the logline.
 
 5. **Write the synopsis**: Expand to a one-page synopsis covering beginning, middle, and end. Include the ending. This synopsis should make the story's structure visible.

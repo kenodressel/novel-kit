@@ -26,6 +26,18 @@ Read:
 - `novels/<slug>/manuscript/` -- the revised manuscript
 - `novels/<slug>/story/revision-notes.md` -- revision history
 
+## Count the manuscript before writing anything about it
+
+```
+python3 bench/lint/wordcount.py novels/<slug>
+```
+
+Every submission document states a word count, and it is the one number in the package a reader can verify instantly. **Take it from this command, never from `novel.md` and never from the target.**
+
+If the count is short of the target, that is a decision to surface to the author before generating a package, not a number to round up. A 27,000-word manuscript is a novella, and describing it as a 70,000-word novel is a claim that survives exactly as long as it takes an agent to request the full text.
+
+This is written explicitly because a run generated a query letter and a synopsis both stating 70,000 words for a 26,945-word manuscript, taking the figure from a `current_word_count` field that had itself never been computed. One unverified number propagated into the two documents whose entire purpose is to be sent to strangers.
+
 ## Process
 
 ### Beta Reader Preparation

@@ -8,6 +8,21 @@
 - **Conventions you will subvert**: <!-- Where will you surprise the reader? Why? -->
 - **Conventions you will avoid**: <!-- What genre tropes are off-limits? -->
 
+## POV and Tense — a decision, not a default
+
+<!-- Fill the table from every existing novel in novels/, then state your own choice and why. -->
+
+| Existing novel | Person | Tense | POV count | Register |
+|---|---|---|---|---|
+| | | | | |
+| | | | | |
+
+- **Most common configuration in the corpus**:
+- **This book's configuration**:
+- **Why** <!-- required. If it matches the most common configuration, justify it in one sentence or choose differently. -->:
+
+<!-- Why this is a table rather than a note: in one corpus of seven English novels, all seven were third person past tense. Nobody chose that; it was what happened when the question went unasked. The only novel three independent blind readers credited with a distinct narrative voice was the one in first person present with a spoken register — and the only one where the configuration had been a deliberate choice. The evidence for any specific configuration being better is thin. The evidence that an unexamined default yields seven books with one voice is not. -->
+
 ## Candidate Voice Directions
 
 <!-- Before locking the vision, compare a few materially different aesthetic directions. -->
