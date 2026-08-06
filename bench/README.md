@@ -11,7 +11,8 @@ python3 bench/lint/names.py           [novels/<slug>]
 ```
 
 ```
-python3 bench/lint/wordcount.py        novels/<slug>            # RUN THIS FIRST
+python3 bench/lint/specs.py            novels/<slug>            # BEFORE drafting
+python3 bench/lint/wordcount.py        novels/<slug>            # after drafting
 python3 bench/lint/fingerprint.py <file-or-novel-dir> [more…]   # side-by-side prose fingerprint
 ```
 
@@ -21,7 +22,8 @@ Length tells you how to read the rest; it is not a brake on the pipeline. Drafti
 
 | Script | What it reports |
 |---|---|
-| `wordcount.py` | Actual words per chapter against the scene spec's estimate, manuscript total against target, and whether `novel.md`'s recorded count matches reality. Exits 1 on failure so it can gate a step. |
+| `specs.py` | Validates `scenes.md` **before drafting**: beats per chapter, word estimates, runway targets, prohibitions, whether estimates sum to target, and whether any chapter claims more length than it specifies story for. Exits 1 on failure. The cheapest check here and the one with the most leverage, because it runs before any prose exists. |
+| `wordcount.py` | Actual words per chapter against the scene spec's estimate, manuscript total against target, whether `novel.md`'s recorded count matches reality, and whether the target has been rewritten to match the output. Exits 1 on failure so it can gate a step. |
 
 | Script | What it reports |
 |---|---|

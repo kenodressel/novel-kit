@@ -32,6 +32,14 @@ Read ALL story artifacts before drafting:
 - `novels/<slug>/story/continuity.md` -- for established details (if it exists)
 - Previous chapters in `novels/<slug>/manuscript/` -- for continuity and flow
 
+## Before the first chapter: check that there is something to draft
+
+```
+python3 bench/lint/specs.py novels/<slug>
+```
+
+If this fails, stop and fix `scenes.md` — do not start drafting. A chapter comes out the size of its specification, and the cheapest moment to discover that a spec has one beat where it needs ten is before any prose exists. Once 28 thin chapters are written, no later step can recover the missing story: `/novel.realize` expands toward specified beats, and it cannot expand toward beats nobody wrote.
+
 ## Process
 
 1. **Identify the next scene**: Check the scene tracking table in `novels/<slug>/story/scenes.md` for the next scene with status "Planned."

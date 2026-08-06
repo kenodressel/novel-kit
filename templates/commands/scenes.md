@@ -102,6 +102,20 @@ Flag any scene where a sympathetic character's behavior requires them to know so
    - Recurring motifs from vision.md
    - This becomes a living document updated during Draft, Realize, and Revise steps
 
+## Validate the specification before this step can complete
+
+```
+python3 bench/lint/specs.py novels/<slug>
+```
+
+**This step is not complete until that exits zero.** It checks that every chapter has a scene block with at least three beats, a word estimate, a runway target, a goal, an outcome, prohibitions and a closing move, that the estimates sum to the manuscript target, and that no block claims more length than it specifies story for — above roughly 400 words per beat, the chapter has been given room it has no events to fill.
+
+This exists because a run produced 28 scene blocks of seven lines each — POV, estimate, setting, goal, conflict, outcome, closing move — with **no beats at all**, then drafted a 16,500-word manuscript against a 70,000-word target. A goal plus a conflict plus an outcome is *one beat*, and one beat is a 500-word scene however large the estimate says it is. Every step downstream behaved correctly given its input: the drafter wrote what was specified, and `/novel.realize` added nothing because nothing was missing relative to a seven-line spec.
+
+A 2,500-word chapter needs eight to twelve beats. Writing them is the work of this step, and it is the work the rest of the pipeline cannot do for you: no later step can expand toward beats that were never written down.
+
+Do not resolve a failure by lowering the estimates or the target. If the story genuinely has only 16,000 words in it, that is a finding about the outline, and it belongs in `/novel.outline` — not in a quietly reduced number here.
+
 ## Output
 
 - Write the completed scene breakdown to `novels/<slug>/story/scenes.md`

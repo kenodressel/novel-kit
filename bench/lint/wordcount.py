@@ -29,13 +29,25 @@ def words(p: pathlib.Path) -> int:
     return len(body.split())
 
 
+# The scenes step renames this field freely, so match on intent rather than text.
+EST_LABEL = r"(?:estimated word count|est\.? words|word count \(est\.?\)|words \(est\.?\))"
+
+
 def spec_estimates(scenes: pathlib.Path) -> dict:
-    """Chapter number -> summed estimated words, read from the scene tracking table.
-    Table shape: | ID | Chapter | Title | POV | Outcome | Words (est.) | ... |"""
+    """Chapter number -> summed estimated words.
+
+    Reads the scene tracking table first, then per-scene blocks. Both, because a
+    run once wrote `**Est. Words**: 2,500` in its blocks and this function looked
+    only for `Estimated word count` -- found nothing, silently skipped the
+    per-chapter comparison, and let a manuscript at 23% of target report PASS.
+    """
     if not scenes.exists():
         return {}
+    text = scenes.read_text(encoding="utf-8")
     per = {}
-    for line in scenes.read_text(encoding="utf-8").splitlines():
+
+    # 1. tracking table: | ID | Chapter | Title | POV | Outcome | Words (est.) | ... |
+    for line in text.splitlines():
         cells = [c.strip() for c in line.split("|")]
         if len(cells) < 8 or not cells[1].isdigit():
             continue
@@ -43,6 +55,18 @@ def spec_estimates(scenes: pathlib.Path) -> dict:
         est = next((c for c in cells[3:] if re.fullmatch(r"[\d,]{2,7}", c)), None)
         if ch.isdigit() and est:
             per[int(ch)] = per.get(int(ch), 0) + int(est.replace(",", ""))
+    if per:
+        return per
+
+    # 2. per-scene blocks, with a chapter number in the heading or a Chapter field
+    for block in re.split(r"(?m)^#{2,4}\s+(?=(?:Scene|Chapter)\b)", text)[1:]:
+        head = block.split("\n")[0]
+        m = re.search(r"(?:Chapter|Scene)\s*(\d+)", head) or \
+            re.search(r"(?im)^[-*\s]*\**\s*Chapter\**\s*[:\-]\s*(\d+)", block)
+        e = re.search(rf"(?im)^[-*\s]*\**\s*{EST_LABEL}\**\s*[:\-]\s*([\d,]{{2,7}})", block)
+        if m and e:
+            ch = int(m.group(1))
+            per[ch] = per.get(ch, 0) + int(e.group(1).replace(",", ""))
     return per
 
 
@@ -98,6 +122,21 @@ def main():
         fails.append(f"manuscript is {total / target * 100:.0f}% of target "
                      f"({total:,} of {target:,}). Short by {target - total:,}.")
 
+    # A target equal to the actual count, to the word, is a rewritten goalpost.
+    # Observed: a run that missed 70,000, set target_word_count to its own output,
+    # and reported PASS. The target is not evidence if the run can edit it.
+    if target and target == total:
+        fails.append(f"target_word_count ({target:,}) is exactly the actual count. "
+                     "A target set to match the output is not a target. Restore the "
+                     "original figure, or state the reclassification in novel.md with "
+                     "the original target recorded beside it.")
+
+    if not est:
+        fails.append("no per-chapter word estimates found in story/scenes.md, so chapter "
+                     "lengths cannot be checked at all. This is a failure, not a skip: an "
+                     "unverifiable manuscript must not report compliance. Run "
+                     "bench/lint/specs.py -- the specification is probably missing its beats too.")
+
     if est:
         print("  per chapter, actual vs specified:\n")
         short = []
@@ -119,8 +158,11 @@ def main():
         print("## FAIL\n")
         for f in fails:
             print(f"  - {f}")
-        print("\nShape metrics are not meaningful until length compliance passes:")
-        print("mid-band share, runway, and appositive rate all improve as chapters shorten.")
+        if any("short" in f or "%" in f for f in fails):
+            print("\nA short chapter has not passed the shape checks in eval-rubric-template.md,")
+            print("it has not taken them: mid-band share, runway, and appositive rate all improve")
+            print("as chapters shorten. Mark those rows 'n/a -- short'. Length itself belongs to")
+            print("/novel.realize.")
         sys.exit(1)
 
     print("## PASS — length compliance")
