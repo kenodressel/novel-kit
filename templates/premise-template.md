@@ -1,14 +1,27 @@
 # Premise
 
+## Collision Check
+
+<!-- Fill this in BEFORE writing candidates. One row per existing novel in novels/, read from its premise.md. Candidate generation does not help if every candidate comes from the same attractor; this table is how you see the attractor. -->
+
+| Existing novel | Protagonist's occupation | Opening situation | Story engine | Setting archetype | Relationship shape |
+|---|---|---|---|---|---|
+| | | | | | |
+| | | | | | |
+
+**Attractors to steer away from**: <!-- What do the rows above have in common? -->
+
+**Collisions in the selected candidate**: <!-- Two or more shared with any existing novel means reject and regenerate. Measured failure: in one corpus of seven novels, two were independently generated as "burned-out creative drives to a remote Pacific Northwest location to recover an authentic self, totem object in the passenger seat", two as "chef arrives at a broken kitchen", and two as "English spring, Easter, country house party, managing female relative". None was noticed at the time, because nothing in the pipeline read what had already been written. -->
+
 ## Candidate Comparison
 
 <!-- Capture the 3-5 strongest premise candidates before locking one. -->
 
-| Candidate | Engine / Hook | Stakes | Distinctiveness | Risks | Verdict |
-|-----------|----------------|--------|-----------------|-------|---------|
-| A | | | | | |
-| B | | | | | |
-| C | | | | | |
+| Candidate | Engine / Hook | Stakes | Distinctiveness | Collisions | Risks | Verdict |
+|-----------|----------------|--------|-----------------|------------|-------|---------|
+| A | | | | | | |
+| B | | | | | | |
+| C | | | | | | |
 
 **Selected candidate**: <!-- Which option won, and why -->
 
