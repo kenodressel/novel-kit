@@ -1,7 +1,13 @@
 # Corpus Audit and Measurement Harness — Design
 
 **Date:** 2026-08-04
-**Status:** Approved design, ready for implementation planning
+**Status:** SUPERSEDED, 2026-08-06. Kept as a record of a plan that was mostly wrong.
+
+> This spec proposed building ten speculative prose detectors first and reading second. The order was backwards. A single blind reading pass over 5,600 words — the cheapest thing in the plan — produced more, and better attributed, findings than the detectors would have, and told us which detectors were worth building. Six of the ten were never built because the reading pass showed they measured nothing.
+>
+> The spec also assumed the corpus needed auditing for its own sake. What it actually needed was a reference point, which arrived when published comparison texts became available; the calibration question the spec flagged as unanswerable ("what counts as an extreme outlier?") turned out to have the answer 0 versus 218.
+>
+> What survived: the generational stratification and liveness labelling, the validity guards, and the insistence on blind evaluation. See `docs/measurements-2026-08-06.md` for what was measured and `bench/README.md` for the three linters that were built.
 
 ## Problem
 

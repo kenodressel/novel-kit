@@ -31,7 +31,13 @@ Read `novels/<slug>/story/premise.md` first. The vision builds on the premise.
 
 3. **Theme exploration**: Starting from the core question in the premise, develop the thematic framework. What motifs will recur? What is the story's thesis?
 
-4. **Voice and POV**: Determine the narrative voice. Walk through POV options and their trade-offs for this specific story. Decide on tense, perspective, and voice qualities.
+4. **Voice and POV — as a decision, not a default**: Walk through POV options and their trade-offs for this specific story. Decide on person, tense, perspective, and voice qualities, and **write down the reason**.
+
+   First, list the configuration of every existing novel in `novels/` — person, tense, POV count, register. If your choice matches the most common one, justify it in one sentence or choose differently.
+
+   Why this is a step rather than a footnote: in one corpus of seven novels, all seven were third person past tense. Nobody had chosen that; it was simply what happened when the question was not asked. The one novel in that corpus that three independent blind readers credited with a distinct narrative voice was the only one in first person present with a spoken register — and it was the only one where the configuration had been a deliberate choice.
+
+   The evidence for any *specific* configuration being better is thin. The evidence that an unexamined default produces seven books with one voice is not.
 
 5. **Tone and style**: Define the prose style. Offer contrasting examples of how the same scene could be written in different styles. Let the author feel the difference and choose. Create `novels/<slug>/story/style-guide.md` from `templates/style-guide-template.md` so the prose has operational rules, not just adjectives.
 

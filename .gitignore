@@ -15,3 +15,8 @@ novels/
 
 # Personal notes not meant for version control
 *.private.md
+
+# Bench output quotes your private manuscripts; the linters themselves are tracked
+bench/reports/
+bench/baseline.json
+bench/reference/

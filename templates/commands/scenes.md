@@ -62,6 +62,11 @@ Read ALL previous artifacts:
    - The scene sequence creates the tension curve from the outline
    - Redundant scenes are merged or cut
    - Chapters end with actual reader pull, not merely document completion
+   - **Every scene has a runway target under 250 words**, and the opening scene satisfies the extra requirements in `scenes-template.md`
+   - **Beat arithmetic**: for each scene with anchored beat positions, the positions fit inside the estimated word count in the order given. A spec that asks for beat 6 by word 400 when beats 4 and 5 cannot compress below 500 is impossible, and the drafter will silently write around it rather than report it
+   - **Closing-move variety**: list the closing move of every scene in order. Three or more consecutive scenes sharing a move is a fail — fix it here, not in revision
+   - **Cross-novel opening collision**: compare the opening move of each chapter against the first 200 words of every chapter in every other novel under `novels/`. Two novels opening a mid-book chapter on "The [noun] was wrong," followed by a taxonomy of kinds of wrongness, followed by a kiss against a work surface, is one scene written twice. Measured: three such pairings across seven chapters, none noticed at the time
+   - **Prohibitions filled in**: every scene names what it must not do, and what the POV character does not achieve
 
 ## Interrogation
 

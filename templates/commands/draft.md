@@ -47,17 +47,31 @@ Read ALL story artifacts before drafting:
    - Deliver the emotional shift
    - Land the specified outcome
    - Stay within the estimated word count (within 20%)
+   - **Hit the numeric anchors in the scene spec**: the runway target, the word positions of anchored beats, and the prohibitions. These are the spec's load-bearing parts. A scene that hits its beats but opens with 600 words of setting has not followed the spec.
+   - **Honor the measured targets in `style-guide.md`**: sentence-length distribution, paragraph shape, punctuation rates, dialogue share. Check them against the draft before moving on, not by feel.
    - Show, don't tell (unless the vision explicitly calls for a telling style)
+   - **Do not close on a gloss**: no paragraph may end by naming the character's theme, wound, or competence. If the scene needs that sentence to be understood, the scene is the problem.
+   - **Do not break POV to deliver information**: no flash-forwards, no second interior, no second-person address to the reader. If the reader needs a fact the POV character cannot have, restructure the scene.
    - **Temporal discipline**: Only reference events that have already happened in previously drafted chapters. Do not let a character reflect on a scene that hasn't occurred yet. Check `continuity.md` if unsure.
    - **Earn the emotion**: Emotional beats should match the relationship's current stage. Don't borrow intimacy or vulnerability from later scenes — let each chapter's emotional register be justified by what's come before.
 
-5. **Evaluate the chapter**: Before locking a chapter, run a chapter-level quality check:
-   - Is the voice specific or generic?
-   - Does the dialogue belong to these characters?
-   - Does the chapter create reader pull?
-   - Is the chapter enacted, not summarized?
-   - Does any reality-adjacent claim need fact-checking?
-   If the answer is weak, branch the chapter or send it to `/novel.realize` later with explicit notes.
+5. **Gate the chapter**: Before locking a chapter, measure it. These are counts, not impressions, and each has a fail condition. A fail means **regenerate this chapter now** — not a note for `/novel.realize` later.
+
+   | Measure | How to count it | Fail |
+   |---|---|---|
+   | Runway | Words before the POV character acts with intent. Perceiving, remembering, noticing, and being described do not count. | > 250 |
+   | Turn | Is the situation at the end different from at the start? Name what changed. | `no` |
+   | Pressure | 1-5: is something being lost or decided here, or is this a competence display? | ≤ 2 |
+   | Appositive count | Occurrences of `with the [abstract noun] of [someone] who [does X]` | over the style guide's budget |
+   | Self-explaining closers | Paragraphs closing by naming their own significance | any |
+   | POV integrity | Flash-forwards, non-POV interiors, second-person address | any |
+   | Voice-vs-corpus | 1-5, from the blind comparative pass in `/novel.evaluate` | ≤ 2 |
+
+   Then write the **compliance report** into the chapter's entry in `scenes.md`: the measured value of every numeric target in `style-guide.md` (sentence-length distribution, paragraph shape, punctuation rates, dialogue share), and for each target you missed, the number you hit and why.
+
+   A miss you can explain is information, not a failure. A scene with one speaking character cannot reach a 20% dialogue share — report the under-run rather than inventing conversation the beat sheet does not have. What must never happen is a silent miss.
+
+   If the spec itself turns out to be impossible — beat positions that do not fit the word count, a date that contradicts the outline — stop and report it. Do not quietly resolve a contradiction in the specification by writing around it. That contradiction will still be there for the next chapter.
 
 6. **Update continuity**: After drafting, update `novels/<slug>/story/continuity.md` with:
    - New facts established in prose (descriptions, names, places, objects)
@@ -92,8 +106,12 @@ The author may request different levels of AI involvement:
 
 When the author requests full auto, use these defaults:
 - Drafting mode: Full draft
-- Draft all scenes in sequence without stopping for feedback
+- Draft all scenes in sequence without stopping for author feedback
 - Generate alternatives for opening, midpoint, climax, and final chapter
 - Stay within scene spec word counts (within 20%)
 - Update continuity.md after each chapter group (every 3-5 chapters)
 - When complete, proceed directly to `/novel.realize`
+
+**Full auto does not skip the gate.** Step 5 runs on every chapter. On a fail, regenerate the chapter — up to two attempts. If it still fails, write the chapter, record the failing measures in `scenes.md`, add it to an open-issues list in `novel.md`, and continue. Autonomy means not asking the author; it does not mean not measuring.
+
+A run that ships every chapter it generates has no quality control, and the weakest chapters are the ones a reader remembers.

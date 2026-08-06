@@ -52,7 +52,17 @@ Read ALL previous artifacts:
 
 5. **Build foreshadowing map**: Identify every setup that needs a payoff, and every payoff that needs a setup.
 
-6. **Design pacing**: Map the tension curve across the full novel. Identify peaks, valleys, and breathers.
+6. **Install an opposition and a clock**: This is the structural failure that most reliably flattens a novel — in a diagnostic read of four unedited openings, three had no force in the story capable of resisting the protagonist except the protagonist. Every secondary character existed to confirm the protagonist's reading of the world.
+
+   Name both, explicitly, in the outline:
+   - **The opposing force**: a character or institution that wants something incompatible with what the protagonist wants. Write out its argument in its own words, and make that argument *better than the protagonist's*. If you cannot make it better, the conflict is a misunderstanding rather than an opposition.
+   - **The clock**: a deadline that exists outside the protagonist's feelings, with a mechanism and a date. Then check that later acts still reference it. A deadline introduced once and never mentioned again stops the reader counting days at the same moment the author stopped.
+
+   A romance or a literary novel is not exempt. The strongest unedited novel measured in that same read was strongest because it had an antagonist who was right, a quantified debt, and an expiring inspection deadline; the weakest had a protagonist whose only obstacle was her own reticence.
+
+7. **Vary scene shape across the act**: List the closing move of every scene you have planned — on an action, on dialogue, on an unanswered question, on someone else's decision, on an image. If three or more in a row share a move, change them now. Measured in unedited drafts: every scene in a 5,000-word span closing on the protagonist declining to act, four times consecutively; a reader learns the shape by the second instance and thereafter watches for it instead of reading.
+
+8. **Design pacing**: Map the tension curve across the full novel. Identify peaks, valleys, and breathers. Record the intended pressure value per chapter — the draft gate in `draft.md` measures the delivered value against it.
 
 7. **Evaluate before locking**: Compare candidates on escalation, surprise, emotional force, subplot integration, and ending inevitability-with-unpredictability. If none are strong enough, branch again instead of polishing the weakest acceptable option.
 
@@ -66,6 +76,10 @@ Read ALL previous artifacts:
 - Are all subplots resolved (or intentionally left open)?
 - Does the pacing match genre expectations?
 - Does every act advance the theme?
+- Who in this book is right in a way that costs the protagonist something? Quote them.
+- Is there any scene where a secondary character's want is incompatible with the protagonist's, rather than merely inconvenient?
+- How many times is each reveal signalled before it lands? A reveal telegraphed three times reveals nothing — the pro-shop scene has nothing left to disclose once the conspiracy has been flagged six times.
+- Is the protagonist's competence demonstrated by sustained technical work anywhere, or only asserted by the narrator?
 
 ## Output
 
