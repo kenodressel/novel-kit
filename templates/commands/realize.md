@@ -21,6 +21,18 @@ First drafts -- especially autonomous or AI-assisted ones -- often capture the c
 
 Realization may deepen, sharpen, compress, or partially rewrite a chapter. It is not limited to adding words. Its job is to produce scenes that feel dramatically alive while preserving the novel's intended causality and arc.
 
+## Start by measuring, and do not report success without re-measuring
+
+```
+python3 bench/lint/wordcount.py novels/<slug>
+```
+
+Realization exists primarily because drafts come in short of their specifications. So the first thing to know is *how* short, per chapter, and the last thing to do is check whether that changed.
+
+**A realization pass may not be marked complete while `wordcount.py` still fails.** This is written explicitly because a run once reported "realization pass completed across all chapters" on a manuscript sitting at 39% of its scene specifications — 25 of 28 chapters between 19% and 43% of target. The step reported success at exactly the condition it exists to fix, and nothing measured it.
+
+Record before-and-after word counts per chapter in `novels/<slug>/story/gate-log.md`. If a chapter is short and you judge that it should stay short — some scenes genuinely want to be brief — say so per chapter with a reason, and correct the scene estimate in `scenes.md` rather than leaving a permanent unexplained gap. A specification nobody intends to meet is worse than no specification.
+
 ## Prerequisites
 
 Read ALL story artifacts and the full manuscript:
