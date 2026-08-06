@@ -10,8 +10,13 @@ python3 bench/lint/continuity_facts.py novels/<slug>
 python3 bench/lint/names.py           [novels/<slug>]
 ```
 
+```
+python3 bench/lint/fingerprint.py <file-or-novel-dir> [more…]   # side-by-side prose fingerprint
+```
+
 | Script | What it reports |
 |---|---|
+| `fingerprint.py` | Sentence-length distribution and median, paragraph shape, dialogue share, `said` ratio, punctuation rates, simile rate — for a novel or any comparison text, several side by side. This is how you fill the measured table in `style-guide-template.md`. |
 | `repetition.py` | Construction signatures per 10,000 words (characterising appositive, negation triad, inanimate volition, filter verbs, crutch words); phrases recurring above budget across chapters; near-duplicate sentences; in-chapter word-frequency outliers |
 | `continuity_facts.py` | Every price, age, span, and clock time grouped by the noun it attaches to, with contradictions flagged; calendar tokens per chapter; numbers in `continuity.md` absent from the prose |
 | `names.py` | Proper nouns shared between novels in this repository, and place names assembled from the two-morpheme nature kit |

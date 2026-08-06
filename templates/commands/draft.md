@@ -65,6 +65,8 @@ Read ALL story artifacts before drafting:
    | Appositive count | Occurrences of `with the [abstract noun] of [someone] who [does X]` | over the style guide's budget |
    | Self-explaining closers | Paragraphs closing by naming their own significance | any |
    | POV integrity | Flash-forwards, non-POV interiors, second-person address | any |
+   | Mid-band sentences | Share 12-25 words long: `python3 bench/lint/fingerprint.py novels/<slug>/manuscript/chapter-NN.md` | < 25% |
+   | Median sentence | Same command | < 8 words |
    | Voice-vs-corpus | 1-5, from the blind comparative pass in `/novel.evaluate` | ≤ 2 |
 
    Then write the **compliance report** into the chapter's entry in `scenes.md`: the measured value of every numeric target in `style-guide.md` (sentence-length distribution, paragraph shape, punctuation rates, dialogue share), and for each target you missed, the number you hit and why.

@@ -8,24 +8,47 @@
 
 **Comps analysed**: <!-- title + author for each, and which sections you measured -->
 
-| Metric | This book's target | Comp range observed |
-|---|---|---|
-| Mean sentence length (words) | | |
-| Median sentence length | | |
-| Share of sentences 1-3 words | | |
-| Share of sentences 4-11 words | | |
-| Share of sentences 12-25 words | | |
-| Share of sentences over 25 words | | |
-| Longest permitted sentence | | |
-| Share of paragraphs 8 words or fewer | | |
-| Semicolons per 10,000 words | | |
-| Parentheses per 10,000 words | | |
-| Em-dashes per 10,000 words | | |
-| Share of words inside dialogue | | |
-| `said` as a share of dialogue attributions | | |
-| Similes per 1,000 words | | |
+Measure your comps with `python3 bench/lint/fingerprint.py <file-or-novel-dir> …`. It reports every row below. Set each target **inside** the observed comp range, not at the mean of it — the mean of your influences is how a book comes to read like the average of them.
+
+| Metric | This book's target | Comp range observed | Reference: 6 published novels |
+|---|---|---|---|
+| Mean sentence length (words) | | | 12.3 – 14.7 |
+| Median sentence length | | | **9 – 13** |
+| Share of sentences 1-3 words | | | **5 – 18%** |
+| Share of sentences 4-11 words | | | 31 – 46% |
+| Share of sentences 12-25 words | | | **31 – 42%** |
+| Share of sentences over 25 words | | | 8 – 14% |
+| Longest permitted sentence | | | 65 – 86 |
+| Share of paragraphs 8 words or fewer | | | 12 – 24% |
+| Share of words inside dialogue | | | 10 – 18% |
+| `said` as a share of dialogue attributions | | | 60 – 66% |
+| Similes per 1,000 words | | | 2.8 – 4.6 |
 
 Variance is the signal, not the mean. Two books with the same mean sentence length read nothing alike if one clusters at the mean and the other swings between three words and forty.
+
+### The mid-band is the row that separates
+
+The bolded rows are the only sentence-shape metrics that discriminated cleanly when a 349,000-word corpus of unedited drafts was measured against 749,000 words of published fiction:
+
+| | Share 12-25 words | Share 1-3 words | Median |
+|---|---|---|---|
+| 8 unedited drafts | 14.3 – **22.5%** | **19.8** – 28.3% | 5 – 7 |
+| 6 published novels | **30.9** – 41.6% | 5.3 – **17.6%** | 9 – 13 |
+
+Zero overlap. The strongest draft sits below the weakest published book on the mid-band, and no draft reaches a median of 8.
+
+The failure is not "sentences too short". It is **a hollow middle**: fragments alternating with long sentences, and almost nothing in the 12-to-25-word range where published prose spends a third to two-fifths of its time. Three habits push the same way and compound — clipped dialogue, fragments stacked as single-line paragraphs at every emotional spike, and a low paragraph-length floor. Any one of them is fine. All three together evacuate the middle.
+
+**Set a mid-band floor and check it per chapter. Below 25% is a finding.**
+
+### Metrics that do NOT discriminate — do not treat these as tells
+
+Measured and rejected, recorded here so nobody re-derives them:
+
+- **Em-dashes.** Drafts ran a median of 138 per 10,000 words against a published median of 32 — but two Sarah J. Maas novels sit at 129.5 and 136.3, inside the draft range. A rule against em-dashes would have diagnosed a bestselling author as machine-written.
+- **Semicolons, colons, ellipses, parentheses.** Published usage spans two orders of magnitude between authors. Personal habits, not quality markers.
+
+The general rule: a metric becomes a constraint only after it has been shown to separate published prose from unedited prose. Counting something is not the same as it mattering.
 
 **If a scene cannot hit a target**, that is information, not failure. The drafter reports the miss with its number and its reason (see the compliance report in `draft.md`). A scene with one speaking character cannot reach a 20% dialogue share; say so rather than inventing conversation.
 

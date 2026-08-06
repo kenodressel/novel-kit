@@ -28,6 +28,28 @@ Published prose uses the phrase constantly, for ordinary purposes — *with the 
 
 This is the basis for the 1-per-10,000-word budget in `style-guide-template.md`.
 
+### Sentence-shape distribution — the second clean separator
+
+Measured mechanically over full texts with `bench/lint/fingerprint.py`, 8 drafts against 6 published novels:
+
+| | Share 12-25 words | Share 1-3 words | Median sentence |
+|---|---|---|---|
+| Drafts | 14.3 – **22.5%** | **19.8** – 28.3% | 5 – 7 |
+| Published | **30.9** – 41.6% | 5.3 – **17.6%** | 9 – 13 |
+
+No overlap on any of the three. The diagnosis is a hollow middle rather than short sentences as such: the drafts alternate fragments with long sentences and largely skip the 12-to-25-word range where published prose spends a third to two-fifths of its time. This is the basis for the 25% mid-band floor and the 8-word median floor in the draft gate.
+
+Corroborating evidence from the generation test: when drafting against a style guide that specified a 9/18/39/30 distribution, the drafter reported hitting 17/27/28/25 and named the cause — three separate mandates (clipped dialogue, fragment ladders at emotional spikes, a low paragraph floor) all pushing the same direction at once.
+
+### Metrics measured and rejected
+
+Recorded so they are not re-derived as findings:
+
+- **Em-dash rate.** Drafts median 138 per 10,000 words, published median 32 — a large gap that looks conclusive until you see that two Maas novels sit at 129.5 and 136.3, inside the draft range. A "fewer em-dashes" rule would have flagged a bestselling author as machine-written.
+- **Semicolons, colons, ellipses, parentheses.** Published usage varies by two orders of magnitude between authors.
+
+This is the validity guard from the 2026-08-04 spec doing its job: *until a reference exists, only extreme outliers count, and never "less is better."* Without it, two of these would have become template rules.
+
 ### Chapter openings (850-word extracts, 7 drafts vs 6 published, two evaluators)
 
 | Metric | Published | Drafts |
@@ -77,6 +99,47 @@ Both also qualified it: *"A is the most finished page, but the two most finished
 The mechanism matters more than the result. The reverse-engineered specification carried numbers the pipeline's own templates do not: a runway target of 145 words, beat positions anchored to word counts, a measured sentence-length distribution, explicit prohibitions, and a stated POV/tense decision. Same pipeline, same model, better specification.
 
 **The pipeline's weakness is specification, not execution.** That is what the template changes of 2026-08-06 address.
+
+## Controlled re-draft — the verification of the 2026-08-06 template changes
+
+The test case: `untitled-scifi` chapter 12, chosen because two blind evaluators had independently ranked it last of thirteen mid-book chapters. Same story, same characters, same events, same outcome. The only variable changed was the specification.
+
+One agent re-specified the existing chapter into the new `scenes-template.md` and `style-guide.md` formats — measured fingerprint from two SF comps, runway target, beats anchored to word positions, prohibitions, closing move. A second agent drafted from that spec alone, with a hard prohibition on opening the existing chapter.
+
+Mechanical result, verified independently rather than taken from the drafter's self-report:
+
+| | old | new | published band |
+|---|---|---|---|
+| Median sentence length | 7 | **11** | 9 – 13 |
+| Share 12-25 words | 24.1% | **39.7%** | 31 – 42% |
+| Share 1-3 words | 18.6% | **6.3%** | 5 – 18% |
+| Appositive family per 10k | 56.0 | **0.0** | ~0 |
+| Em-dashes per 10k | 173.3 | **24.0** | 5 – 136 |
+
+The old chapter sat outside the published band on all three discriminating metrics; the new one is inside all three.
+
+The em-dash row is the instructive one. The drafter was given **no** em-dash target, because the template records that metric as non-discriminating. The rate fell by a factor of seven anyway, as a side effect of writing mid-length sentences instead of dash-spliced fragments. The em-dash flood was a symptom of the hollow middle, not an independent habit — which is exactly why banning em-dashes would have treated the symptom.
+
+Blind evaluation, two evaluators, the two versions mixed with two published SF mid-book chapters, no evaluator told that a matched pair was present:
+
+| | old | new |
+|---|---|---|
+| Rank of four | 4, 4 | **2, 2** |
+| Voice specificity | 2, 2 | **5, 4** |
+| Runway as judged | 380, 700 | **0–25** |
+| Pressure | 3, 3 | **4, 4** |
+| Scene turn | "barely", "no" | **yes, yes** |
+| Closes on a gloss | yes, yes | **no, no** |
+
+Both placed the new version above a published Tchaikovsky chapter and both named the old version least finished, at high confidence. Both independently recognised the pair as two drafts of one scene, and both located the difference in the same place: the new version stages an observation and stops; the old version stages it and then explains it.
+
+### What this verification does not prove
+
+- One chapter. The claim is that the specification change moves a chapter, not that it produces a good book.
+- Part of the gain came from the re-specification agent discovering nine contradictions already sitting in the artifacts — a one-year date drift across all of Part Two, two hospital names, three mutually exclusive claims about a character's backstory, and three consecutive chapters ending on the same image. The new template's required fields are what surfaced them, but fixing them is a separate effect from the fields themselves.
+- The drafter never saw the old version, but it is the same model family, so some improvement may be second-attempt effect rather than specification quality.
+- Cost: roughly 320,000 subagent tokens for one chapter, across re-specification and drafting. This is not a cheap procedure, and the specification work amortises across a book while the drafting does not.
+- The new draft still missed two style targets and reported seven further spec problems, including an unverified clinical pathway. It passed the gate; it is not finished.
 
 ## What this does not establish
 

@@ -52,6 +52,8 @@ Use a 1-5 scale for each subjective dimension. Measured dimensions are counts, n
 | Self-explaining closers | Paragraphs that close by naming their own significance. **Any is a finding.** |
 | POV integrity | Any flash-forward, non-POV interior, or second-person address. **Any is a fail.** |
 | Repetition | Any distinctive phrase, image, or number over the style guide's budget. |
+| Mid-band sentence share | Share of sentences 12-25 words long, from `bench/lint/fingerprint.py`. **Fail below 25%.** Measured basis: 6 published novels span 31-42%; 8 unedited drafts span 14-23%, with no overlap. A hollow middle — fragments alternating with long sentences — is the rhythm signature of an unedited draft. |
+| Median sentence length | **Fail below 8 words.** Published: 9-13. Drafts: 5-7. |
 
 **Scored** — 1-5, blind and comparative:
 
