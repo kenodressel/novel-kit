@@ -146,6 +146,14 @@ def main():
         fails.append(f"{len(roomy)} blocks give a chapter more room than it has story for "
                      f"(over {WORDS_PER_BEAT_MAX} words per beat): "
                      + ", ".join(f"ch{i} {e}w/{b} beats={w}w each" for i, e, b, w in roomy[:6]))
+    scale_fails, scale_notes = _status.check_scale(status, target)
+    fails.extend(scale_fails)
+    cluster = _status.threshold_clustering([r[3] for r in rows], MIN_BEATS, "beat count")
+    if cluster:
+        fails.append(cluster)
+    for n in scale_notes:
+        print(f"  note: {n}\n")
+
     if target is None:
         fails.append("no target word count found in novel.md, in frontmatter or as prose, so "
                      "the specification's scale cannot be checked at all. This is a failure, "
@@ -162,6 +170,9 @@ def main():
                        ("withheld", "withheld information")):
         if missing[key] == len(bs):
             fails.append(f"no block states {label} — the field was never instantiated.")
+
+    for n in scale_notes:
+        print(f"  note: {n}\n")
 
     if fails:
         print("## FAIL — do not begin drafting\n")

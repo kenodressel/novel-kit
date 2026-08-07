@@ -136,6 +136,11 @@ def main():
                      "original figure, or state the reclassification in novel.md with "
                      "the original target recorded beside it.")
 
+    scale_fails, scale_notes = _status.check_scale(a.novel / "novel.md", target, total)
+    fails.extend(scale_fails)
+    for n in scale_notes:
+        print(f"  note: {n}\n")
+
     if target is None:
         fails.append("no target word count found in novel.md, so the manuscript's length "
                      "cannot be checked against anything. Unverifiable must not report "
