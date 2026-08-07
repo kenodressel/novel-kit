@@ -26,13 +26,15 @@ python3 bench/lint/names.py           [novels/<slug>]
 
 ## Where they belong in the pipeline
 
+`prose_sanity.py` runs before everything else, because every other prose check assumes it has prose and measures how good it is. A run once met a 50,000-word target by looping template sentences with the chapter number substituted in — *"Earl Danbury's extortion network was closing in during beat 8"* — with 4.1% of sentences unique and 0.6% dialogue, and passed both length checks cleanly. Quantity was never the problem.
+
 `specs.py` is the one with the most leverage, because it runs before any prose exists. A chapter comes out the size of its specification: a run whose scene blocks carried a goal, a conflict and an outcome but no beats produced 28 chapters with a median of 497 words against a 2,500-word estimate, and `/novel.realize` added nothing, correctly — it expands toward specified beats and cannot expand toward beats nobody wrote. Checking that before drafting costs milliseconds; discovering it afterwards costs the manuscript.
 
 `wordcount.py` belongs at the step boundary and inside `/novel.realize`, **not after every chapter**. Drafting is allowed to come in short; that is what realize is for, and halting the draft to do the next step's work only stalls the run. Per chapter, log the number and keep going.
 
 Read `wordcount.py` before any other output, though, because length changes how the rest is read. Every shape metric improves as chapters get shorter — a scene sketch has no room for the establishing-shot inventory that produces a long runway or a hollow middle. A chapter under 80% of its estimate has not passed the shape checks; it has not taken them.
 
-`/novel.revise` runs `wordcount`, `repetition`, `continuity_facts`, `names` and `fingerprint` as its required Pass 0, before any reading pass.
+`/novel.revise` runs `prose_sanity` first, then `wordcount`, `repetition`, `continuity_facts`, `names` and `fingerprint`, as its required Pass 0 before any reading pass. `/novel.polish` will not generate a submission package unless `prose_sanity` passes.
 
 ## Reference points
 
