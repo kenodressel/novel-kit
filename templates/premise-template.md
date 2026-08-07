@@ -11,7 +11,7 @@
 
 **Attractors to steer away from**: <!-- What do the rows above have in common? -->
 
-**Collisions in the selected candidate**: <!-- Two or more shared with any existing novel means reject and regenerate. Measured failure: in one corpus of seven novels, two were independently generated as "burned-out creative drives to a remote Pacific Northwest location to recover an authentic self, totem object in the passenger seat", two as "chef arrives at a broken kitchen", and two as "English spring, Easter, country house party, managing female relative". None was noticed at the time, because nothing in the pipeline read what had already been written. -->
+**Collisions in the selected candidate**: <!-- Two rejects, and only two. (1) A proper noun already used in another novel — person, place, house, institution. (2) The same arc again: the same engine producing the same shape of change, whatever the surface differs on. Everything else — a second chef, a second coastal town, a second estranged-siblings relationship — is an overlap to note, not a reason to regenerate. Measured failure: in one corpus of seven novels, two were independently generated as "burned-out creative drives to a remote Pacific Northwest location to recover an authentic self, totem object in the passenger seat", two as "chef arrives at a broken kitchen", and two as "English spring, Easter, country house party, managing female relative". Those were rejects because the arc repeated with them, not because the ingredients recurred. None was noticed at the time, because nothing in the pipeline read what had already been written. -->
 
 ## Candidate Comparison
 

@@ -2,14 +2,14 @@
 
 Use a 1-5 scale for each subjective dimension. Measured dimensions are counts, not scores.
 
-> **A solo 1-5 score by the context that produced the work clusters at 4 and passes everything.** Chapter and prose evaluation must be run blind and comparatively — see "Blind comparative scoring" in `evaluate.md`. A rubric filled in by the drafter, with the story artifacts in view, tests compliance with the style guide. It cannot see the failure mode where every novel produced by the same process sounds identical, because matching the style guide is what produces that.
+> **A solo 1-5 score by the context that produced the work clusters at 4 and passes everything.** Chapter and prose evaluation must be run blind and comparatively — see "Blind comparative scoring" in `evaluate.md`. A rubric filled in by the drafter, with the story artifacts in view, tests compliance with the style guide. It cannot see the failure mode where the prose has no idiom beyond the style guide's, because matching the style guide is what produces that.
 
 ## Premise
 
 | Dimension | What to test |
 |-----------|--------------|
 | Novelty | Does it feel distinct rather than assembled from stock parts? |
-| Collision | Does it share protagonist occupation, opening situation, engine, or setting archetype with any existing novel in `novels/`? Two or more shared: fail. |
+| Collision | Two fails, and only two: a proper noun already used in another novel in `novels/`, or the same arc as an existing novel — the same engine producing the same shape of change. A shared occupation, setting archetype, or relationship shape is recorded as an overlap and passes. |
 | Agency | Does the protagonist drive the story through meaningful choices? |
 | Opposition | Is there a force outside the protagonist that wants something incompatible, and is its argument good? |
 | Sustainability | Is there enough pressure for a full novel? |
@@ -21,7 +21,7 @@ Use a 1-5 scale for each subjective dimension. Measured dimensions are counts, n
 | Dimension | What to test |
 |-----------|--------------|
 | Voice specificity | Would this produce recognizable prose rather than model-default prose? |
-| Differentiation | Does this book's POV, tense, register, and prose fingerprint differ from the other novels in `novels/`? List the differences. If the configuration matches the most common one, is there a stated reason? |
+| Deliberate configuration | Is this book's POV, tense, register, and prose fingerprint a stated choice? Matching the other novels in `novels/` is allowed; matching them by default is not. If the configuration is the corpus's most common one, there must be a sentence saying why it suits this book. |
 | Checkability | Is the style guide measured, or does it still describe the prose in workshop adjectives? An unmeasurable guide cannot be enforced during drafting. |
 | Aesthetic coherence | Do the style decisions point in one direction? |
 | Thematic tension | Is there a real argument, not just a topic? |
@@ -64,7 +64,7 @@ Use a 1-5 scale for each subjective dimension. Measured dimensions are counts, n
 
 | Dimension | What to test |
 |-----------|--------------|
-| Voice | Could a reader who has read the other novels in `novels/` tell this is a different book? Name the specific markers that distinguish it. |
+| Voice | Does the prose have an idiom of its own — name the specific markers — or is it model-default prose? Reading like the other novels in `novels/` is not a fail on its own; reading like nothing in particular is. |
 | Pressure | Is something being lost or decided in this scene, or is it a competence display? |
 | Turn | Is the situation at the end different from the situation at the start? Name what changed. `no` is a fail. |
 | Dialogue | With attributions removed, can the speakers be told apart? |

@@ -103,7 +103,7 @@ Before marking a scene as ready to draft, verify:
 - [ ] The anchored beat positions are arithmetically possible inside the estimated word count
 - [ ] The prohibitions are filled in, not left blank
 - [ ] The closing move differs from the previous three scenes' closing moves
-- [ ] The scene's opening move is not shared with any chapter opening in any other novel in `novels/` <!-- check the first 200 words of every existing chapter one. Two novels opening on "The [noun] was wrong." followed by a taxonomy of wrongness is one scene written twice. -->
+- [ ] This scene is not a scene from another novel in `novels/` written a second time <!-- check the first 200 words of every existing chapter one. Same opening move, same escalation, same close is one scene written twice; a shared setting or a shared kind of room is not. -->
 - [ ] Somebody in this scene wants something the POV character cannot simply be given
 
 ## Evaluation Gate

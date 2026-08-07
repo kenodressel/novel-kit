@@ -37,7 +37,7 @@ Take the author's raw story idea and develop it into a complete premise document
 
 4. **Collision check against the existing corpus**: Read `novels/*/story/premise.md` for every other novel in this repository and tabulate, for each: protagonist's occupation, opening situation, story engine, setting archetype, and the relationship shape.
 
-   **Reject any candidate that shares two or more of those with an existing novel.**
+   **Reject a candidate for one reason: it runs the same arc as an existing novel** — the same engine producing the same shape of change, however different the occupation, the setting, or the surface. A second chef, a second coastal town, a second story about estranged siblings is not a reject; note the overlap and move on. Proper nouns are the other hard rule, enforced at the world step by `bench/lint/names.py`: no person, place, house, or institution may carry a name already used in another novel here.
 
    This step exists because nothing else in the pipeline reads what has already been written, and the result is measurable: in one corpus of seven novels, two were independently generated as "burned-out creative drives to a remote Pacific Northwest location to recover an authentic self, with a totem object in the passenger seat", two were "chef arrives at a broken kitchen", and two were "English spring, Easter, country house party, managing female relative, dialogue built on interruption". Three collisions in seven books, none of them noticed at the time.
 
