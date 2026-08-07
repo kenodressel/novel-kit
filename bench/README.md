@@ -1,10 +1,11 @@
 # bench — measurement for the pipeline
 
-Six linters. They count things a reader notices and an author does not, over a whole manuscript or a whole corpus. They produce pointers, never verdicts: read every flagged passage before changing it, because a script cannot tell a deliberate refrain from a forgotten one.
+Seven linters. They count things a reader notices and an author does not, over a whole manuscript or a whole corpus. They produce pointers, never verdicts: read every flagged passage before changing it, because a script cannot tell a deliberate refrain from a forgotten one.
 
 Python 3, standard library only. Run from the repository root.
 
 ```
+python3 bench/lint/prose_sanity.py     novels/<slug>            # is it prose at all?
 python3 bench/lint/specs.py            novels/<slug>            # BEFORE drafting
 python3 bench/lint/wordcount.py        novels/<slug>            # after drafting
 python3 bench/lint/fingerprint.py <file-or-novel-dir> [more…]   # any text, side by side
@@ -15,6 +16,7 @@ python3 bench/lint/names.py           [novels/<slug>]
 
 | Script | What it reports |
 |---|---|
+| `prose_sanity.py` | Asks whether the manuscript is narrative prose at all: unique-sentence ratio, scaffolding phrases (`during beat 8`), verbatim duplicate paragraphs, dialogue share, chapters sharing an opening. Exits 1. Run before every other prose check — the rest all assume prose and measure how good it is. |
 | `specs.py` | Validates `scenes.md` **before drafting**: beats per chapter, word estimates, runway targets, prohibitions, whether estimates sum to target, and whether any chapter claims more length than it specifies story for. Exits 1 on failure. |
 | `wordcount.py` | Actual words per chapter against the scene estimate, total against target, whether `novel.md`'s count matches reality, and whether the target has been rewritten to match the output. Exits 1 on failure. |
 | `fingerprint.py` | Sentence-length distribution and median, paragraph shape, dialogue share, `said` ratio, punctuation rates, simile rate — for a novel or any comparison text, several side by side. This is how you fill the measured table in `style-guide-template.md`. |

@@ -38,14 +38,17 @@ The author may request a specific pass or a full revision. Available passes:
 Machines are better than readers at counting, and worse at judging. Run the counters first so the reading passes know where to look.
 
 ```
-python3 bench/lint/wordcount.py        novels/<slug>   # run this FIRST
+python3 bench/lint/prose_sanity.py     novels/<slug>   # run this FIRST OF ALL
+python3 bench/lint/wordcount.py        novels/<slug>
 python3 bench/lint/repetition.py       novels/<slug>
 python3 bench/lint/continuity_facts.py novels/<slug>
 python3 bench/lint/names.py            novels/<slug>   # cross-novel name collisions
 python3 bench/lint/fingerprint.py      novels/<slug>   # against style-guide.md targets
 ```
 
-`wordcount.py` comes first because a manuscript short of its own specification cannot be fixed by revision passes — it needs `/novel.realize`, and every prose metric flatters a chapter that is too thin to contain its own scene.
+`prose_sanity.py` comes first because there is no point revising text that is not prose. It asks whether the manuscript is narrative at all: unique-sentence ratio, scaffolding phrases like "during beat 8" that were never replaced with events, verbatim duplicate paragraphs, dialogue share, and chapters that open with the same sentence. A run once met a 50,000-word target by looping a handful of template sentences with the chapter number substituted in — 4.1% of sentences unique, 2,997 scaffolding leaks, 0.6% dialogue — and passed every length and structure check cleanly, because those verify quantities and this was the right quantity.
+
+`wordcount.py` comes next because a manuscript short of its own specification cannot be fixed by revision passes — it needs `/novel.realize`, and every prose metric flatters a chapter that is too thin to contain its own scene.
 
 `repetition.py` reports phrases and distinctive words recurring above the budget in `style-guide.md`, near-duplicate sentences across chapters, and in-chapter word-frequency outliers. `continuity_facts.py` extracts every number, price, date, time, age, and measurement per chapter and reports contradictions between them and against `continuity.md`.
 

@@ -26,11 +26,14 @@ Read:
 - `novels/<slug>/manuscript/` -- the revised manuscript
 - `novels/<slug>/story/revision-notes.md` -- revision history
 
-## Count the manuscript before writing anything about it
+## Confirm there is a manuscript before writing anything about it
 
 ```
-python3 bench/lint/wordcount.py novels/<slug>
+python3 bench/lint/prose_sanity.py novels/<slug>
+python3 bench/lint/wordcount.py    novels/<slug>
 ```
+
+**If `prose_sanity.py` fails, stop.** Do not generate a query letter, a blurb, a synopsis, a beta questionnaire or an EPUB. This step's whole output is material to send to strangers, and a run once packaged a submission for a 50,000-word file in which 96% of the sentences were repeated and every chapter opened with the same one. Length compliance was perfect. There was no book.
 
 Every submission document states a word count, and it is the one number in the package a reader can verify instantly. **Take it from this command, never from `novel.md` and never from the target.**
 
