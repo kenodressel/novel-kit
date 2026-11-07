@@ -1,4 +1,4 @@
-<title>Handgriff Demo</title>
+<title>Dolmy Demo</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -120,6 +120,75 @@ button:focus-visible{outline:2px solid var(--brass-2);outline-offset:3px}
 .cta{width:100%;height:60px;border-radius:20px;background:var(--brass);color:#2A1A07;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 14px 30px -12px rgba(211,154,69,.7);transition:transform .15s}
 .cta:active{transform:scale(.98)}
 
+.lvl{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px;border-radius:18px;background:var(--enamel-2);margin-bottom:14px}
+.lvl button{border-radius:14px;padding:9px 10px;text-align:left;font-weight:700;font-size:14.5px;color:#CFE0D7;transition:background .25s,color .25s}
+.lvl button small{display:block;font-weight:500;font-size:12px;color:#8FAFA2}
+.lvl button[aria-checked="true"]{background:var(--tile);color:var(--ink)}
+.lvl button[aria-checked="true"] small{color:var(--mute)}
+.alt{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:10px}
+.alt button{height:48px;border-radius:16px;background:var(--enamel-2);color:var(--tile);font-weight:600;font-size:14.5px;padding:0 14px;display:flex;align-items:center;justify-content:center;gap:8px}
+
+/* ---------- live (hands-free) ---------- */
+#live{background:#0A1511;overflow:hidden}
+#live .ptop{grid-template-columns:40px 1fr auto}
+.lvlchip{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#0A1511;background:var(--brass-2);padding:6px 9px;border-radius:99px}
+.tapzone{position:absolute;inset:0;z-index:1}
+.lmain{position:relative;z-index:2;pointer-events:none;flex:1;display:flex;flex-direction:column;justify-content:center;padding:96px 26px 0;min-height:0}
+.lloc{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-2);display:flex;gap:10px;align-items:center}
+.lloc i{width:8px;height:8px;border-radius:50%;background:var(--ok);animation:ping 1.6s infinite}
+.cue{font-family:var(--f-display);font-stretch:112%;font-weight:900;font-size:clamp(40px,13cqw,58px);hyphens:auto;overflow-wrap:break-word;line-height:.9;letter-spacing:-.025em;margin:14px 0 0;text-wrap:balance;color:#F4F7F4}
+.detail{font-size:clamp(22px,6.8cqw,28px);line-height:1.22;color:#BFD3C9;margin:18px 0 0;font-weight:500;text-wrap:balance}
+.cue,.detail{transition:opacity .3s,transform .45s var(--ease)}
+.swap .cue,.swap .detail{opacity:0;transform:translateY(14px)}
+.lfoot{position:relative;z-index:2;pointer-events:none;padding:0 22px calc(20px + env(safe-area-inset-bottom,0px));display:grid;gap:18px}
+.countdown{display:flex;align-items:center;gap:14px}
+.ring2{width:64px;height:64px;flex:none;position:relative}
+.ring2 svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring2 b{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-display);font-stretch:110%;font-weight:800;font-size:22px;font-variant-numeric:tabular-nums}
+.countdown p{margin:0;font-size:14.5px;line-height:1.35;color:#9DB5AA}
+.countdown p b{color:#F4F7F4;font-weight:600}
+.cmds{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;pointer-events:auto}
+.cmds button{height:58px;border-radius:18px;background:#14281F;border:1px solid #23443A;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-weight:700;font-size:15px;color:#E9F0EC}
+.cmds button small{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;color:#7FA394;font-weight:500;text-transform:uppercase}
+.cmds button.on{background:var(--brass);color:#2A1A07;border-color:var(--brass)}
+.cmds button.on small{color:#5A3B10}
+.heard{position:absolute;z-index:5;left:50%;top:42%;transform:translate(-50%,-50%) scale(.9);background:var(--tile);color:var(--ink);border-radius:99px;padding:12px 18px;font-weight:700;font-size:17px;display:flex;gap:10px;align-items:center;opacity:0;transition:.3s var(--ease);pointer-events:none;white-space:nowrap}
+.heard.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.heard i{width:26px;height:26px;border-radius:50%;background:var(--enamel);display:grid;place-items:center}
+.ripple{position:absolute;z-index:3;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;border:3px solid var(--brass-2);pointer-events:none;animation:rip .6s ease-out forwards}
+@keyframes rip{from{transform:scale(.4);opacity:1}to{transform:scale(5);opacity:0}}
+.lprog{display:grid;gap:4px}
+
+/* ---------- cheat sheet ---------- */
+#cheat{background:var(--tile);color:var(--ink)}
+#cheat .statusbar{color:var(--ink)}
+.chead{padding:12px 22px 6px;display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:center}
+.chead .iconbtn{background:var(--tile-2)}
+.chead .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.chead h2{margin:2px 0 0;font-family:var(--f-display);font-stretch:118%;font-weight:850;font-size:28px;line-height:1;letter-spacing:-.015em}
+.clist{list-style:none;margin:14px 0 0;padding:0 22px;display:grid;gap:8px;flex:1;overflow:auto;align-content:start;counter-reset:c}
+.clist li button{width:100%;display:grid;grid-template-columns:34px 1fr 26px;gap:12px;align-items:center;text-align:left;background:#fff;border-radius:16px;padding:14px;box-shadow:0 1px 0 var(--line);font-size:16.5px;line-height:1.3}
+.clist li button .n{font-family:var(--f-mono);font-size:13px;color:var(--mute)}
+.clist li button b{font-weight:700}
+.clist li button .box{width:24px;height:24px;border-radius:8px;border:2px solid #BFCBC4;display:grid;place-items:center}
+.clist li button[aria-pressed="true"]{opacity:.55}
+.clist li button[aria-pressed="true"] .box{background:var(--enamel-3);border-color:var(--enamel-3)}
+.cfoot{padding:14px 22px calc(18px + env(safe-area-inset-bottom,0px));font-size:13px;color:var(--mute);display:flex;gap:10px;align-items:center}
+.qr{width:44px;height:44px;flex:none;border-radius:8px;background:#fff;padding:4px;box-shadow:0 1px 0 var(--line)}
+
+/* ---------- ladder ---------- */
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px}
+.ladder div{border-radius:14px;padding:10px 10px 11px;background:var(--enamel-2);display:grid;gap:6px;align-content:start}
+.ladder i{height:5px;border-radius:3px;background:#2E5F4D;display:block;overflow:hidden}
+.ladder i::after{content:"";display:block;height:100%;width:var(--w);background:var(--brass-2)}
+.ladder b{font-size:12.5px;line-height:1.15}
+.ladder span{font-size:11px;color:#9DB5AA;line-height:1.2}
+.ladder .done{background:rgba(79,191,139,.16)}
+.ladder .done b{color:#CFEFDF}
+.ladder .done span::before{content:"✓ ";color:var(--ok)}
+.ladder b{color:#E9F0EC}
+.ladder .next{box-shadow:inset 0 0 0 1.5px var(--brass-2)}
+
 /* ---------- player ---------- */
 #player{background:var(--enamel)}
 .ptop{position:absolute;left:0;right:0;top:calc(env(safe-area-inset-top,0px) + 50px);z-index:4;padding:6px 16px 0;display:grid;grid-template-columns:40px 1fr 40px;gap:12px;align-items:center}
@@ -239,9 +308,9 @@ button:focus-visible{outline:2px solid var(--brass-2);outline-offset:3px}
 
 <div class="stage">
   <div class="aside l">
-    <div class="k">Live-Demo · Arbeitstitel</div>
-    <h1>Handgriff</h1>
-    <p>So sieht die Einarbeitung für neue Leute aus: Handy in die Tasche, Kopfhörer rein, Hände frei. Die App sagt, was als Nächstes kommt, und zeigt, wo man hingreift.</p>
+    <div class="k">Live-Demo · Gastro</div>
+    <h1>Dolmy</h1>
+    <p>Erst kurz anschauen. Dann an der Maschine nur zuhören: Das Handy steht in der Halterung, die Hände bleiben bei der Arbeit. Mit jeder Schicht sagt Dolmy weniger, bis es niemand mehr braucht.</p>
   </div>
   <div class="frame"><div class="device" id="device">
 
@@ -260,7 +329,7 @@ button:focus-visible{outline:2px solid var(--brass-2);outline-offset:3px}
       <div class="list-h"><h3>Abläufe</h3></div>
       <div class="modules">
         <button class="mod hero" id="openEspresso" aria-label="Espresso ziehen starten">
-          <div class="art"><span class="new">NEU · 6 HANDGRIFFE</span><svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <div class="art"><span class="new">NEU · 6 SCHRITTE</span><svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
             <defs><linearGradient id="hg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#E9EDEA"/><stop offset=".55" stop-color="#AEB7B2"/><stop offset="1" stop-color="#D7DCD9"/></linearGradient></defs>
             <g opacity=".08" stroke="#fff"><path d="M0 35H400M0 70H400M0 105H400"/><path d="M50 0V35M150 0V35M250 0V35M350 0V35M100 35V70M200 35V70M300 35V70M50 70V105M150 70V105M250 70V105M350 70V105"/></g>
             <rect x="170" y="20" width="200" height="130" rx="14" fill="url(#hg)"/>
@@ -276,16 +345,16 @@ button:focus-visible{outline:2px solid var(--brass-2);outline-offset:3px}
         </button>
         <button class="mod" data-soon>
           <span class="th"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A5C4A" stroke-width="1.8" stroke-linecap="round"><path d="M8 3v6M8 9c-2 2-3 4-3 7a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3c0-3-1-5-3-7M16 3v6"/></svg></span>
-          <span><b>Milch schäumen</b><small>5 Handgriffe · 3 Min</small></span><span class="st">Als Nächstes</span></button>
+          <span><b>Milch schäumen</b><small>5 Schritte · 3 Min</small></span><span class="st">Als Nächstes</span></button>
         <button class="mod" data-soon>
           <span class="th"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A5C4A" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="13" r="4"/><path d="M8 6h2"/></svg></span>
-          <span><b>Spülmaschine &amp; Hygiene</b><small>7 Handgriffe · 5 Min</small></span><span class="st">Offen</span></button>
+          <span><b>Spülmaschine &amp; Hygiene</b><small>7 Schritte · 5 Min</small></span><span class="st">Offen</span></button>
         <button class="mod" data-soon>
           <span class="th"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A5C4A" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h4M7 14h2"/></svg></span>
-          <span><b>Kasse öffnen</b><small>4 Handgriffe · 2 Min</small></span><span class="st done">Sitzt</span></button>
+          <span><b>Kasse öffnen</b><small>4 Schritte · 2 Min</small></span><span class="st done">Sitzt</span></button>
         <button class="mod" data-soon>
           <span class="th"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A5C4A" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v3M5.6 5.6l2.1 2.1M3 12h3M18 12h3M16.3 7.7l2.1-2.1"/><path d="M6 17a6 6 0 0 1 12 0"/><path d="M3 20h18"/></svg></span>
-          <span><b>Laden aufmachen</b><small>8 Handgriffe · 6 Min</small></span><span class="st done">Sitzt</span></button>
+          <span><b>Laden aufmachen</b><small>8 Schritte · 6 Min</small></span><span class="st done">Sitzt</span></button>
       </div>
     </section>
 
@@ -294,12 +363,15 @@ button:focus-visible{outline:2px solid var(--brass-2);outline-offset:3px}
       <div class="intro-scene" id="introScene"></div>
       <button class="topbtn" data-back="home" aria-label="Zurück"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
       <div class="intro-body">
-        <div class="k">Ablauf 3 von 5 · Bar</div>
+        <div class="k">Ablauf 3 von 5 · Bar · 6 Schritte</div>
         <h2>Espresso<br>ziehen</h2>
-        <div class="facts"><span>6 Handgriffe</span><span>ca. 4 Minuten</span><span>an der echten Maschine</span></div>
         <div class="by"><div class="avatar">J</div><p><b>Jonas</b>, Barista, hat das einmal vorgemacht. Du kannst jederzeit nachfragen, die Bedienungsanleitung ist drin.</p></div>
-        <div class="tip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F0C27A" stroke-width="2" stroke-linecap="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg>Kopfhörer rein, Handy in die Schürze. Hände frei.</div>
-        <button class="cta" id="start"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>Los geht's</button>
+        <div class="lvl" role="radiogroup" aria-label="Wie viel Ansage">
+          <button role="radio" aria-checked="true" data-level="full">Schicht 1<small>volle Ansage</small></button>
+          <button role="radio" aria-checked="false" data-level="short">Schicht 3<small>nur Stichworte</small></button>
+        </div>
+        <button class="cta" id="startLive"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V6a1.5 1.5 0 0 1 3 0v4M10 10V4.5a1.5 1.5 0 0 1 3 0V10M13 10V5.5a1.5 1.5 0 0 1 3 0V12M16 9a1.5 1.5 0 0 1 3 0v5a7 7 0 0 1-7 7h-1a6 6 0 0 1-5-2.7L3.5 15a1.6 1.6 0 0 1 2.6-1.8L7 14.5"/></svg>Freihändig an der Maschine</button>
+        <div class="alt"><button id="start"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Erst Vorschau · 2 Min</button><button id="openCheat">Spickzettel</button></div>
       </div>
     </section>
 
@@ -312,7 +384,7 @@ button:focus-visible{outline:2px solid var(--brass-2);outline-offset:3px}
       </div>
       <div class="scene" id="playerScene"></div>
       <div class="card">
-        <div class="stepk"><span id="stepK">Handgriff 01 / 06</span><span class="live" id="liveTag">Spricht</span></div>
+        <div class="stepk"><span id="stepK">Vorschau · 01 / 06</span><span class="live" id="liveTag">Spricht</span></div>
         <h3 id="stepT">Siebträger raus</h3>
         <p class="say" id="say"></p>
         <div class="audio">
@@ -322,9 +394,44 @@ button:focus-visible{outline:2px solid var(--brass-2);outline-offset:3px}
         </div>
         <div class="ctrls">
           <button class="ask" id="askBtn"><span class="mic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F2F4F0" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>Frag nach</button>
-          <button class="next" id="next">Erledigt<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button class="next" id="next">Weiter<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
       </div>
+    </section>
+
+    <!-- LIVE -->
+    <section class="screen" id="live" aria-label="Freihändig an der Maschine">
+      <div class="tapzone" id="tapzone" aria-hidden="true"></div>
+      <div class="ptop" style="z-index:4">
+        <button class="iconbtn" id="liveClose" aria-label="Beenden"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        <div class="segs" id="lsegs"></div>
+        <span class="lvlchip" id="lvlChip">Schicht 1</span>
+      </div>
+      <div class="lmain" id="lmain">
+        <div class="lloc"><i></i><span id="lloc">Maschine · Mitte</span></div>
+        <h2 class="cue" id="cue" lang="de">Siebträger raus</h2>
+        <p class="detail" id="detail">Griff nach links drehen. Nach unten ziehen.</p>
+      </div>
+      <div class="lfoot">
+        <div class="countdown">
+          <div class="ring2"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#1E3A30" stroke-width="5"/><circle id="lring" cx="32" cy="32" r="28" fill="none" stroke="#F0C27A" stroke-width="5" stroke-linecap="round" stroke-dasharray="175.9" stroke-dashoffset="0"/></svg><b id="lsec">6</b></div>
+          <p id="lhint"><b>Weiter von allein.</b><br>Schneller: irgendwo hintippen, auch mit dem Handrücken.</p>
+        </div>
+        <div class="cmds" aria-label="Sprachbefehle">
+          <button data-cmd="again">„Nochmal“<small>sagen</small></button>
+          <button data-cmd="pause" id="cmdPause">„Stopp“<small>sagen</small></button>
+          <button data-cmd="ask">„Frage“<small>sagen</small></button>
+        </div>
+      </div>
+      <div class="heard" id="heard"><i><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F2F4F0" stroke-width="2.4" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/></svg></i><span id="heardTx">„Nochmal“</span></div>
+    </section>
+
+    <!-- CHEAT -->
+    <section class="screen" id="cheat" aria-label="Spickzettel">
+      <div class="statusbar"><span>14:08</span><span></span></div>
+      <div class="chead"><button class="iconbtn" data-back="intro" aria-label="Zurück"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F1F19" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><div><div class="k">Spickzettel · ab Schicht 3</div><h2>Espresso ziehen</h2></div></div>
+      <ol class="clist" id="clist"></ol>
+      <div class="cfoot"><svg class="qr" viewBox="0 0 21 21" aria-hidden="true"><path fill="#0F1F19" d="M0 0h7v7H0zM1 1v5h5V1zM2 2h3v3H2zM14 0h7v7h-7zM15 1v5h5V1zM16 2h3v3h-3zM0 14h7v7H0zM1 15v5h5v-5zM2 16h3v3H2zM8 0h1v2H8zM10 1h2v1h-2zM8 3h3v1H8zM9 5h2v2H9zM12 4h1v3h-1zM8 8h2v1H8zM0 8h2v1H0zM3 8h3v2H3zM11 8h3v1h-3zM15 8h2v2h-2zM18 8h3v1h-3zM1 10h1v2H1zM7 10h3v1H7zM12 10h2v2h-2zM16 11h1v2h-1zM19 10h2v3h-2zM8 12h2v2H8zM3 12h3v1H3zM14 13h2v1h-2zM8 15h1v3H8zM10 14h3v1h-3zM11 16h2v2h-2zM14 15h3v2h-3zM18 15h3v1h-3zM9 19h3v2H9zM14 18h1v3h-1zM16 18h2v1h-2zM19 17h2v4h-2zM16 20h2v1h-2z"/></svg><span>Hängt als QR-Code an der Maschine. Kein Ton, kein Durchklicken. Nur noch zum Nachschauen.</span></div>
     </section>
 
     <!-- DONE -->
@@ -342,11 +449,17 @@ button:focus-visible{outline:2px solid var(--brass-2);outline-offset:3px}
         </svg>
       </div>
       <div class="done-body">
-        <div class="k">Ablauf geschafft</div>
+        <div class="k" id="dK">Freihändig geschafft</div>
         <h2>Espresso<br>sitzt.</h2>
-        <div class="stats"><div><b>6/6</b><span>Handgriffe</span></div><div><b id="dTime">3:42</b><span>Minuten</span></div><div><b id="dQ">0</b><span>Fragen</span></div></div>
-        <div class="notify"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4FBF8B" stroke-width="2" stroke-linecap="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21h4"/></svg><span>Jonas bekommt Bescheid und schaut sich deinen ersten Espresso kurz an.</span></div>
-        <button class="cta" data-back="home" id="doneBack">Weiter zu „Milch schäumen“</button>
+        <div class="stats"><div><b>6/6</b><span>Schritte</span></div><div><b id="dTime">3:42</b><span>Minuten</span></div><div><b id="dTaps">0</b><span>Handy angefasst</span></div></div>
+        <div class="ladder" id="ladder">
+          <div data-l="0"><i style="--w:100%"></i><b>Schicht 1</b><span>volle Ansage</span></div>
+          <div data-l="1"><i style="--w:55%"></i><b>Schicht 2</b><span>Stichworte</span></div>
+          <div data-l="2"><i style="--w:20%"></i><b>Schicht 3</b><span>Spickzettel</span></div>
+          <div data-l="3"><i style="--w:0%"></i><b>Danach</b><span>allein</span></div>
+        </div>
+        <div class="notify"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4FBF8B" stroke-width="2" stroke-linecap="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21h4"/></svg><span id="dNote">Nächste Schicht sagt Dolmy nur noch Stichworte. Jonas bekommt Bescheid.</span></div>
+        <button class="cta" data-back="home" id="doneBack">Zurück zur Übersicht</button>
       </div>
     </section>
 
@@ -371,10 +484,11 @@ button:focus-visible{outline:2px solid var(--brass-2);outline-offset:3px}
   <div class="aside r">
     <div class="k">So vorführen</div>
     <ol>
-      <li>Ton an. Die App liest jeden Handgriff vor.</li>
-      <li>Auf ein gepunktet unterstrichenes Wort tippen: Fachbegriff wird erklärt.</li>
-      <li>„Frag nach“ tippen: Fragen werden aus der Bedienungsanleitung beantwortet.</li>
-      <li>„Erledigt“ schiebt zum nächsten Handgriff. Die Kamera fährt zur richtigen Stelle.</li>
+      <li>Ton an. Handy an die Maschine lehnen, „Freihändig an der Maschine“ tippen.</li>
+      <li>Jemand macht einen Espresso, nur nach Ansage. Weiter geht's von allein oder mit einem Tipp irgendwohin.</li>
+      <li>„Nochmal“, „Stopp“, „Frage“ sind im Produkt Sprachbefehle. In der Demo stehen sie als Tasten da.</li>
+      <li>Mit „Schicht 3“ hört man nur noch Stichworte. „Spickzettel“ zeigt, was danach übrig bleibt.</li>
+      <li>„Erst Vorschau“ zeigt den Ablauf mit Bild, Fachbegriffen und Fragen.</li>
     </ol>
   </div>
 </div>
@@ -522,7 +636,7 @@ const GLOSS = {
 };
 
 const $ = s => document.querySelector(s);
-const screens = ["home","intro","player","done"];
+const screens = ["home","intro","player","live","cheat","done"];
 let cur = "home", step = 0, muted = false, started = 0, asked = 0, espressoDone = false;
 
 function show(id){
@@ -620,9 +734,9 @@ const fmt = ms => { const s = Math.floor(ms/1000); return Math.floor(s/60)+":"+S
 function goStep(i){
   step = i; const s = STEPS[i];
   [...segs.children].forEach((n,k)=>{ n.classList.toggle("done",k<i); n.classList.toggle("now",k===i); n.style.setProperty("--p",0); });
-  $("#stepK").textContent = `Handgriff ${String(i+1).padStart(2,"0")} / ${String(STEPS.length).padStart(2,"0")}`;
+  $("#stepK").textContent = `Vorschau · ${String(i+1).padStart(2,"0")} / ${String(STEPS.length).padStart(2,"0")}`;
   const t = $("#stepT"); t.style.opacity=0; setTimeout(()=>{ t.textContent = s.t; t.style.transition="opacity .35s"; t.style.opacity=1; },120);
-  $("#next").firstChild.textContent = i === STEPS.length-1 ? "Fertig" : "Erledigt";
+  $("#next").firstChild.textContent = i === STEPS.length-1 ? "Jetzt an die Maschine" : "Weiter";
   svg.setAttribute("data-step", i+1);
   pf.style.transform = s.pf; pfIn.setAttribute("class", s.pfAnim||"");
   tamper.style.transform = s.tamper; tamperIn.setAttribute("class", s.tampAnim ? "tamp-press" : "");
@@ -643,9 +757,7 @@ $("#start").onclick = () => { started = Date.now(); asked = 0; cam = {cx:400,cy:
 $("#next").onclick = () => {
   if(step < STEPS.length-1){ goStep(step+1); return; }
   stopSpeech(); [...segs.children].forEach(n=>n.classList.add("done"));
-  $("#dTime").textContent = fmt(Math.max(Date.now()-started, 1000)); $("#dQ").textContent = asked;
-  espressoDone = true; markHome(); show("done");
-  utter("Stark. Espresso sitzt. Jonas bekommt Bescheid.");
+  startLive();
 };
 $("#replay").onclick = play;
 $("#mute").onclick = () => { muted = !muted; if(muted) { try{speechSynthesis.cancel();}catch(e){} }
@@ -659,7 +771,7 @@ function markHome(){
 // glossary
 const scrim = $("#scrim");
 function openSheet(el){ scrim.classList.add("on"); el.classList.add("on"); }
-function closeSheets(){ scrim.classList.remove("on"); document.querySelectorAll(".sheet").forEach(s=>s.classList.remove("on")); }
+function closeSheets(){ scrim.classList.remove("on"); document.querySelectorAll(".sheet").forEach(s=>s.classList.remove("on")); if(askPaused && cur==="live" && lPaused){ askPaused=false; togglePause(); } askPaused=false; }
 scrim.onclick = closeSheets; document.querySelectorAll("[data-close]").forEach(b=>b.onclick=closeSheets);
 function openTerm(term){
   const g = GLOSS[term]; if(!g) return;
@@ -672,7 +784,7 @@ $("#say").addEventListener("keydown", e => { const t = e.target.closest(".term")
 // ask
 let busy = false, usedQ = new Set();
 function renderAskIdle(){
-  const chat = $("#chat"); chat.innerHTML = `<div class="k">Frag Handgriff · kennt die Bedienungsanleitung</div><h4>Was ist unklar?</h4>`;
+  const chat = $("#chat"); chat.innerHTML = `<div class="k">Frag Dolmy · kennt die Bedienungsanleitung</div><h4>Was ist unklar?</h4>`;
   const sg = document.createElement("div"); sg.className="sugg";
   STEPS[step].q.forEach((q,i)=>{ const b=document.createElement("button"); b.innerHTML = `<span>${q[0]}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5D6E66" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`; b.onclick=()=>ask(i); sg.appendChild(b); });
   chat.appendChild(sg); $("#micHint").textContent = "Tippen und einfach fragen";
@@ -682,7 +794,7 @@ $("#bigMic").onclick = () => { if(busy) return; const qs = STEPS[step].q; let i 
 function ask(i){
   if(busy) return; busy = true; usedQ.add(step+":"+i); asked++;
   const [q,a,src] = STEPS[step].q[i]; const chat = $("#chat"); const mic = $("#bigMic");
-  chat.innerHTML = `<div class="k">Frag Handgriff · kennt die Bedienungsanleitung</div>`;
+  chat.innerHTML = `<div class="k">Frag Dolmy · kennt die Bedienungsanleitung</div>`;
   mic.classList.add("listen"); $("#micHint").textContent = "Hört zu …";
   const qb = document.createElement("div"); qb.className="bub q"; chat.appendChild(qb);
   let k = 0; const qt = setInterval(()=>{ k++; qb.textContent = q.slice(0,k); if(k>=q.length){ clearInterval(qt); setTimeout(answer, 420); } }, 34);
@@ -702,7 +814,77 @@ function ask(i){
   }
 }
 
+// ---------- live, hands-free ----------
+const LIVE = [
+  {loc:"Maschine · Mitte", cue:"Siebträger raus", d:"Griff nach links drehen. Nach unten ziehen.", sh:"Raus. Links drehen.", t:6},
+  {loc:"Abklopfbox · links", cue:"Ausklopfen", d:"Einmal kräftig gegen die Stange. Sieb trocken wischen.", sh:"Ausklopfen, wischen.", t:7},
+  {loc:"Mühle · rechts", cue:"Mahlen", d:"In die Gabel hängen. Goldenen Knopf einmal drücken.", sh:"Mühle. Goldener Knopf.", t:8},
+  {loc:"Theke", cue:"Tampern", d:"Gerade hinstellen. Fest und gerade andrücken.", sh:"Tampern. Gerade.", t:7},
+  {loc:"Maschine · Mitte", cue:"Einspannen", d:"Nach rechts drehen bis fest. Tasse drunter. Taste 1.", sh:"Einspannen. Taste 1.", t:8},
+  {loc:"Tasse", cue:"Kurz prüfen", d:"Nach 25 Sekunden: Crema haselnussbraun? Dann ab zum Gast.", sh:"Crema checken.", t:9}
+];
+const PRE = {loc:"Vorbereitung", cue:"Handy hinstellen", d:"Ton an. Ab jetzt brauchst du die Hände nur noch für den Kaffee.", sh:"Handy hinstellen. Los geht's.", t:4};
+let level = "full", lstep = -1, lEnd = 0, lDur = 1, lRemain = 0, lPaused = false, lRaf, lStarted = 0, taps = 0, askPaused = false;
+const lsegs = $("#lsegs"); lsegs.style.gridTemplateColumns = `repeat(${LIVE.length},1fr)`; LIVE.forEach(()=>lsegs.appendChild(document.createElement("i")));
+document.querySelectorAll(".lvl button").forEach(b => b.onclick = () => { level = b.dataset.level; document.querySelectorAll(".lvl button").forEach(x=>x.setAttribute("aria-checked", x===b)); });
+function startLive(){ lStarted = Date.now(); taps = 0; asked = 0; lPaused = false; setPauseBtn(); $("#lvlChip").textContent = level==="full" ? "Schicht 1 · voll" : "Schicht 3 · kurz"; show("live"); setTimeout(()=>liveStep(-1), 200); }
+$("#startLive").onclick = startLive;
+function liveStep(i){
+  lstep = i; const s = i<0 ? PRE : LIVE[i]; const short = level==="short";
+  [...lsegs.children].forEach((n,k)=>{ n.classList.toggle("done",k<i); n.classList.toggle("now",k===i); n.style.setProperty("--p",0); });
+  const m = $("#lmain"); m.classList.add("swap");
+  setTimeout(()=>{ $("#lloc").textContent = i<0 ? s.loc : `${String(i+1).padStart(2,"0")} / 06 · ${s.loc}`;
+    $("#cue").textContent = short && i>=0 ? s.sh : s.cue; $("#detail").textContent = s.d; $("#detail").hidden = short && i>=0; m.classList.remove("swap"); }, 220);
+  const text = short && i>=0 ? s.sh : `${s.cue}. ${s.d}`;
+  stopSpeech(); utter(text);
+  const speakMs = text.split(" ").length * 420;
+  lDur = speakMs + (short ? s.t*0.6 : s.t) * 1000; lEnd = Date.now() + lDur; lPaused = false; setPauseBtn(); tick();
+}
+function tick(){
+  cancelAnimationFrame(lRaf);
+  const loop = () => {
+    if(cur !== "live") return;
+    const rem = lPaused ? lRemain : Math.max(0, lEnd - Date.now());
+    $("#lring").style.strokeDashoffset = 175.9 * (1 - rem/lDur);
+    $("#lsec").textContent = Math.ceil(rem/1000);
+    if(lstep>=0) lsegs.children[lstep].style.setProperty("--p", 1 - rem/lDur);
+    if(!lPaused && rem <= 0){ liveNext(); return; }
+    lRaf = requestAnimationFrame(loop);
+  };
+  lRaf = requestAnimationFrame(loop);
+}
+function liveNext(){ if(lstep < LIVE.length-1) liveStep(lstep+1); else finishLive(); }
+function finishLive(){
+  cancelAnimationFrame(lRaf); stopSpeech(); [...lsegs.children].forEach(n=>n.classList.add("done"));
+  $("#dTime").textContent = fmt(Math.max(Date.now()-lStarted,1000)); $("#dTaps").textContent = taps;
+  const done = level==="full" ? 0 : 1;
+  document.querySelectorAll("#ladder div").forEach((d,k)=>{ d.classList.toggle("done", k<=done); d.classList.toggle("next", k===done+1); });
+  $("#dNote").textContent = level==="full" ? "Nächste Schicht sagt Dolmy nur noch Stichworte. Jonas bekommt Bescheid." : "Ab jetzt reicht der Spickzettel an der Maschine. Jonas schaut einmal drüber.";
+  $("#dK").textContent = level==="full" ? "Schicht 1 · freihändig geschafft" : "Schicht 3 · fast allein";
+  espressoDone = true; markHome(); show("done");
+  utter(level==="full" ? "Geschafft. Nächstes Mal sage ich nur noch Stichworte." : "Geschafft. Ab jetzt reicht der Spickzettel.");
+}
+$("#tapzone").addEventListener("pointerdown", e => {
+  const r = $("#device").getBoundingClientRect(); const rp = document.createElement("span"); rp.className="ripple"; rp.style.left=(e.clientX-r.left)+"px"; rp.style.top=(e.clientY-r.top)+"px"; $("#live").appendChild(rp); setTimeout(()=>rp.remove(),700);
+  taps++; if(lPaused){ togglePause(); return; } liveNext();
+});
+function heard(t){ const h=$("#heard"); $("#heardTx").textContent=t; h.classList.add("on"); setTimeout(()=>h.classList.remove("on"),1100); }
+function setPauseBtn(){ const b=$("#cmdPause"); b.classList.toggle("on", lPaused); b.innerHTML = lPaused ? "„Weiter“<small>sagen</small>" : "„Stopp“<small>sagen</small>"; $("#lhint").innerHTML = lPaused ? "<b>Angehalten.</b><br>Sag „Weiter“ oder tipp irgendwohin." : "<b>Weiter von allein.</b><br>Schneller: irgendwo hintippen, auch mit dem Handrücken."; }
+function togglePause(){ if(lPaused){ lPaused=false; lEnd = Date.now()+lRemain; heard("„Weiter“"); } else { lPaused=true; lRemain=Math.max(0,lEnd-Date.now()); stopSpeech(); heard("„Stopp“"); } setPauseBtn(); }
+document.querySelectorAll("[data-cmd]").forEach(b => b.onclick = e => {
+  e.stopPropagation(); const c = b.dataset.cmd;
+  if(c==="again"){ heard("„Nochmal“"); setTimeout(()=>liveStep(lstep),500); }
+  if(c==="pause") togglePause();
+  if(c==="ask"){ heard("„Frage“"); if(!lPaused) togglePause(); askPaused = true; step = Math.max(0,lstep); setTimeout(()=>{ renderAskIdle(); openSheet($("#askSheet")); }, 500); }
+});
+$("#liveClose").onclick = () => { cancelAnimationFrame(lRaf); show("intro"); };
+
+// ---------- cheat sheet ----------
+const clist = $("#clist");
+LIVE.forEach((s,i)=>{ const li=document.createElement("li"); li.innerHTML=`<button aria-pressed="false"><span class="n">${String(i+1).padStart(2,"0")}</span><span><b>${s.cue}</b><br>${s.d}</span><span class="box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span></button>`; li.firstChild.onclick=function(){ this.setAttribute("aria-pressed", this.getAttribute("aria-pressed")!=="true"); }; clist.appendChild(li); });
+$("#openCheat").onclick = () => show("cheat");
+
 let tt; function toast(m){ const t=$("#toast"); t.textContent=m; t.classList.add("on"); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove("on"),2200); }
-document.addEventListener("keydown", e => { if(e.key==="Escape") closeSheets(); if(cur==="player" && e.key==="ArrowRight" && !scrim.classList.contains("on")) $("#next").click(); });
+document.addEventListener("keydown", e => { if(e.key==="Escape") closeSheets(); if(scrim.classList.contains("on")) return; if(cur==="player" && e.key==="ArrowRight") $("#next").click(); if(cur==="live" && (e.key===" "||e.key==="ArrowRight")){ e.preventDefault(); taps++; lPaused ? togglePause() : liveNext(); } });
 })();
 </script>

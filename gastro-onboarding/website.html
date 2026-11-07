@@ -1,4 +1,4 @@
-<title>Handgriff Website</title>
+<title>Dolmy Gastro</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,9 +67,27 @@ nav .btn{height:44px;padding:0 18px;font-size:15px}
 /* phone mock */
 .phone-col{position:relative;display:grid;place-items:center;padding:20px 0}
 .phone{width:min(330px,82vw);aspect-ratio:330/680;border-radius:46px;background:var(--enamel);box-shadow:0 0 0 9px #0A0F0D,0 0 0 10px #2B3631,0 50px 90px -30px rgba(10,30,22,.55);overflow:hidden;position:relative;display:flex;flex-direction:column;isolation:isolate}
+.phone{background:#0A1511;color:#F4F7F4}
+.ltop{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:22px 16px 0}
+.lx{width:30px;height:30px;border-radius:50%;background:#14281F;display:grid;place-items:center;font-size:12px;color:#CFE0D7}
+.lchip{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;background:#F0C27A;color:#0A1511;padding:5px 8px;border-radius:99px}
+.phone .bar{position:static;display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
+.lm{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 22px;min-height:0}
+.lloc{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#F0C27A;display:flex;gap:8px;align-items:center}
+.lloc i{width:7px;height:7px;border-radius:50%;background:#4FBF8B}
+.lm h3{font-weight:900;font-stretch:112%;font-size:44px;line-height:.92;margin:12px 0 0;color:#F4F7F4}
+.lm p{margin:14px 0 0;font-size:20px;line-height:1.25;color:#BFD3C9}
+.lf{padding:0 16px 20px;display:grid;gap:14px}
+.cd{display:flex;gap:12px;align-items:center;font-size:13px;color:#9DB5AA;line-height:1.35}
+.cd b{color:#F4F7F4;font-weight:600}
+.cd svg{width:46px;height:46px;flex:none;transform:rotate(-90deg)}
+#pring{animation:cd 3.8s linear infinite}
+@keyframes cd{from{stroke-dashoffset:0}to{stroke-dashoffset:125.7}}
+.cm{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.cm span{height:44px;border-radius:14px;background:#14281F;border:1px solid #23443A;display:grid;place-items:center;font-weight:700;font-size:13px;color:#E9F0EC}
 .phone .scene{flex:1;position:relative;min-height:0}
 .phone .scene svg{position:absolute;inset:0;width:100%;height:100%}
-.phone .bar{position:absolute;top:18px;left:18px;right:18px;display:grid;grid-template-columns:repeat(6,1fr);gap:4px;z-index:2}
+
 .phone .bar i{height:3px;border-radius:2px;background:rgba(255,255,255,.2)}
 .phone .bar i.on{background:#F0C27A}
 .pcard{background:#F2F4F0;color:#0F1F19;border-radius:24px 24px 0 0;padding:18px 18px 22px;display:grid;gap:10px}
@@ -85,7 +103,8 @@ nav .btn{height:44px;padding:0 18px;font-size:15px}
 .fade{transition:opacity .35s}
 .float{position:absolute;background:var(--surface);color:var(--ink);border-radius:16px;padding:12px 14px;font-size:14px;box-shadow:0 20px 40px -18px rgba(10,30,22,.45),0 0 0 1px var(--line);display:flex;gap:10px;align-items:center;max-width:240px;line-height:1.3;animation:bob 6s ease-in-out infinite}
 .float.q{left:-4%;top:16%}
-.float.n{right:-6%;top:50%;animation-delay:-3s}
+.float.n{right:-6%;top:60%;animation-delay:-3s}
+.float.q{flex-wrap:nowrap}
 .float .dot{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex:none}
 @media (max-width:520px){.float{display:none}}
 .hs-ring{transform-box:fill-box;transform-origin:center;animation:ring 1.8s ease-out infinite}
@@ -150,6 +169,34 @@ nav .btn{height:44px;padding:0 18px;font-size:15px}
 .pill.ok{background:color-mix(in srgb,var(--ok) 18%,transparent);color:var(--ok)}
 .hand{position:relative;height:150px;border-radius:12px;overflow:hidden;background:#1A3D31}
 .hand svg{position:absolute;inset:0;width:100%;height:100%}
+
+/* modes */
+.mgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:900px){.mgrid{grid-template-columns:1fr}}
+.m{display:grid;gap:12px;align-content:start;min-width:0}
+.m h3{font-size:24px;font-weight:850;line-height:1.05}
+.m p{margin:0;color:var(--mute)}
+.mk{display:flex;justify-content:space-between;gap:10px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--brass-text);margin-top:6px;flex-wrap:wrap}
+.mk span:last-child{color:var(--mute)}
+.mviz{height:190px;border-radius:22px;overflow:hidden;position:relative}
+.mviz svg{position:absolute;inset:0;width:100%;height:100%}
+.v2{background:#0A1511;color:#F4F7F4;padding:22px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.v2 .mloc{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#F0C27A}
+.v2 b{font-family:var(--f-display);font-stretch:112%;font-weight:900;font-size:46px;line-height:.95}
+.v2 .mdet{font-size:18px;color:#BFD3C9}
+.v3{background:var(--surface);box-shadow:0 0 0 1px var(--line);padding:18px;display:grid;gap:8px;align-content:center}
+.v3 span{display:flex;gap:10px;align-items:center;font-size:15px;padding:8px 10px;border-radius:10px;background:var(--bg)}
+.v3 i{width:16px;height:16px;border-radius:5px;background:var(--ok);flex:none}
+.v3 .o i{background:transparent;box-shadow:inset 0 0 0 2px var(--mute)}
+.fadebar{margin-top:56px;padding-top:28px;border-top:1px solid var(--line)}
+.fk{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:18px}
+.fcols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:end}
+.fcols div{display:grid;gap:6px}
+.fcols i{display:block;height:120px;border-radius:12px;background:var(--surface-2);position:relative;overflow:hidden}
+.fcols i::after{content:"";position:absolute;inset:auto 0 0;height:var(--h);background:var(--brass);border-radius:12px}
+.fcols b{font-size:17px;margin-top:6px}
+.fcols span{font-size:14px;color:var(--mute)}
+@media (max-width:560px){.fcols i{height:80px}.fcols span{font-size:12.5px}}
 
 /* calc */
 .calc .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:center}
@@ -237,8 +284,8 @@ footer ol{margin:0;padding-left:18px;display:grid;gap:4px;font-size:12px;max-wid
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="#top"><span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F0C27A" stroke-width="2.4" stroke-linecap="round"><path d="M7 4v8a5 5 0 0 0 10 0V4"/><path d="M12 17v3"/></svg></span>Handgriff</a>
-    <ul><li><a href="#so-gehts">So geht's</a></li><li><a href="#was-neue-erleben">Für dein Team</a></li><li><a href="#rechnung">Rechnung</a></li><li><a href="#fragen">Fragen</a></li></ul>
+    <a class="brand" href="#top"><span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F0C27A" stroke-width="2.4" stroke-linecap="round"><path d="M7 4v8a5 5 0 0 0 10 0V4"/><path d="M12 17v3"/></svg></span>Dolmy</a>
+    <ul><li><a href="#so-gehts">So geht's</a></li><li><a href="#modi">Freihändig</a></li><li><a href="#rechnung">Rechnung</a></li><li><a href="#fragen">Fragen</a></li></ul>
     <a class="btn primary" href="#buchen">Termin buchen</a>
   </div>
 </nav>
@@ -247,57 +294,33 @@ footer ol{margin:0;padding-left:18px;display:grid;gap:4px;font-size:12px;max-wid
   <div class="wrap">
     <div>
       <div class="k">Einarbeitung für Gastro &amp; Bar</div>
-      <h1>Zeig's einmal. <em>Dein Team</em> lernt den Rest allein.</h1>
-      <p class="lead">Handgriff macht aus deiner Einarbeitung eine Sprachanleitung fürs Handy. Neue Leute stehen an der echten Maschine, hören Schritt für Schritt, was zu tun ist, und sehen, wo sie hingreifen. Fragen beantwortet die App aus der Bedienungsanleitung.</p>
+      <h1>Zeig's einmal. Dein Team lernt den Rest <em>freihändig.</em></h1>
+      <p class="lead">Dolmy macht aus deiner Einarbeitung eine Ansage für die Station. Das Handy steht an der Maschine, neue Leute hören kurz, was als Nächstes kommt, und haben beide Hände für die Arbeit. Mit jeder Schicht sagt Dolmy weniger, bis es niemand mehr braucht.</p>
       <div class="ctas">
         <a class="btn primary" href="#buchen">Einarbeitung aufnehmen lassen <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn secondary" href="https://claude.ai/artifact/BSo9m92d1kmRwmXxmaVsY6" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>Demo ausprobieren</a>
       </div>
       <div class="proof">
-        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Ein Termin vor Ort, wir machen den Rest</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Kein Tippen mit nassen Händen</span>
         <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Läuft auf jedem Handy</span>
-        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Auch in der Muttersprache deines Teams</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Wir kommen vorbei und richten alles ein</span>
       </div>
     </div>
     <div class="phone-col" aria-label="Vorschau der App">
       <div class="phone">
-        <div class="bar" id="pbar"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="scene">
-          <svg viewBox="285 150 270 350" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <defs>
-              <linearGradient id="st" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#EEF1EF"/><stop offset=".5" stop-color="#B4BCB8"/><stop offset="1" stop-color="#D2D8D5"/></linearGradient>
-              <linearGradient id="ch" x1="0" x2="1"><stop offset="0" stop-color="#8E9893"/><stop offset=".35" stop-color="#F4F6F5"/><stop offset=".6" stop-color="#B7BFBB"/><stop offset="1" stop-color="#7E8883"/></linearGradient>
-              <pattern id="tl" width="60" height="30" patternUnits="userSpaceOnUse"><rect width="60" height="30" fill="#1A3D31"/><path d="M0 .5H60M.5 0V15M30.5 15V30M0 15.5H60" stroke="#24503F" stroke-width="1.2"/></pattern>
-            </defs>
-            <rect x="0" y="0" width="800" height="600" fill="url(#tl)"/>
-            <rect x="0" y="430" width="800" height="200" fill="#3A2A1F"/>
-            <rect x="180" y="156" width="380" height="250" rx="18" fill="url(#st)"/>
-            <rect x="200" y="182" width="340" height="96" rx="10" fill="#202523"/>
-            <rect x="318" y="214" width="84" height="32" rx="5" fill="#0D1512"/>
-            <text x="360" y="236" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="16" font-weight="600" fill="#4FBF8B">93,0°</text>
-            <circle cx="460" cy="216" r="11" fill="#5D6763"/><circle cx="500" cy="216" r="11" fill="#5D6763"/><circle cx="460" cy="252" r="11" fill="#D39A45"/><circle cx="500" cy="252" r="11" fill="#5D6763"/>
-            <rect x="340" y="288" width="60" height="38" rx="6" fill="url(#ch)"/>
-            <rect x="330" y="320" width="80" height="14" rx="6" fill="#3A403D"/>
-            <rect x="334" y="334" width="72" height="18" rx="5" fill="url(#ch)"/>
-            <path d="M402 338 L502 356 Q510 358 509 366 L402 350Z" fill="#1C1F1E"/>
-            <rect x="200" y="404" width="340" height="18" rx="5" fill="#2E3431"/>
-            <path d="M350 378h40v20a20 9 0 0 1-40 0z" fill="#F2F4F0"/><path d="M390 384c10 0 10 12 0 12" stroke="#F2F4F0" stroke-width="4" fill="none"/>
-            <g id="phs" style="transition:transform 1s cubic-bezier(.22,.8,.2,1);transform:translate(478px,354px)">
-              <circle class="hs-ring" r="13" fill="none" stroke="#F0C27A" stroke-width="2.5"/>
-              <circle class="hs-ring b" r="13" fill="none" stroke="#F0C27A" stroke-width="2.5"/>
-              <circle r="7" fill="#F0C27A" stroke="#2A1A07" stroke-width="2"/>
-            </g>
-          </svg>
-        </div>
-        <div class="pcard">
-          <div class="k"><span id="pk">Handgriff 01 / 06</span><b>● Spricht</b></div>
+        <div class="ltop"><span class="lx">✕</span><div class="bar" id="pbar"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div><span class="lchip">Schicht 1</span></div>
+        <div class="lm">
+          <div class="lloc"><i></i><span id="pk">01 / 06 · Maschine · Mitte</span></div>
           <h3 class="fade" id="pt">Siebträger raus</h3>
-          <p class="fade" id="pp">Greif den <u>Siebträger</u> am schwarzen Griff und dreh ihn nach links, bis er locker ist.</p>
-          <div class="row"><span>Frag nach</span><span>Erledigt →</span></div>
+          <p class="fade" id="pp">Griff nach links drehen. Nach unten ziehen.</p>
+        </div>
+        <div class="lf">
+          <div class="cd"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="#1E3A30" stroke-width="4"/><circle id="pring" cx="24" cy="24" r="20" fill="none" stroke="#F0C27A" stroke-width="4" stroke-linecap="round" stroke-dasharray="125.7"/></svg><span><b>Weiter von allein.</b><br>Oder irgendwo hintippen.</span></div>
+          <div class="cm"><span>„Nochmal“</span><span>„Stopp“</span><span>„Frage“</span></div>
         </div>
       </div>
-      <div class="float q"><span class="dot" style="background:var(--enamel)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EEF3EF" stroke-width="2.4" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>„Wie fest muss ich tampern?“</div>
-      <div class="float n"><span class="dot" style="background:color-mix(in srgb,var(--ok) 20%,transparent)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Mira</b> kann jetzt Espresso. 6/6 in 3:42.</span></div>
+      <div class="float q"><span class="dot" style="background:var(--enamel)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EEF3EF" stroke-width="2.4" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><span>„Nochmal.“<small style="display:block;color:var(--mute);font-size:12px;margin-top:2px">Sprachbefehl, die Hände bleiben am Siebträger</small></span></div>
+      <div class="float n"><span class="dot" style="background:color-mix(in srgb,var(--ok) 20%,transparent)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Mira</b> hat Espresso freihändig geschafft. Morgen nur noch Stichworte.</span></div>
     </div>
   </div>
 </header>
@@ -328,8 +351,47 @@ footer ol{margin:0;padding-left:18px;display:grid;gap:4px;font-size:12px;max-wid
     </div>
     <div class="steps">
       <div class="step"><div class="n">1</div><h3>Du zeigst es einmal</h3><p>Wir kommen vorbei. Du oder dein bester Barista macht jeden Ablauf einmal vor, wie immer. Wir nehmen auf, fotografieren die Geräte und nehmen die Bedienungsanleitungen mit.</p><span class="meta">ca. 2 Stunden vor Ort</span></div>
-      <div class="step"><div class="n">2</div><h3>Wir bauen die Handgriffe</h3><p>Aus der Aufnahme wird eine geführte Anleitung: jeder Schritt mit Ansage, Bild, Hinweis wo man hingreift und erklärten Fachbegriffen. Du schaust drüber und gibst frei.</p><span class="meta">fertig in wenigen Tagen</span></div>
-      <div class="step"><div class="n">3</div><h3>Dein Team lernt allein</h3><p>QR-Code an die Maschine. Neue Leute scannen, Kopfhörer rein, los. Am besten beim Schicht-Vorbereiten. Du siehst, wer welchen Ablauf schon kann.</p><span class="meta">ab der nächsten Schicht</span></div>
+      <div class="step"><div class="n">2</div><h3>Wir bauen die Abläufe</h3><p>Aus der Aufnahme wird eine geführte Anleitung: jeder Schritt mit Ansage, Bild, Hinweis wo man hingreift und erklärten Fachbegriffen. Du schaust drüber und gibst frei.</p><span class="meta">fertig in wenigen Tagen</span></div>
+      <div class="step"><div class="n">3</div><h3>Dein Team lernt allein</h3><p>Handy in die Halterung an der Station, Ton an. Neue Leute hören, was zu tun ist, und arbeiten mit beiden Händen. Du siehst, wer welchen Ablauf schon kann.</p><span class="meta">ab der nächsten Schicht</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="modes" id="modi">
+  <div class="wrap">
+    <div class="feat-h">
+      <div class="k">Freihändig, wirklich</div>
+      <h2>Erst schauen. Dann machen. Dann allein.</h2>
+      <p class="lead">Zuhören und gleichzeitig arbeiten klappt nur, wenn man vorher weiß, worum es geht. Deshalb hat Dolmy drei Modi für drei Momente der Einarbeitung.</p>
+    </div>
+    <div class="mgrid">
+      <article class="m">
+        <div class="mviz v1"><svg viewBox="560 190 220 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><pattern id="tl2" width="60" height="30" patternUnits="userSpaceOnUse"><rect width="60" height="30" fill="#1A3D31"/><path d="M0 .5H60M.5 0V15M30.5 15V30M0 15.5H60" stroke="#24503F" stroke-width="1.2"/></pattern></defs><rect x="0" y="0" width="900" height="600" fill="url(#tl2)"/><rect x="615" y="150" width="70" height="268" rx="12" fill="#252A28"/><rect x="628" y="216" width="44" height="20" rx="3" fill="#0D1512"/><text x="650" y="230" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" fill="#4FBF8B">18,0 g</text><circle cx="650" cy="262" r="11" fill="#D39A45"/><g transform="translate(650 262)"><circle class="hs-ring" r="14" fill="none" stroke="#F0C27A" stroke-width="2.5"/><circle class="hs-ring b" r="14" fill="none" stroke="#F0C27A" stroke-width="2.5"/></g></svg></div>
+        <div class="mk"><span>1 · Vorschau</span><span>vor der Schicht · 2 Min</span></div>
+        <h3>Mit Blick aufs Handy</h3>
+        <p>Die Maschine im Bild, wo man hingreift, Fachbegriffe, Fragen an die Anleitung. Am besten beim Kaffee vor Schichtbeginn, nicht an der Bar.</p>
+      </article>
+      <article class="m">
+        <div class="mviz v2"><span class="mloc">03 / 06 · Mühle</span><b>Mahlen</b><span class="mdet">Goldenen Knopf einmal drücken.</span></div>
+        <div class="mk"><span>2 · Freihändig</span><span>an der Maschine</span></div>
+        <h3>Ohne hinzuschauen</h3>
+        <p>Ein Schritt, eine Handlung, kurze Ansage. Weiter geht's von allein. „Nochmal“ und „Stopp“ per Stimme, sonst reicht der Handrücken auf dem Bildschirm.</p>
+      </article>
+      <article class="m">
+        <div class="mviz v3"><span><i></i>Siebträger raus</span><span><i></i>Ausklopfen</span><span><i></i>Mahlen</span><span class="o"><i></i>Tampern</span></div>
+        <div class="mk"><span>3 · Spickzettel</span><span>ab Schicht 3</span></div>
+        <h3>Nur noch nachschauen</h3>
+        <p>Sechs Zeilen per QR-Code an der Maschine. Kein Ton, kein Durchklicken. Für den Moment, in dem man kurz unsicher ist.</p>
+      </article>
+    </div>
+    <div class="fadebar" aria-label="So nimmt die Hilfe ab">
+      <div class="fk">So viel sagt Dolmy noch</div>
+      <div class="fcols">
+        <div><i style="--h:100%"></i><b>Schicht 1</b><span>jeder Schritt, ganzer Satz</span></div>
+        <div><i style="--h:55%"></i><b>Schicht 2</b><span>nur Stichworte</span></div>
+        <div><i style="--h:20%"></i><b>Schicht 3</b><span>Spickzettel</span></div>
+        <div><i style="--h:4%"></i><b>Danach</b><span>kann's allein</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -339,15 +401,15 @@ footer ol{margin:0;padding-left:18px;display:grid;gap:4px;font-size:12px;max-wid
     <div class="feat-h">
       <div class="k">Was neue Leute erleben</div>
       <h2>Wie Jonas daneben. Nur ohne Jonas.</h2>
-      <p class="lead">Handgriff ersetzt nicht dein Team. Es nimmt ihm das Wiederholen ab.</p>
+      <p class="lead">Dolmy ersetzt nicht dein Team. Es nimmt ihm das Wiederholen ab.</p>
     </div>
     <div class="fgrid">
       <article class="f">
-        <div class="viz"><div class="wave" id="fwave"></div><div class="say">Häng den Siebträger in die Gabel der Mühle <span class="dim">und drück einmal auf den goldenen Knopf.</span></div></div>
-        <div><h3>Ansage im Ohr, Hände frei</h3><p>Jeder Schritt wird vorgelesen. Handy in die Schürze, Kopfhörer rein. Weiter geht's per Tipp, wenn der Handgriff sitzt.</p></div>
+        <div class="viz"><div class="wave" id="fwave"></div><div class="say">Mahlen. <span class="dim">Goldenen Knopf einmal drücken.</span></div></div>
+        <div><h3>Weiter, ohne anzufassen</h3><p>Kein Tippen mit Kaffeepulver an den Fingern. Dolmy schaltet weiter, wenn der Schritt Zeit hatte. Wer schneller ist, sagt „weiter“ oder tippt mit dem Handrücken.</p></div>
       </article>
       <article class="f">
-        <div class="hand"><svg viewBox="500 190 300 110" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <div class="hand"><svg viewBox="500 190 300 110" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><pattern id="tl" width="60" height="30" patternUnits="userSpaceOnUse"><rect width="60" height="30" fill="#1A3D31"/><path d="M0 .5H60M.5 0V15M30.5 15V30M0 15.5H60" stroke="#24503F" stroke-width="1.2"/></pattern></defs>
           <rect x="0" y="0" width="900" height="600" fill="url(#tl)"/>
           <rect x="615" y="150" width="70" height="268" rx="12" fill="#252A28"/>
           <rect x="628" y="216" width="44" height="20" rx="3" fill="#0D1512"/><text x="650" y="230" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" fill="#4FBF8B">18,0 g</text>
@@ -356,11 +418,11 @@ footer ol{margin:0;padding-left:18px;display:grid;gap:4px;font-size:12px;max-wid
           <g transform="translate(650 262)"><circle class="hs-ring" r="14" fill="none" stroke="#F0C27A" stroke-width="2.5"/><circle class="hs-ring b" r="14" fill="none" stroke="#F0C27A" stroke-width="2.5"/>
           <rect x="18" y="-34" width="86" height="22" rx="11" fill="#F2F4F0"/><text x="61" y="-19" text-anchor="middle" font-family="Instrument Sans,system-ui,sans-serif" font-size="11" font-weight="700" fill="#0F1F19">Einmal drücken</text></g>
         </svg></div>
-        <div><h3>Zeigt, wo man hingreift</h3><p>Das Bild fährt zur richtigen Stelle am Gerät und markiert sie. Kein Rätselraten, welcher Knopf gemeint ist.</p></div>
+        <div><h3>Zeigt, wo man hingreift</h3><p>In der Vorschau fährt das Bild zur richtigen Stelle am Gerät und markiert sie. An der Maschine weiß man dann schon, welcher Knopf gemeint ist.</p></div>
       </article>
       <article class="f">
         <div class="viz"><div class="bub q">Der Espresso läuft zu schnell. Was jetzt?</div><div class="bub a">Unter 20 Sekunden nicht servieren. Neu ziehen und der Schichtleitung Bescheid geben.<small>Hausregel · von Jonas</small></div></div>
-        <div><h3>Fragen jederzeit</h3><p>Handgriff kennt die Bedienungsanleitungen und deine Hausregeln. Die Antwort kommt sofort, mit Quelle, statt dass jemand die Bar verlassen muss.</p></div>
+        <div><h3>Fragen jederzeit</h3><p>Dolmy kennt die Bedienungsanleitungen und deine Hausregeln. Einfach „Frage“ sagen. Die Antwort kommt sofort, mit Quelle, statt dass jemand die Bar verlassen muss.</p></div>
       </article>
       <article class="f">
         <div class="viz who">
@@ -389,7 +451,7 @@ footer ol{margin:0;padding-left:18px;display:grid;gap:4px;font-size:12px;max-wid
         <div><b id="r1">2.880 €</b><span id="r1s">120 Stunden im Jahr fürs Einarbeiten</span></div>
         <div class="save"><b id="r2">1.920 €</b><span id="r2s">80 Stunden zurück an die Bar</span></div>
       </div>
-      <p class="note">Annahme: Mit Handgriff fallen etwa zwei Drittel der Daneben-steh-Zeit weg. Ein kurzer Check am Ende bleibt.</p>
+      <p class="note">Annahme: Mit Dolmy fallen etwa zwei Drittel der Daneben-steh-Zeit weg. Ein kurzer Check am Ende bleibt.</p>
     </div>
   </div>
 </section>
@@ -422,9 +484,9 @@ footer ol{margin:0;padding-left:18px;display:grid;gap:4px;font-size:12px;max-wid
       <h3>Deine Einarbeitung, digital.</h3>
       <ul>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E8A5F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Aufnahme-Termin bei dir vor Ort</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E8A5F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Bis zu 5 Abläufe als geführte Handgriffe</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E8A5F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Bis zu 5 Abläufe, jeweils mit Vorschau, freihändigem Modus und Spickzettel</li>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E8A5F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Bedienungsanleitungen und Hausregeln eingepflegt</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E8A5F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>QR-Codes für deine Geräte</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E8A5F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>QR-Codes und Handyhalterungen für deine Stationen</li>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E8A5F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>30 Tage live mit deinem ganzen Team</li>
       </ul>
       <div class="perf"></div>
@@ -438,8 +500,10 @@ footer ol{margin:0;padding-left:18px;display:grid;gap:4px;font-size:12px;max-wid
   <div class="wrap">
     <div><div class="k">Fragen</div><h2>Was Gastronomen zuerst fragen.</h2></div>
     <div>
-      <details open><summary>Muss mein Team eine App installieren?</summary><p>Nein. Handgriff läuft im Browser. QR-Code scannen, fertig. Das funktioniert auch auf dem privaten Handy von Aushilfen.</p></details>
-      <details><summary>Wie viel Arbeit habe ich damit?</summary><p>Einen Termin von etwa zwei Stunden, in dem ihr eure Abläufe einmal vormacht. Danach schaust du die fertigen Handgriffe einmal durch und gibst sie frei. Den Rest machen wir.</p></details>
+      <details open><summary>Muss man beim Arbeiten aufs Handy schauen?</summary><p>Nein. Hingeschaut wird vorher, in der zweiminütigen Vorschau. An der Maschine reichen kurze Ansagen. Das Handy steht in einer Halterung, weiter geht's von allein.</p></details>
+      <details><summary>Kopfhörer in der Küche, ist das hygienisch?</summary><p>Kopfhörer sind nicht nötig. An den meisten Stationen reicht der Lautsprecher. Wer einen Ohrstöpsel nimmt, muss ihn bei der Arbeit nicht anfassen, weil alles per Stimme oder automatisch weitergeht.</p></details>
+      <details><summary>Muss mein Team eine App installieren?</summary><p>Nein. Dolmy läuft im Browser. QR-Code scannen, fertig. Das funktioniert auch auf dem privaten Handy von Aushilfen.</p></details>
+      <details><summary>Wie viel Arbeit habe ich damit?</summary><p>Einen Termin von etwa zwei Stunden, in dem ihr eure Abläufe einmal vormacht. Danach schaust du die fertigen Abläufe einmal durch und gibst sie frei. Den Rest machen wir.</p></details>
       <details><summary>Mein Team spricht nicht alle gut Deutsch.</summary><p>Die Ansagen können in der Muttersprache laufen. Fachbegriffe bleiben auf Deutsch, damit alle an der Bar dieselben Wörter benutzen.</p></details>
       <details><summary>Was, wenn sich ein Ablauf oder eine Maschine ändert?</summary><p>Sag uns Bescheid oder schick ein kurzes Video. Wir passen den Ablauf an, und ab der nächsten Schicht läuft die neue Version.</p></details>
       <details><summary>Ersetzt das die Einarbeitung durch Menschen?</summary><p>Nein. Es ersetzt das ständige Wiederholen. Am Ende schaut jemand Erfahrenes kurz drüber. Das dauert Minuten statt Stunden.</p></details>
@@ -453,7 +517,7 @@ footer ol{margin:0;padding-left:18px;display:grid;gap:4px;font-size:12px;max-wid
       <div class="k">Termin buchen</div>
       <h2>Zeig's uns einmal.</h2>
       <p class="lead">Wir melden uns innerhalb eines Werktags und kommen für eine kurze Vorführung bei dir vorbei. Mit Demo auf dem Handy, an deiner Maschine.</p>
-      <div class="contact"><span>Lieber direkt sprechen?</span><b>hallo@handgriff.app</b><b>+49 30 0000 0000</b></div>
+      <div class="contact"><span>Lieber direkt sprechen?</span><b>hallo@dolmy.de</b><b>+49 30 0000 0000</b></div>
     </div>
     <div>
       <form id="bf" novalidate>
@@ -482,7 +546,7 @@ footer ol{margin:0;padding-left:18px;display:grid;gap:4px;font-size:12px;max-wid
 
 <footer>
   <div class="wrap">
-    <span>Handgriff · Einarbeitung, die mitläuft</span>
+    <span>Dolmy · Einarbeitung, die mitläuft · dolmy.de</span>
     <ol>
       <li>AMS Österreich, Auswertung Fluktuation Gastronomie 2017–2021, zitiert nach <a href="https://www.karriere.at/blog/fluktuationskosten-studie.html" target="_blank" rel="noopener">karriere.at</a></li>
       <li><a href="https://joinhomebase.com/blog/restaurant-employee-turnover" target="_blank" rel="noopener">Homebase: Restaurant employee turnover</a></li>
@@ -495,17 +559,20 @@ footer ol{margin:0;padding-left:18px;display:grid;gap:4px;font-size:12px;max-wid
 (() => {
   // hero phone cycles through three steps
   const S = [
-    ["Siebträger raus","Greif den <u>Siebträger</u> am schwarzen Griff und dreh ihn nach links, bis er locker ist.","translate(478px,354px)"],
-    ["Einspannen & starten","Setz ihn in die <u>Brühgruppe</u>, dreh nach rechts bis er fest sitzt. Dann die goldene Taste drücken.","translate(460px,252px)"],
-    ["Kurz prüfen","Nach 25 bis 30 Sekunden sind etwa 36 ml in der Tasse. Die <u>Crema</u> ist haselnussbraun.","translate(392px,388px)"]
+    ["Siebträger raus","Griff nach links drehen. Nach unten ziehen.","Maschine · Mitte"],
+    ["Ausklopfen","Einmal kräftig gegen die Stange. Sieb trocken wischen.","Abklopfbox · links"],
+    ["Mahlen","In die Gabel hängen. Goldenen Knopf einmal drücken.","Mühle · rechts"],
+    ["Tampern","Gerade hinstellen. Fest und gerade andrücken.","Theke"],
+    ["Einspannen","Nach rechts drehen bis fest. Tasse drunter. Taste 1.","Maschine · Mitte"],
+    ["Kurz prüfen","Nach 25 Sekunden: Crema haselnussbraun? Dann ab zum Gast.","Tasse"]
   ];
-  const idx = [0,4,5]; let i = 0;
-  const pt = document.getElementById("pt"), pp = document.getElementById("pp"), pk = document.getElementById("pk"), hs = document.getElementById("phs"), bars = document.querySelectorAll("#pbar i");
+  let i = 0;
+  const pt = document.getElementById("pt"), pp = document.getElementById("pp"), pk = document.getElementById("pk"), bars = document.querySelectorAll("#pbar i");
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   if(!reduce) setInterval(() => {
     i = (i+1)%S.length; pt.style.opacity = pp.style.opacity = 0;
-    setTimeout(() => { pt.textContent = S[i][0]; pp.innerHTML = S[i][1]; pk.textContent = `Handgriff 0${idx[i]+1} / 06`; pt.style.opacity = pp.style.opacity = 1;
-      bars.forEach((b,k)=>b.classList.toggle("on", k<=idx[i])); hs.style.transform = S[i][2]; }, 350);
+    setTimeout(() => { pt.textContent = S[i][0]; pp.textContent = S[i][1]; pk.textContent = `0${i+1} / 06 · ${S[i][2]}`; pt.style.opacity = pp.style.opacity = 1;
+      bars.forEach((b,k)=>b.classList.toggle("on", k<=i)); }, 300);
   }, 3800);
 
   // feature waveform
