@@ -1,0 +1,535 @@
+<title>Handgriff Website</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: one long sales page. Light tiled-wall ground, enamel-green bands for the problem + offer,
+   phone with the live product in the hero. Wide expanded display type, like café enamel signs. */
+:root{
+  --bg:#F2F4F0; --surface:#FFFFFF; --surface-2:#E6EBE5; --ink:#0F1F19; --mute:#53645C; --line:rgba(15,31,25,.12);
+  --enamel:#17382D; --enamel-2:#1F4A3B; --on-enamel:#EEF3EF; --on-enamel-mute:#A9C2B7;
+  --brass:#D39A45; --brass-ink:#2A1A07; --brass-text:#8A5A17; --ok:#2E8A5F;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.22,.8,.2,1);
+  --max:1180px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1A15; --surface:#15251E; --surface-2:#1C3128; --ink:#E8EEEA; --mute:#9DB1A7; --line:rgba(232,238,234,.12);
+  --enamel:#12302A; --enamel-2:#1B4337; --on-enamel:#EEF3EF; --on-enamel-mute:#A9C2B7;
+  --brass:#E0A855; --brass-ink:#241604; --brass-text:#F0C27A; --ok:#5CCB98; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1A15; --surface:#15251E; --surface-2:#1C3128; --ink:#E8EEEA; --mute:#9DB1A7; --line:rgba(232,238,234,.12);
+  --enamel:#12302A; --enamel-2:#1B4337; --on-enamel:#EEF3EF; --on-enamel-mute:#A9C2B7;
+  --brass:#E0A855; --brass-ink:#241604; --brass-text:#F0C27A; --ok:#5CCB98; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.k{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+h1,h2,h3{font-family:var(--f-display);font-stretch:125%;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h2{font-weight:850;font-size:clamp(32px,5vw,56px);line-height:.98}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--mute);max-width:56ch}
+.btn{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 24px;border-radius:16px;font-weight:700;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .15s,box-shadow .2s}
+.btn:active{transform:scale(.98)}
+.btn.primary{background:var(--brass);color:var(--brass-ink);box-shadow:0 14px 30px -14px rgba(211,154,69,.8)}
+.btn.secondary{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+section{padding-block:clamp(72px,10vw,128px)}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-stretch:125%;font-weight:850;font-size:21px;letter-spacing:-.02em}
+.mark{width:32px;height:32px;border-radius:9px;background:var(--enamel);display:grid;place-items:center;flex:none}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:15px}
+nav ul a{text-decoration:none;color:var(--mute)}
+nav ul a:hover{color:var(--ink)}
+nav .btn{height:44px;padding:0 18px;font-size:15px}
+@media (max-width:860px){nav ul{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(40px,7vw,96px) clamp(64px,8vw,110px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,6vw,80px);align-items:center}
+.hero h1{font-weight:900;font-size:clamp(40px,5.6vw,76px);line-height:.92;margin:18px 0 24px}
+.hero h1 em{font-style:normal;color:var(--brass-text)}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0 28px}
+.proof{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:var(--mute)}
+.proof span{display:flex;gap:8px;align-items:center}
+.proof svg{flex:none}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.phone-col{order:2}}
+
+/* phone mock */
+.phone-col{position:relative;display:grid;place-items:center;padding:20px 0}
+.phone{width:min(330px,82vw);aspect-ratio:330/680;border-radius:46px;background:var(--enamel);box-shadow:0 0 0 9px #0A0F0D,0 0 0 10px #2B3631,0 50px 90px -30px rgba(10,30,22,.55);overflow:hidden;position:relative;display:flex;flex-direction:column;isolation:isolate}
+.phone .scene{flex:1;position:relative;min-height:0}
+.phone .scene svg{position:absolute;inset:0;width:100%;height:100%}
+.phone .bar{position:absolute;top:18px;left:18px;right:18px;display:grid;grid-template-columns:repeat(6,1fr);gap:4px;z-index:2}
+.phone .bar i{height:3px;border-radius:2px;background:rgba(255,255,255,.2)}
+.phone .bar i.on{background:#F0C27A}
+.pcard{background:#F2F4F0;color:#0F1F19;border-radius:24px 24px 0 0;padding:18px 18px 22px;display:grid;gap:10px}
+.pcard .k{font-size:10px;color:#5D6E66;display:flex;justify-content:space-between}
+.pcard .k b{color:#1F6B47;font-weight:600}
+.pcard h3{font-size:24px;font-weight:850;line-height:1}
+.pcard p{margin:0;font-size:15px;line-height:1.42;min-height:4.3em}
+.pcard p u{text-decoration-style:dotted;text-decoration-color:#D39A45;text-decoration-thickness:2px;text-underline-offset:3px}
+.pcard .row{display:grid;grid-template-columns:auto 1fr;gap:8px}
+.pcard .row span{height:46px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.pcard .row span:first-child{background:#17382D;color:#EEF3EF;padding:0 14px}
+.pcard .row span:last-child{background:#D39A45;color:#2A1A07}
+.fade{transition:opacity .35s}
+.float{position:absolute;background:var(--surface);color:var(--ink);border-radius:16px;padding:12px 14px;font-size:14px;box-shadow:0 20px 40px -18px rgba(10,30,22,.45),0 0 0 1px var(--line);display:flex;gap:10px;align-items:center;max-width:240px;line-height:1.3;animation:bob 6s ease-in-out infinite}
+.float.q{left:-4%;top:16%}
+.float.n{right:-6%;top:50%;animation-delay:-3s}
+.float .dot{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex:none}
+@media (max-width:520px){.float{display:none}}
+.hs-ring{transform-box:fill-box;transform-origin:center;animation:ring 1.8s ease-out infinite}
+.hs-ring.b{animation-delay:.9s}
+@keyframes ring{0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.3);opacity:0}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* problem band */
+.band{background:var(--enamel);color:var(--on-enamel)}
+.band .k{color:#F0C27A}
+.band .lead{color:var(--on-enamel-mute)}
+.problem .wrap{display:grid;gap:56px}
+.problem .top{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:end}
+@media (max-width:860px){.problem .top{grid-template-columns:1fr}}
+.problem h2{margin-top:14px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(238,243,239,.18)}
+.stats div{padding:28px 28px 0 0}
+.stats div+div{padding-left:28px;border-left:1px solid rgba(238,243,239,.18)}
+.stats b{display:block;font-family:var(--f-display);font-stretch:112%;font-weight:850;font-size:clamp(40px,5.4vw,68px);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stats p{margin:12px 0 6px;color:var(--on-enamel);font-size:16px}
+.stats small{font-size:12px;color:var(--on-enamel-mute)}
+@media (max-width:760px){.stats{grid-template-columns:1fr}.stats div,.stats div+div{padding:24px 0;border-left:0;border-bottom:1px solid rgba(238,243,239,.18)}}
+.quote{font-family:var(--f-display);font-stretch:100%;font-weight:600;font-size:clamp(20px,2.4vw,28px);line-height:1.25;max-width:30ch;letter-spacing:-.01em}
+
+/* steps */
+.steps-h{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:56px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;counter-reset:s;position:relative}
+.step{padding:0 32px 0 0;position:relative}
+.step+.step{padding-left:32px;border-left:1px solid var(--line)}
+.step .n{font-family:var(--f-display);font-stretch:125%;font-weight:900;font-size:88px;line-height:.8;color:var(--brass);letter-spacing:-.04em}
+.step h3{font-size:26px;font-weight:850;margin:22px 0 12px;line-height:1.02}
+.step p{margin:0 0 18px;color:var(--mute)}
+.step .meta{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--ink);display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:99px;background:var(--surface-2)}
+@media (max-width:860px){.steps{grid-template-columns:1fr;gap:40px}.step,.step+.step{padding:0;border:0}}
+
+/* features */
+.features{background:var(--surface)}
+.feat-h{max-width:720px;margin-bottom:56px}
+.feat-h h2{margin:14px 0 18px}
+.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:820px){.fgrid{grid-template-columns:1fr}}
+.f{background:var(--bg);border-radius:24px;padding:28px;display:grid;grid-template-rows:auto 1fr;gap:24px;min-width:0}
+.f h3{font-size:24px;font-weight:850;line-height:1.05;margin-bottom:8px}
+.f p{margin:0;color:var(--mute);max-width:44ch}
+.viz{background:var(--surface);border-radius:18px;padding:18px;min-height:150px;display:flex;flex-direction:column;justify-content:center;gap:10px;box-shadow:0 0 0 1px var(--line)}
+.viz .wave{display:flex;gap:3px;align-items:center;height:42px}
+.viz .wave i{flex:1;border-radius:2px;background:var(--enamel-2);animation:bar .9s ease-in-out infinite alternate}
+@keyframes bar{0%{height:20%}100%{height:100%}}
+.say{font-size:17px;line-height:1.4}
+.say .dim{color:var(--mute);opacity:.6}
+.bub{padding:11px 14px;border-radius:16px;font-size:15px;line-height:1.4;max-width:88%}
+.bub.q{align-self:flex-end;background:var(--enamel);color:var(--on-enamel);border-bottom-right-radius:5px}
+.bub.a{align-self:flex-start;background:var(--bg);border-bottom-left-radius:5px}
+.bub.a small{display:block;margin-top:6px;font-family:var(--f-mono);font-size:11px;color:var(--mute)}
+.term{display:grid;gap:4px}
+.term b{font-family:var(--f-display);font-stretch:125%;font-size:26px;font-weight:850}
+.term span{color:var(--mute);font-size:15px}
+.who{display:grid;gap:10px;justify-content:stretch}
+.who div{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;font-size:15px}
+.who .av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:13px;color:#2A1A07}
+.pill{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;padding:4px 8px;border-radius:99px;background:var(--surface-2);color:var(--mute)}
+.pill.ok{background:color-mix(in srgb,var(--ok) 18%,transparent);color:var(--ok)}
+.hand{position:relative;height:150px;border-radius:12px;overflow:hidden;background:#1A3D31}
+.hand svg{position:absolute;inset:0;width:100%;height:100%}
+
+/* calc */
+.calc .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:center}
+@media (max-width:900px){.calc .wrap{grid-template-columns:1fr}}
+.calc h2{margin:14px 0 18px}
+.panel{background:var(--surface);border-radius:28px;padding:clamp(22px,3vw,36px);box-shadow:0 0 0 1px var(--line),0 30px 60px -40px rgba(10,30,22,.4);display:grid;gap:26px}
+.field{display:grid;gap:10px}
+.field label{display:flex;justify-content:space-between;font-size:15px;color:var(--mute);gap:12px}
+.field output{font-family:var(--f-mono);font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--brass);height:28px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:22px;border-top:1px solid var(--line)}
+.res div{min-width:0}
+.res b{display:block;font-family:var(--f-display);font-stretch:112%;font-weight:850;font-size:clamp(30px,4vw,44px);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.res .save b{color:var(--ok)}
+.res span{font-size:14px;color:var(--mute)}
+.note{font-size:13px;color:var(--mute);margin:0}
+
+/* use cases */
+.uses h2{margin:14px 0 32px;max-width:18ch}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips span{padding:12px 18px;border-radius:99px;background:var(--surface);box-shadow:0 0 0 1px var(--line);font-size:16px;display:flex;gap:10px;align-items:center}
+.chips span i{font-style:normal;font-family:var(--f-mono);font-size:11px;color:var(--mute)}
+.forwho{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:56px;border-top:1px solid var(--line)}
+.forwho div{padding:22px 22px 0 0}
+.forwho div+div{padding-left:22px;border-left:1px solid var(--line)}
+.forwho b{display:block;font-size:18px;margin-bottom:4px}
+.forwho span{font-size:15px;color:var(--mute)}
+@media (max-width:860px){.forwho{grid-template-columns:1fr 1fr}.forwho div:nth-child(3){border-left:0;padding-left:0}}
+@media (max-width:480px){.forwho{grid-template-columns:1fr}.forwho div,.forwho div+div{border-left:0;padding-left:0}}
+
+/* offer */
+.offer .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px)}
+@media (max-width:900px){.offer .wrap{grid-template-columns:1fr}}
+.offer h2{margin:14px 0 18px}
+.ticket{background:var(--on-enamel);color:#0F1F19;border-radius:28px;padding:clamp(24px,3vw,36px);position:relative;overflow:hidden}
+.ticket .k{color:#5D6E66}
+.ticket h3{font-size:clamp(30px,3.6vw,42px);font-weight:900;margin:10px 0 6px;line-height:.95}
+.ticket ul{list-style:none;padding:0;margin:22px 0 26px;display:grid;gap:12px}
+.ticket li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:16px}
+.ticket li svg{margin-top:3px}
+.ticket .perf{height:0;border-top:2px dashed rgba(15,31,25,.18);margin:0 -36px 22px;position:relative}
+.ticket .btn.primary{width:100%;justify-content:center}
+.ticket .small{font-size:13px;color:#5D6E66;margin:12px 0 0;text-align:center}
+
+/* faq */
+.faq .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,80px)}
+@media (max-width:860px){.faq .wrap{grid-template-columns:1fr}}
+.faq h2{margin-top:14px}
+details{border-top:1px solid var(--line);padding:20px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:600;font-size:18px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--f-mono);color:var(--brass-text);font-size:22px;line-height:1;transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:12px 0 0;color:var(--mute);max-width:60ch}
+
+/* book */
+.book .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:start}
+@media (max-width:900px){.book .wrap{grid-template-columns:1fr}}
+.book h2{font-size:clamp(40px,6.4vw,80px);font-weight:900;line-height:.9;margin:14px 0 20px}
+form{display:grid;gap:14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:520px){.two{grid-template-columns:1fr}}
+.in{display:grid;gap:6px;font-size:14px;color:var(--on-enamel-mute)}
+.in input,.in select{height:52px;border-radius:14px;border:1px solid rgba(238,243,239,.18);background:rgba(238,243,239,.06);color:var(--on-enamel);padding:0 14px;font:inherit;font-size:16px;width:100%}
+.in select option{color:#0F1F19}
+.slots{display:flex;flex-wrap:wrap;gap:8px}
+.slots label{cursor:pointer;position:relative}
+.slots input{position:absolute;opacity:0;pointer-events:none}
+.slots span{display:block;padding:10px 14px;border-radius:12px;border:1px solid rgba(238,243,239,.18);font-size:14px;color:var(--on-enamel)}
+.slots input:checked+span{background:var(--brass);color:#2A1A07;border-color:var(--brass)}
+.slots input:focus-visible+span{outline:2px solid var(--brass);outline-offset:2px}
+.book .btn.primary{justify-content:center;margin-top:6px}
+.sent{background:rgba(238,243,239,.06);border:1px solid rgba(238,243,239,.18);border-radius:20px;padding:28px}
+.sent h3{font-size:30px;font-weight:850;margin-bottom:8px}
+.sent p{color:var(--on-enamel-mute);margin:0}
+.contact{margin-top:28px;display:grid;gap:6px;color:var(--on-enamel-mute);font-size:15px}
+.contact b{color:var(--on-enamel);font-weight:600}
+
+footer{padding-block:40px;border-top:1px solid var(--line);font-size:14px;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer ol{margin:0;padding-left:18px;display:grid;gap:4px;font-size:12px;max-width:760px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F0C27A" stroke-width="2.4" stroke-linecap="round"><path d="M7 4v8a5 5 0 0 0 10 0V4"/><path d="M12 17v3"/></svg></span>Handgriff</a>
+    <ul><li><a href="#so-gehts">So geht's</a></li><li><a href="#was-neue-erleben">Für dein Team</a></li><li><a href="#rechnung">Rechnung</a></li><li><a href="#fragen">Fragen</a></li></ul>
+    <a class="btn primary" href="#buchen">Termin buchen</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="k">Einarbeitung für Gastro &amp; Bar</div>
+      <h1>Zeig's einmal. <em>Dein Team</em> lernt den Rest allein.</h1>
+      <p class="lead">Handgriff macht aus deiner Einarbeitung eine Sprachanleitung fürs Handy. Neue Leute stehen an der echten Maschine, hören Schritt für Schritt, was zu tun ist, und sehen, wo sie hingreifen. Fragen beantwortet die App aus der Bedienungsanleitung.</p>
+      <div class="ctas">
+        <a class="btn primary" href="#buchen">Einarbeitung aufnehmen lassen <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn secondary" href="https://claude.ai/artifact/BSo9m92d1kmRwmXxmaVsY6" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>Demo ausprobieren</a>
+      </div>
+      <div class="proof">
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Ein Termin vor Ort, wir machen den Rest</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Läuft auf jedem Handy</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Auch in der Muttersprache deines Teams</span>
+      </div>
+    </div>
+    <div class="phone-col" aria-label="Vorschau der App">
+      <div class="phone">
+        <div class="bar" id="pbar"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="scene">
+          <svg viewBox="285 150 270 350" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="st" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#EEF1EF"/><stop offset=".5" stop-color="#B4BCB8"/><stop offset="1" stop-color="#D2D8D5"/></linearGradient>
+              <linearGradient id="ch" x1="0" x2="1"><stop offset="0" stop-color="#8E9893"/><stop offset=".35" stop-color="#F4F6F5"/><stop offset=".6" stop-color="#B7BFBB"/><stop offset="1" stop-color="#7E8883"/></linearGradient>
+              <pattern id="tl" width="60" height="30" patternUnits="userSpaceOnUse"><rect width="60" height="30" fill="#1A3D31"/><path d="M0 .5H60M.5 0V15M30.5 15V30M0 15.5H60" stroke="#24503F" stroke-width="1.2"/></pattern>
+            </defs>
+            <rect x="0" y="0" width="800" height="600" fill="url(#tl)"/>
+            <rect x="0" y="430" width="800" height="200" fill="#3A2A1F"/>
+            <rect x="180" y="156" width="380" height="250" rx="18" fill="url(#st)"/>
+            <rect x="200" y="182" width="340" height="96" rx="10" fill="#202523"/>
+            <rect x="318" y="214" width="84" height="32" rx="5" fill="#0D1512"/>
+            <text x="360" y="236" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="16" font-weight="600" fill="#4FBF8B">93,0°</text>
+            <circle cx="460" cy="216" r="11" fill="#5D6763"/><circle cx="500" cy="216" r="11" fill="#5D6763"/><circle cx="460" cy="252" r="11" fill="#D39A45"/><circle cx="500" cy="252" r="11" fill="#5D6763"/>
+            <rect x="340" y="288" width="60" height="38" rx="6" fill="url(#ch)"/>
+            <rect x="330" y="320" width="80" height="14" rx="6" fill="#3A403D"/>
+            <rect x="334" y="334" width="72" height="18" rx="5" fill="url(#ch)"/>
+            <path d="M402 338 L502 356 Q510 358 509 366 L402 350Z" fill="#1C1F1E"/>
+            <rect x="200" y="404" width="340" height="18" rx="5" fill="#2E3431"/>
+            <path d="M350 378h40v20a20 9 0 0 1-40 0z" fill="#F2F4F0"/><path d="M390 384c10 0 10 12 0 12" stroke="#F2F4F0" stroke-width="4" fill="none"/>
+            <g id="phs" style="transition:transform 1s cubic-bezier(.22,.8,.2,1);transform:translate(478px,354px)">
+              <circle class="hs-ring" r="13" fill="none" stroke="#F0C27A" stroke-width="2.5"/>
+              <circle class="hs-ring b" r="13" fill="none" stroke="#F0C27A" stroke-width="2.5"/>
+              <circle r="7" fill="#F0C27A" stroke="#2A1A07" stroke-width="2"/>
+            </g>
+          </svg>
+        </div>
+        <div class="pcard">
+          <div class="k"><span id="pk">Handgriff 01 / 06</span><b>● Spricht</b></div>
+          <h3 class="fade" id="pt">Siebträger raus</h3>
+          <p class="fade" id="pp">Greif den <u>Siebträger</u> am schwarzen Griff und dreh ihn nach links, bis er locker ist.</p>
+          <div class="row"><span>Frag nach</span><span>Erledigt →</span></div>
+        </div>
+      </div>
+      <div class="float q"><span class="dot" style="background:var(--enamel)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EEF3EF" stroke-width="2.4" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>„Wie fest muss ich tampern?“</div>
+      <div class="float n"><span class="dot" style="background:color-mix(in srgb,var(--ok) 20%,transparent)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Mira</b> kann jetzt Espresso. 6/6 in 3:42.</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="band problem" id="problem">
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <div class="k">Das Problem</div>
+        <h2>Jede neue Kraft bindet deine beste.</h2>
+      </div>
+      <p class="lead">Einarbeiten heißt heute: Jemand Erfahrenes steht daneben und erklärt die Maschine zum fünften Mal in diesem Monat. In der Zeit macht er nichts anderes. Und nach drei Wochen fängt es mit der nächsten Person wieder von vorne an.</p>
+    </div>
+    <div class="stats">
+      <div><b>113–138&nbsp;%</b><p>jährliche Personalfluktuation in der Gastronomie</p><small>AMS Österreich, 2017–2021 <sup>1</sup></small></div>
+      <div><b>~75&nbsp;%</b><p>der Restaurant-Mitarbeitenden sind nach einem Jahr weg</p><small>Homebase, USA 2025 <sup>2</sup></small></div>
+      <div><b>1.500–2.500&nbsp;$</b><p>kostet die Einarbeitung einer einzigen Servicekraft</p><small>Netchex, USA <sup>3</sup></small></div>
+    </div>
+    <p class="quote">Du kannst Fluktuation nicht abstellen. Du kannst aufhören, für jede neue Person von vorne anzufangen.</p>
+  </div>
+</section>
+
+<section id="so-gehts">
+  <div class="wrap">
+    <div class="steps-h">
+      <div><div class="k">So kommst du hin</div><h2 style="margin-top:14px">Drei Schritte.<br>Einer davon ist deiner.</h2></div>
+      <p class="lead" style="max-width:40ch">Du machst es einmal vor. Danach bauen wir, und dein Team lernt.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Du zeigst es einmal</h3><p>Wir kommen vorbei. Du oder dein bester Barista macht jeden Ablauf einmal vor, wie immer. Wir nehmen auf, fotografieren die Geräte und nehmen die Bedienungsanleitungen mit.</p><span class="meta">ca. 2 Stunden vor Ort</span></div>
+      <div class="step"><div class="n">2</div><h3>Wir bauen die Handgriffe</h3><p>Aus der Aufnahme wird eine geführte Anleitung: jeder Schritt mit Ansage, Bild, Hinweis wo man hingreift und erklärten Fachbegriffen. Du schaust drüber und gibst frei.</p><span class="meta">fertig in wenigen Tagen</span></div>
+      <div class="step"><div class="n">3</div><h3>Dein Team lernt allein</h3><p>QR-Code an die Maschine. Neue Leute scannen, Kopfhörer rein, los. Am besten beim Schicht-Vorbereiten. Du siehst, wer welchen Ablauf schon kann.</p><span class="meta">ab der nächsten Schicht</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="was-neue-erleben">
+  <div class="wrap">
+    <div class="feat-h">
+      <div class="k">Was neue Leute erleben</div>
+      <h2>Wie Jonas daneben. Nur ohne Jonas.</h2>
+      <p class="lead">Handgriff ersetzt nicht dein Team. Es nimmt ihm das Wiederholen ab.</p>
+    </div>
+    <div class="fgrid">
+      <article class="f">
+        <div class="viz"><div class="wave" id="fwave"></div><div class="say">Häng den Siebträger in die Gabel der Mühle <span class="dim">und drück einmal auf den goldenen Knopf.</span></div></div>
+        <div><h3>Ansage im Ohr, Hände frei</h3><p>Jeder Schritt wird vorgelesen. Handy in die Schürze, Kopfhörer rein. Weiter geht's per Tipp, wenn der Handgriff sitzt.</p></div>
+      </article>
+      <article class="f">
+        <div class="hand"><svg viewBox="500 190 300 110" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect x="0" y="0" width="900" height="600" fill="url(#tl)"/>
+          <rect x="615" y="150" width="70" height="268" rx="12" fill="#252A28"/>
+          <rect x="628" y="216" width="44" height="20" rx="3" fill="#0D1512"/><text x="650" y="230" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" fill="#4FBF8B">18,0 g</text>
+          <circle cx="650" cy="262" r="11" fill="#D39A45"/>
+          <rect x="642" y="286" width="16" height="26" rx="3" fill="#B7BFBB"/>
+          <g transform="translate(650 262)"><circle class="hs-ring" r="14" fill="none" stroke="#F0C27A" stroke-width="2.5"/><circle class="hs-ring b" r="14" fill="none" stroke="#F0C27A" stroke-width="2.5"/>
+          <rect x="18" y="-34" width="86" height="22" rx="11" fill="#F2F4F0"/><text x="61" y="-19" text-anchor="middle" font-family="Instrument Sans,system-ui,sans-serif" font-size="11" font-weight="700" fill="#0F1F19">Einmal drücken</text></g>
+        </svg></div>
+        <div><h3>Zeigt, wo man hingreift</h3><p>Das Bild fährt zur richtigen Stelle am Gerät und markiert sie. Kein Rätselraten, welcher Knopf gemeint ist.</p></div>
+      </article>
+      <article class="f">
+        <div class="viz"><div class="bub q">Der Espresso läuft zu schnell. Was jetzt?</div><div class="bub a">Unter 20 Sekunden nicht servieren. Neu ziehen und der Schichtleitung Bescheid geben.<small>Hausregel · von Jonas</small></div></div>
+        <div><h3>Fragen jederzeit</h3><p>Handgriff kennt die Bedienungsanleitungen und deine Hausregeln. Die Antwort kommt sofort, mit Quelle, statt dass jemand die Bar verlassen muss.</p></div>
+      </article>
+      <article class="f">
+        <div class="viz who">
+          <div><span class="av" style="background:#E9B97A">M</span>Mira · Espresso ziehen<span class="pill ok">Sitzt</span></div>
+          <div><span class="av" style="background:#8FC7AC">T</span>Tarek · Spülmaschine<span class="pill">4 / 7</span></div>
+          <div><span class="av" style="background:#C9B3E6">L</span>Lena · Kasse öffnen<span class="pill ok">Sitzt</span></div>
+        </div>
+        <div><h3>Du siehst, wer was kann</h3><p>Fachbegriffe wie <i>Tamper</i> oder <i>Brühgruppe</i> werden auf Tipp erklärt. Und du siehst auf einen Blick, wer schon allein an die Maschine darf.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="calc" id="rechnung">
+  <div class="wrap">
+    <div>
+      <div class="k">Rechne kurz nach</div>
+      <h2>Was dich Danebenstehen kostet.</h2>
+      <p class="lead">Stell die Regler auf deinen Betrieb. Gerechnet wird nur die Zeit, die erfahrene Leute neben neuen verbringen. Fehler, Bruch und Wartezeit am Gast kommen noch dazu.</p>
+    </div>
+    <div class="panel">
+      <div class="field"><label for="c1">Neue Leute pro Jahr <output id="o1">12</output></label><input id="c1" type="range" min="2" max="60" value="12"></div>
+      <div class="field"><label for="c2">Stunden Danebenstehen pro Person <output id="o2">10 h</output></label><input id="c2" type="range" min="2" max="40" value="10"></div>
+      <div class="field"><label for="c3">Stundenkosten der erfahrenen Kraft <output id="o3">24 €</output></label><input id="c3" type="range" min="14" max="45" value="24"></div>
+      <div class="res">
+        <div><b id="r1">2.880 €</b><span id="r1s">120 Stunden im Jahr fürs Einarbeiten</span></div>
+        <div class="save"><b id="r2">1.920 €</b><span id="r2s">80 Stunden zurück an die Bar</span></div>
+      </div>
+      <p class="note">Annahme: Mit Handgriff fallen etwa zwei Drittel der Daneben-steh-Zeit weg. Ein kurzer Check am Ende bleibt.</p>
+    </div>
+  </div>
+</section>
+
+<section class="uses" style="padding-top:0">
+  <div class="wrap">
+    <div class="k">Was sich lohnt</div>
+    <h2>Alles, was man einmal zeigt und dann zehnmal erklärt.</h2>
+    <div class="chips">
+      <span>Siebträger &amp; Mühle <i>6 Schritte</i></span><span>Milch schäumen <i>5</i></span><span>Spülmaschine &amp; Hygiene <i>7</i></span><span>Zapfanlage <i>6</i></span><span>Fritteuse reinigen <i>8</i></span><span>Kombidämpfer <i>9</i></span><span>Kasse öffnen &amp; schließen <i>4</i></span><span>Kühlung &amp; HACCP-Liste <i>5</i></span><span>Laden aufmachen <i>8</i></span>
+    </div>
+    <div class="forwho">
+      <div><b>Cafés &amp; Röstereien</b><span>Siebträger, Mühle, Milch</span></div>
+      <div><b>Bäckereien</b><span>Öfen, Kasse, Theke</span></div>
+      <div><b>Bars</b><span>Zapfanlage, Spülmaschine, Abrechnung</span></div>
+      <div><b>Hotels &amp; Ketten</b><span>Ein Standard für alle Standorte</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band offer" id="angebot">
+  <div class="wrap">
+    <div>
+      <div class="k">Zum Start</div>
+      <h2>Ein Standort. Ein Termin. Dann läuft's.</h2>
+      <p class="lead">Wir fangen klein an: mit den Abläufen, die bei dir am meisten Zeit fressen. Wenn dein Team nach 30 Tagen nicht schneller allein klarkommt, hast du nichts verloren außer zwei Stunden.</p>
+    </div>
+    <div class="ticket">
+      <div class="k">Pilot-Onboarding</div>
+      <h3>Deine Einarbeitung, digital.</h3>
+      <ul>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E8A5F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Aufnahme-Termin bei dir vor Ort</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E8A5F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Bis zu 5 Abläufe als geführte Handgriffe</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E8A5F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Bedienungsanleitungen und Hausregeln eingepflegt</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E8A5F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>QR-Codes für deine Geräte</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E8A5F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>30 Tage live mit deinem ganzen Team</li>
+      </ul>
+      <div class="perf"></div>
+      <a class="btn primary" href="#buchen">Pilot anfragen</a>
+      <p class="small">Festpreis, kein Abo. Den Preis sagen wir dir im ersten Gespräch.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="fragen">
+  <div class="wrap">
+    <div><div class="k">Fragen</div><h2>Was Gastronomen zuerst fragen.</h2></div>
+    <div>
+      <details open><summary>Muss mein Team eine App installieren?</summary><p>Nein. Handgriff läuft im Browser. QR-Code scannen, fertig. Das funktioniert auch auf dem privaten Handy von Aushilfen.</p></details>
+      <details><summary>Wie viel Arbeit habe ich damit?</summary><p>Einen Termin von etwa zwei Stunden, in dem ihr eure Abläufe einmal vormacht. Danach schaust du die fertigen Handgriffe einmal durch und gibst sie frei. Den Rest machen wir.</p></details>
+      <details><summary>Mein Team spricht nicht alle gut Deutsch.</summary><p>Die Ansagen können in der Muttersprache laufen. Fachbegriffe bleiben auf Deutsch, damit alle an der Bar dieselben Wörter benutzen.</p></details>
+      <details><summary>Was, wenn sich ein Ablauf oder eine Maschine ändert?</summary><p>Sag uns Bescheid oder schick ein kurzes Video. Wir passen den Ablauf an, und ab der nächsten Schicht läuft die neue Version.</p></details>
+      <details><summary>Ersetzt das die Einarbeitung durch Menschen?</summary><p>Nein. Es ersetzt das ständige Wiederholen. Am Ende schaut jemand Erfahrenes kurz drüber. Das dauert Minuten statt Stunden.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="band book" id="buchen">
+  <div class="wrap">
+    <div>
+      <div class="k">Termin buchen</div>
+      <h2>Zeig's uns einmal.</h2>
+      <p class="lead">Wir melden uns innerhalb eines Werktags und kommen für eine kurze Vorführung bei dir vorbei. Mit Demo auf dem Handy, an deiner Maschine.</p>
+      <div class="contact"><span>Lieber direkt sprechen?</span><b>hallo@handgriff.app</b><b>+49 30 0000 0000</b></div>
+    </div>
+    <div>
+      <form id="bf" novalidate>
+        <div class="two">
+          <label class="in" for="n">Dein Name<input id="n" name="n" autocomplete="name" required placeholder="Alex Berger"></label>
+          <label class="in" for="b">Betrieb<input id="b" name="b" required placeholder="Café am Markt"></label>
+        </div>
+        <div class="two">
+          <label class="in" for="t">Telefon oder E-Mail<input id="t" name="t" required placeholder="0170 …"></label>
+          <label class="in" for="a">Art des Betriebs<select id="a" name="a"><option>Café / Rösterei</option><option>Bäckerei</option><option>Bar</option><option>Restaurant</option><option>Hotel / Kette</option></select></label>
+        </div>
+        <div class="in">Wann passt es dir am besten?
+          <div class="slots">
+            <label><input type="radio" name="s" id="s1" checked><span>Vormittags vor dem Service</span></label>
+            <label><input type="radio" name="s" id="s2"><span>Nachmittags</span></label>
+            <label><input type="radio" name="s" id="s3"><span>Ruhetag</span></label>
+          </div>
+        </div>
+        <button class="btn primary" type="submit">Onboarding-Termin anfragen</button>
+        <p class="note" id="ferr" style="color:#F0C27A" hidden>Bitte Name, Betrieb und Kontakt eintragen, damit wir uns melden können.</p>
+      </form>
+      <div class="sent" id="sent" hidden><h3>Danke, <span id="sn"></span>.</h3><p>Wir melden uns innerhalb eines Werktags bei dir. (Dies ist eine Vorschau der Seite, die Anfrage wurde nicht verschickt.)</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Handgriff · Einarbeitung, die mitläuft</span>
+    <ol>
+      <li>AMS Österreich, Auswertung Fluktuation Gastronomie 2017–2021, zitiert nach <a href="https://www.karriere.at/blog/fluktuationskosten-studie.html" target="_blank" rel="noopener">karriere.at</a></li>
+      <li><a href="https://joinhomebase.com/blog/restaurant-employee-turnover" target="_blank" rel="noopener">Homebase: Restaurant employee turnover</a></li>
+      <li><a href="https://www.netchex.com/blog/restaurant-turnover-rate-understanding-costs-benchmarks-and-proven-retention-strategies/" target="_blank" rel="noopener">Netchex: Restaurant turnover rate</a></li>
+    </ol>
+  </div>
+</footer>
+
+<script>
+(() => {
+  // hero phone cycles through three steps
+  const S = [
+    ["Siebträger raus","Greif den <u>Siebträger</u> am schwarzen Griff und dreh ihn nach links, bis er locker ist.","translate(478px,354px)"],
+    ["Einspannen & starten","Setz ihn in die <u>Brühgruppe</u>, dreh nach rechts bis er fest sitzt. Dann die goldene Taste drücken.","translate(460px,252px)"],
+    ["Kurz prüfen","Nach 25 bis 30 Sekunden sind etwa 36 ml in der Tasse. Die <u>Crema</u> ist haselnussbraun.","translate(392px,388px)"]
+  ];
+  const idx = [0,4,5]; let i = 0;
+  const pt = document.getElementById("pt"), pp = document.getElementById("pp"), pk = document.getElementById("pk"), hs = document.getElementById("phs"), bars = document.querySelectorAll("#pbar i");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(!reduce) setInterval(() => {
+    i = (i+1)%S.length; pt.style.opacity = pp.style.opacity = 0;
+    setTimeout(() => { pt.textContent = S[i][0]; pp.innerHTML = S[i][1]; pk.textContent = `Handgriff 0${idx[i]+1} / 06`; pt.style.opacity = pp.style.opacity = 1;
+      bars.forEach((b,k)=>b.classList.toggle("on", k<=idx[i])); hs.style.transform = S[i][2]; }, 350);
+  }, 3800);
+
+  // feature waveform
+  const w = document.getElementById("fwave");
+  for(let k=0;k<40;k++){ const b=document.createElement("i"); b.style.animationDelay = (-(k*137)%900)+"ms"; b.style.animationDuration=(600+(k*97)%500)+"ms"; w.appendChild(b); }
+
+  // calculator
+  const c1=document.getElementById("c1"), c2=document.getElementById("c2"), c3=document.getElementById("c3");
+  const nf = new Intl.NumberFormat("de-DE");
+  function calc(){
+    const n=+c1.value, h=+c2.value, r=+c3.value, hours=n*h, cost=hours*r, saveH=Math.round(hours*2/3), save=Math.round(cost*2/3);
+    document.getElementById("o1").textContent=n; document.getElementById("o2").textContent=h+" h"; document.getElementById("o3").textContent=r+" €";
+    document.getElementById("r1").textContent=nf.format(cost)+" €"; document.getElementById("r1s").textContent=nf.format(hours)+" Stunden im Jahr fürs Einarbeiten";
+    document.getElementById("r2").textContent=nf.format(save)+" €"; document.getElementById("r2s").textContent=nf.format(saveH)+" Stunden zurück an die Bar";
+  }
+  [c1,c2,c3].forEach(x=>x.addEventListener("input",calc)); calc();
+
+  // booking form (preview only)
+  document.getElementById("bf").addEventListener("submit", e => {
+    e.preventDefault();
+    const n=document.getElementById("n").value.trim(), b=document.getElementById("b").value.trim(), t=document.getElementById("t").value.trim();
+    if(!n||!b||!t){ document.getElementById("ferr").hidden=false; return; }
+    document.getElementById("sn").textContent = n.split(" ")[0];
+    e.target.hidden = true; document.getElementById("sent").hidden = false;
+  });
+})();
+</script>
